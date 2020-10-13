@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class Login extends MY_Controller {
-
+    
 	public function __construct()
 	{
 		parent::__construct();
@@ -8,7 +8,7 @@ class Login extends MY_Controller {
 
 	public function index()
 	{
-        if(LOGIN==0){
+        if( LOGIN == 0 ){
 		  $this->load->view('login/login');
         }else{
           $this->load->view('login/login-1');

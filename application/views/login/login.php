@@ -106,7 +106,7 @@
                     if (str.indexOf("oke") != -1){
                         document.getElementById('upload').reset();
                         $("#send-btn").removeClass("disabled").html("Sign in");
-                         location.href = '<?= base_url("/") ?>';
+                         location.href = '<?= base_url("mmi/admin/dashboard") ?>';
                     }else{
                          $("#send-btn").removeClass("disabled").html("Sign in");
                         form.find(".show_error").hide().html(response).slideDown("fast");

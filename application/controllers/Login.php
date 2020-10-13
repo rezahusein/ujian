@@ -8,11 +8,7 @@ class Login extends MY_Controller {
 
 	public function index()
 	{
-        if( LOGIN == 0 ){
 		  $this->load->view('login/login');
-        }else{
-          $this->load->view('login/login-1');
-        }
 	}
 
 	public function logout()

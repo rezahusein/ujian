@@ -41,14 +41,14 @@
 </head>
 <body class="hold-transition login-page">
 <div class="limiter">
-  <div class="container-login100" style="<?= LOGIN_BACKGROUND ?>">
-    <div class="wrap-login100" style="<?= LOGIN_BOX  ?>"> 
+  <div class="container-login100" style="background:#40a9d8">
+    <div class="wrap-login100" style="background: white"> 
       <form action="<?= base_url('login/act_login')?>" method="post" id="upload">
-        <span class="login100-form-logo">
-          <img src=" <?= LOGO ?>" width="150">
-        </span>
+        <!-- <span class="login100-form-logo">
+          <img src="" width="150">
+        </span> -->
         <span class="login100-form-title p-b-34 p-t-27">
-         <b><?= LOGIN_TITLE  ?></a>
+         <b>Ujian Online</a>
         </span>
         <div class="show_error"></div>
         <div class="wrap-input100 validate-input" data-validate = "Enter username">

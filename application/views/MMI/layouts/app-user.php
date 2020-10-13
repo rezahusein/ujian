@@ -47,7 +47,7 @@
 
 
   <!-- Content Wrapper. Contains page content -->
-    <?php $this->load->view($page) ?>
+ <?=$contents?>
   <!-- /.content-wrapper -->    
 
 </div>

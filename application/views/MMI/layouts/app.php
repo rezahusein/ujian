@@ -21,7 +21,7 @@
   <?php $this->load->view('MMI/layouts/_sidebar') ?>
 
   <!-- Content Wrapper. Contains page content -->
-    <?php $this->load->view($page) ?>
+    <?=$contents?>
   <!-- /.content-wrapper -->    
 
   <!-- Main Footer -->

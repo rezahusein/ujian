@@ -33,7 +33,7 @@ abstract class MY_Controller extends CI_Controller{
 		// }
 
 
-		$this->konfig();
+		// $this->konfig();
 		// JIKA INGIN MENGAKTIFKAN LOG AKTIVITAS
 		// $this->log_activity();
 		define('KEY', '!2261%^^&!*&@**@#&');

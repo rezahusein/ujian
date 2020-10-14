@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 13, 2020 at 07:11 PM
+-- Generation Time: Oct 14, 2020 at 08:21 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.2.31
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `ujian_baru`
+-- Database: `ujian_clean`
 --
 
 -- --------------------------------------------------------
@@ -51,6 +51,7 @@ CREATE TABLE `master_periode` (
   `lama_waktu_ujian` varchar(100) DEFAULT NULL,
   `persentase_pg` varchar(100) DEFAULT NULL,
   `persentase_essay` varchar(100) DEFAULT NULL,
+  `standar_nilai` varchar(100) DEFAULT NULL,
   `created_at` varchar(100) DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `created_by` int(12) DEFAULT NULL,
@@ -110,6 +111,7 @@ CREATE TABLE `peserta_periode` (
   `id_periode` int(12) DEFAULT NULL,
   `status_ujian` varchar(100) NOT NULL DEFAULT 'belum ujian' COMMENT '1.belum ujian\r\n2.sedang ujian\r\n3.menunggu hasil\r\n4.selesai ujian',
   `waktu_mulai_ujian` varchar(100) DEFAULT NULL,
+  `waktu_selesai_ujian` varchar(100) DEFAULT NULL,
   `total_nilai` varchar(100) DEFAULT NULL,
   `nilai_pg` varchar(100) DEFAULT NULL,
   `nilai_essay` varchar(100) DEFAULT NULL

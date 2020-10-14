@@ -43,7 +43,7 @@
           </a>
           
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
+          <a href="<?=base_url()?>login/logout" class="dropdown-item">
             <i class="fas fa-sign-out-alt mr-2"></i> Logout
             <!-- <span class="float-right text-muted text-sm">3 mins</span> -->
           </a>

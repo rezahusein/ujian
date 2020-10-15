@@ -15,18 +15,26 @@
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <div class="logo">
-       <a href="" class="navbar-brand"><b style="color:#2196F3">MMI</b> TEST.</a>
+       <a href="" class="navbar-brand"><b style="color:#2196F3">MMI</b> TEST</a>
     </div>
-
-    <div class="nav ml-auto" style="margin-right: 100px;">
+    <style>
+      @media (max-width:768px){
+        .button-group-style{
+          margin-right:0 !important;
+        }
+      }
+    </style>
+    <div class="d-flex ml-auto button-group-style" style="margin-right:100px">
         <?php 
           if($title == 'Soal Ujian')
           {
 
         ?>
-         Time  10:00
+        <button class="btn btn-success btn-sm">Selesai</button>
+         <b class="btn btn-primary btn-sm ml-1">10:00</b> 
           <?php }?>
     </div>
+
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <!-- Notifications Dropdown Menu -->

@@ -8,7 +8,6 @@
                 width: 70px;
                 height: 70px;
                 border-radius: 100px;
-                position: fixed;
                 z-index: 999;
                 right: 100px;
                 bottom: 100px;
@@ -53,7 +52,7 @@
                         ?>
                         <div class="col-3">
                                 
-                            <a href="#">
+                            <a href="#" data-dismiss="modal">
                                 <div class="number-test bg-primary text-center mb-2 py-2 ">
                                     <?= $i ?>
                                 </div>
@@ -69,7 +68,7 @@
                 </div>
                 </div>
             <div class="wrapper-floating" style="position:relative">
-                <div class="floating-button bg-primary d-flex align-items-center justify-content-center" 
+                <div class="floating-button bg-primary d-flex align-items-center justify-content-center position-fixed" 
                 data-toggle="modal" data-target="#exampleModalCenter">
                     <i class="fas fa-clipboard-list" style="font-size: 22px;"></i>
                 </div>

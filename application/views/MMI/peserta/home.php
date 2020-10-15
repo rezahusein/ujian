@@ -97,7 +97,7 @@
             </div>
         </div>   
         
-        <a href="#">
+        <a href="<?= base_url('mmi/user/soal') ?>">
             <div class="info-box bg-primary" style="min-height: 60px !important;">
                 <span class="info-box-icon"><i class="fas fa-play"></i></span>
                     <div class="play-test align-items-center d-flex mt-1">
@@ -114,7 +114,6 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-
       </div><!--/. container-fluid -->
     </section>
     <!-- /.content -->

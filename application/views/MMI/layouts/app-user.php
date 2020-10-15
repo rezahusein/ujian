@@ -15,7 +15,17 @@
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <div class="logo">
-    <a href="" class="navbar-brand"><b style="color:#2196F3">MMI</b> TEST.</a>
+       <a href="" class="navbar-brand"><b style="color:#2196F3">MMI</b> TEST.</a>
+    </div>
+
+    <div class="nav ml-auto" style="margin-right: 100px;">
+        <?php 
+          if($title == 'Soal Ujian')
+          {
+
+        ?>
+         Time  10:00
+          <?php }?>
     </div>
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
@@ -55,7 +65,31 @@
 
 <!-- REQUIRED SCRIPTS -->
 <!-- jQuery -->
+
 <script src="<?= base_url("MMI-assets/")?>plugins/jquery/jquery.min.js"></script>
+
+<script>
+  $(document).ready(function(){
+      $('.form-group').click(function(){
+        alert('qewdf');
+      }); 
+      var listItems = $('.number-test');
+      $('.number-test').click(function(){
+        for(let i = 0; i < listItems.length; i++){
+            listItems[i].classList.remove('active');
+        }
+        
+        this.classList.add('active');
+      })
+  });
+ </script>
+
+ <script>
+$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
+ </script>
+ 
 <!-- Bootstrap -->
 <script src="<?= base_url("MMI-assets/")?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- overlayScrollbars -->
@@ -64,17 +98,10 @@
 <script src="<?= base_url("MMI-assets/")?>dist/js/adminlte.js"></script>
 
 <!-- OPTIONAL SCRIPTS -->
-<script src="/MMI-assets/dist/js/demo.js"></script>
 
 <!-- PAGE PLUGINS -->
 <!-- jQuery Mapael -->
-<script src="<?= base_url("MMI-assets/")?>plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
-<script src="<?= base_url("MMI-assets/")?>plugins/raphael/raphael.min.js"></script>
-<script src="<?= base_url("MMI-assets/")?>plugins/jquery-mapael/jquery.mapael.min.js"></script>
-<script src="<?= base_url("MMI-assets/")?>plugins/jquery-mapael/maps/usa_states.min.js"></script>
 <!-- ChartJS -->
-<script src="<?= base_url("MMI-assets/")?>plugins/chart.js/Chart.min.js"></script>
-
 <!-- PAGE SCRIPTS -->
 <script src="<?= base_url("MMI-assets/")?>dist/js/pages/dashboard2.js"></script>
 </body>

@@ -31,13 +31,26 @@
         <div class="row">
             <div class="col">
                 <div class="card">
-                    <div class="card-header d-flex">
-                        <h5>Periode Ujian : </h5>
-                        <div class="periode-filter ml-2">
-                            <select name="" id="" class="form-control">
-                                <option value="">22 Jan - 23 Jan 2020</option>
-                            </select>
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-6 d-flex">
+                                <h5>Periode Ujian : </h5>
+                                <div class="periode-filter ml-2">
+                                    <select name="" id="" class="form-control w-35">
+                                        <option value="">22 Jan - 23 Jan 2020</option>
+                                    </select>
+                                </div> 
+                            </div>
+
+                            <div class="col-6">   
+                                <div class="btn-create float-right">
+                                    <a href="" class="btn btn-success btn-sm">
+                                    <i class="fas fa-plus"></i> Tambah Periode Ujian
+                                    </a>
+                                </div>
+                            </div>
                         </div>
+                        
                     </div>
                     
                     <div class="card-body">
@@ -45,10 +58,11 @@
                             <thead>
                                 <tr>
                                     <th style="width: 5%;">No</th>
-                                    <th>Nama Ujian</th>
-                                    <th>Deskripsi</th>
+                                    <th>Periode</th>
                                     <th>Jumlah Soal</th>
+                                    <th>Nilai Standard</th>
                                     <th>Waktu</th>
+                                    <th>Status</th>
                                     <th>Action</th>
 
                                 </tr>
@@ -56,10 +70,11 @@
                                 <tbody>
                                     <tr>
                                         <td class="text-center">1</td>
-                                        <td>Test MMI Bagian 2</td>
-                                        <td>Optional</td>
+                                        <td>22 Jan - 23 Jan 2020</td>
                                         <td>40 Soal</td>
+                                        <td>75</td>
                                         <td>60 Menit</td>
+                                        <td><span class="badge badge-success">Enable</span></td>
                                         <td>
                                             <a href="" class="btn btn-sm btn-primary"
                                             data-toggle="tooltip" data-placement="top" title="Preview Soal Ujian">
@@ -70,8 +85,8 @@
                                                 <i class="fas fa-clipboard"></i>
                                             </a>
                                             <a href="" class="btn btn-sm btn-danger"
-                                            data-toggle="tooltip" data-placement="top" title="Hapus Ujian">
-                                                <i class="fas fa-trash"></i>
+                                            data-toggle="tooltip" data-placement="top" title="Nonaktif Ujian">
+                                                <i class="fas fa-ban"></i>
                                             </a>
                                         </td>
                                     </tr>

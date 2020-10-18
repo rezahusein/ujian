@@ -89,16 +89,16 @@
                 <div class="result-pg">
                     <div class="form">
                         <div class="form-group">
-                            <input type="radio" name="" value="" id="k"> A. lorem ipsum
+                            <input type="radio" name="jawaban" value=""> A. lorem ipsum
                         </div>
                         <div class="form-group">
-                            <input type="radio" name=""> B. dolor sit amet
+                            <input type="radio" name="jawaban"> B. dolor sit amet
                         </div>
                         <div class="form-group">
-                            <input type="radio" name=""> C. consectetur ipsum
+                            <input type="radio" name="jawaban"> C. consectetur ipsum
                         </div>
                         <div class="form-group">
-                            <input type="radio" name=""> D. adipisicing ipsum
+                            <input type="radio" name="jawaban"> D. adipisicing ipsum
                         </div>
                     </div>
                 </div>

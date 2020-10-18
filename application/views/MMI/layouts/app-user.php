@@ -79,8 +79,10 @@
 <script>
   $(document).ready(function(){
       $('.form-group').click(function(){
-        alert('qewdf');
+          $(this).find('input[type="radio"]').prop('checked',true);
       }); 
+
+
       var listItems = $('.number-test');
       $('.number-test').click(function(){
         for(let i = 0; i < listItems.length; i++){
@@ -93,11 +95,10 @@
  </script>
 
  <script>
-$('#myModal').on('shown.bs.modal', function () {
-  $('#myInput').trigger('focus')
-})
+    $('#myModal').on('shown.bs.modal', function () {
+      $('#myInput').trigger('focus')
+    });
  </script>
- 
  
 <!-- Bootstrap -->
 <script src="<?= base_url("MMI-assets/")?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>

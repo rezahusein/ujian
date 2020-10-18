@@ -15,12 +15,18 @@
             </div>
         </div>  -->
         <div class="section-periode card bg-warning" style="box-shadow: none;">
-            <div class="periode-list px-2 py-2 text-white ">
-                <p style="font-size: 18px;font-weight:bold" class="mb-0">
+        <div class="periode-list px-2 py-2 text-white">
+                <p style="font-size: 15px;font-weight:bold" class="mb-0">
                    <i class="fas fa-exclamation-circle"></i> Periode Ujian: 20 Jan - 21 Jan  2020
                 </p>
-
-            </div>
+            </div> 
+        </div>  
+        <div class="section-periode card bg-success" style="box-shadow: none;">
+        <div class="periode-list px-2 py-2 text-white">
+                <p style="font-size: 15px;font-weight:bold" class="mb-0">
+                   <i class="fas fa-clock"></i> Waktu Ujian 60 Menit
+                </p>
+            </div> 
         </div>
         <div class="info-box" style="box-shadow: none;">
             <div class="row">

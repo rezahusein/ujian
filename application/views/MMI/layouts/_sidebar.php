@@ -33,7 +33,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?= site_url('mmi/admin/Soal_ujian') ?>" class="nav-link">
+            <a href="<?= site_url('mmi/admin/master_periode') ?>" class="nav-link">
               <i class="nav-icon fas fa-clipboard"></i>
               <p>
                 Soal Ujian

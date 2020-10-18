@@ -33,7 +33,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="row">
-                            <div class="col-6 d-flex">
+                            <div class="col-md-6">
                                 <h5>Periode Ujian : </h5>
                                 <div class="periode-filter ml-2">
                                     <select name="" id="" class="form-control w-35">
@@ -42,7 +42,7 @@
                                 </div> 
                             </div>
 
-                            <div class="col-6">   
+                            <div class="col-md-6">   
                                 <div class="btn-create float-right">
                                     <a href="" class="btn btn-success btn-sm">
                                     <i class="fas fa-plus"></i> Tambah Periode Ujian

@@ -10,27 +10,7 @@
 
 <!-- Style -->
     <?php $this->load->view('MMI/layouts/_style') ?>
-</head>
-<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
-<div class="wrapper">
-  <!-- Navbar -->
-  <?php $this->load->view('MMI/layouts/_navbar') ?>
-  <!-- /.navbar -->
-
-  <!-- Main Sidebar Container -->
-  <?php $this->load->view('MMI/layouts/_sidebar') ?>
-
-  <!-- Content Wrapper. Contains page content -->
-    <?=$contents?>
-  <!-- /.content-wrapper -->    
-
-  <!-- Main Footer -->
-  <?php $this->load->view('MMI/layouts/_footer') ?>
-</div>
-<!-- ./wrapper -->
-
-<!-- REQUIRED SCRIPTS -->
-<!-- jQuery -->
+  <!-- jQuery -->
 <script src="<?= base_url("MMI-assets/")?>plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap -->
 <script src="<?= base_url("MMI-assets/")?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -61,24 +41,76 @@
 <script src="<?= base_url('MMI-assets/')?>plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="<?= base_url('MMI-assets/')?>plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 
-<script>
-   $(function () {
-    $("#tbsoalujian").DataTable({
-        'paging' : true,
-        'lengthChange': true,
-        'searching' : true,
-        'ordering' : true,
-        'info' : true,
-        'autoWidth' : false,
-        "responsive": true,
+<script src="<?= base_url('assets/') ?>bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<!-- Bootstrap WYSIHTML5 -->
+<script type="text/javascript">
+       
+       $.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings)
+       {
+           return {
+               "iStart": oSettings._iDisplayStart,
+               "iEnd": oSettings.fnDisplayEnd(),
+               "iLength": oSettings._iDisplayLength,
+               "iTotal": oSettings.fnRecordsTotal(),
+               "iFilteredTotal": oSettings.fnRecordsDisplay(),
+               "iPage": Math.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength),
+               "iTotalPages": Math.ceil(oSettings.fnRecordsDisplay() / oSettings._iDisplayLength)
+           };
+       };
+    function idleLogout(){
+   var t;
+   window.onload = resetTimer;
+   window.onmousemove = resetTimer;
+   window.onmousedown = resetTimer; // catches touchscreen presses
+   window.onclick = resetTimer;     // catches touchpad clicks
+   window.onscroll = resetTimer;    // catches scrolling with arrow keys
+   window.onkeypress = resetTimer;
 
-    });
-  });
+   function logout() {
+       window.location.href = '<?= base_url('login/lockscreen?user='.$this->session->userdata('nip')) ?>';
+   }
+
+   function resetTimer() {
+       clearTimeout(t);
+       t = setTimeout(logout,900000);  // time is in milliseconds //60000 = 1 minutes
+   }
+   }
+
+idleLogout();
 </script>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+<div class="wrapper">
+  <!-- Navbar -->
+  <?php $this->load->view('MMI/layouts/_navbar') ?>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <?php $this->load->view('MMI/layouts/_sidebar') ?>
+
+  <!-- Content Wrapper. Contains page content -->
+    <?=$contents?>
+  <!-- /.content-wrapper -->    
+
+  <!-- Main Footer -->
+  <?php $this->load->view('MMI/layouts/_footer') ?>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+
 <script>
 $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })
 </script>
+<script>
+
+$('.tgl').datepicker({
+      autoclose: true,
+      format:'yyyy-mm-dd'
+    });
+</script>
+
 </body>
 </html>

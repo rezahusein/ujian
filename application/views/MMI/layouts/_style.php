@@ -1,4 +1,11 @@
-  <!-- Font Awesome Icons -->
+
+    
+  <link rel="stylesheet" href="<?= base_url('assets/') ?>bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="<?= base_url('assets/') ?>bower_components/bootstrap-daterangepicker/daterangepicker.css">
+  <link rel="stylesheet" href="<?= base_url('MMI-assets/')?>plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="<?= base_url('MMI-assets/')?>plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+<!-- Font Awesome Icons -->
   <link rel="stylesheet" href="<?= base_url("MMI-assets/")?>plugins/fontawesome-free/css/all.min.css">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="<?= base_url("MMI-assets/")?>plugins/overlayScrollbars/css/OverlayScrollbars.min.css">

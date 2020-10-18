@@ -297,7 +297,7 @@
 <script src="<?= base_url('assets/') ?>bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="<?= base_url('assets/') ?>dist/js/adminlte.min.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<!-- AdminLTE dashboard demo (This is only for demo purposesdatedate) -->
 <script src="<?= base_url('assets/') ?>dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?= base_url('assets/') ?>dist/js/demo.js"></script>
@@ -312,7 +312,7 @@
                     // $('[name="description"]').val(ui.item.description); 
                     window.location.href = "<?= base_url('master/user/editUser_redirect/') ?>"+ui.item.id;
                 }
-            });
+0            });
         });
 
         var url = window.location;

@@ -9,7 +9,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title><?= TITLE_APPLICATION  ?></title>
+  <title></title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -124,7 +124,7 @@
         .ui-autocomplete { z-index:2147483647; }
     </style>
 </head>
-<body class="hold-transition <?= SKIN  ?> sidebar-mini fixed" onload="startTime()">
+<body class="hold-transition sidebar-mini fixed" onload="startTime()">
   <?php //print_r($this->session->all_userdata())?>
 <div class="wrapper">
 
@@ -132,9 +132,9 @@
     <!-- Logo -->
     <a href="<?= base_url() ?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><?= APPLICATION_SMALL  ?> </span>
+      <span class="logo-mini">OPK </span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><?= APPLICATION  ?> </span>
+      <span class="logo-lg">OPEN </span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -205,10 +205,6 @@
                 <object data="" type="image/png" style="width: 100px;height: 100px;">
                   <img src="https://www.library.caltech.edu/sites/default/files/styles/headshot/public/default_images/user.png?itok=1HlTtL2d" alt="example">
                 </object>
-
-                <p>
-                  <?= $this->session->userdata('name');?> - <?php $role = $this->mymodel->selectWhere('role',array('id'=>$this->session->userdata('role_id'))); echo $role[0]['role']; ?>
-                </p>
               </li>
               <!-- Menu Footer-->
               <li class="user-footer">
@@ -248,86 +244,7 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         
-        <?php 
-        $role = $this->mymodel->selectDataone('role',['id'=>$this->session->userdata('role_id')]);
-        $jsonmenu = json_decode($role['menu']);
-        $this->db->order_by('urutan asc');
-        $this->db->where_in('id',$jsonmenu);
-        $menu = $this->mymodel->selectWhere('menu_master',['parent'=>0,'status'=>'ENABLE']);
-        foreach ($menu as $m) {
-          if ($m['type']=='menu') {
-            
-            $this->db->where_in('id',$jsonmenu);
-            $parent = $this->mymodel->selectWhere('menu_master',['parent'=>$m['id'],'status'=>'ENABLE']);
-            if(count($parent)==0){
-            ?>
-            <li class="<?php if($page_name==$m['name']) echo "active"; ?>">
-              <a href="<?= base_url($m['link']) ?>">
-                <i class="<?= $m['icon'] ?>"></i> <span><?= $m['name'] ?></span>
-                  <?php 
-                  $getNotif =  $this->mmodel->selectWhere('notification',['slug'=>$m['notif'],'user_id'=>$this->session->userdata('id')])->row(); 
-                  if (@$getNotif->counting) {
-                    $count_notif = $getNotif->counting;
-                  } else {
-                    $getNotif =  $this->mmodel->selectWhere('notification',['slug'=>$m['notif'],'role_id'=>$this->session->userdata('role_id')])->row(); 
-                    if (@$getNotif->counting) {
-                      $count_notif = $getNotif->counting;
-                    } else {
-                      $count_notif = 0;
-                    }
-                  }
-                  ?>
-                 <?php if(@$count_notif){ ?>
-                  <span class="pull-right-container">
-                    <small class="label pull-right label-danger" id="<?= $m['notif'] ?>"><?= $count_notif ?></small>
-                  </span>
-                  <?php } ?>
-              </a>
-            </li>
-            <?php }else{ ?>
-
-            <li class="treeview <?php if($page_name==$m['name']) echo "active"; ?>">
-              <a href="#">
-                <i class="<?= $m['icon'] ?>"></i> <span><?= $m['name'] ?></span>
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-              </a>
-              <ul class="treeview-menu">
-                <?php foreach ($parent as $p) { 
-                        if ($p['type']=='menu') {
-                  ?>
-                    <li class="<?php if($page_name==$p['name']) echo "active"; ?>">
-                      <a href="<?= base_url($p['link']) ?>">
-
-                        <i class="<?= $p['icon'] ?>"></i> <?= $p['name'] ?>
-                        <?php 
-                        $getNotif =  $this->mmodel->selectWhere('notification',['slug'=>$p['notif'],'user_id'=>$this->session->userdata('id')])->row(); 
-                        if (@$getNotif->counting) {
-                          $count_notif = $getNotif->counting;
-                        } else {
-                          $getNotif =  $this->mmodel->selectWhere('notification',['slug'=>$p['notif'],'role_id'=>$this->session->userdata('role_id')])->row(); 
-                          if (@$getNotif->counting) {
-                            $count_notif = $getNotif->counting;
-                          }
-                        }
-                        ?>
-                        <?php if(@$count_notif){ ?>
-                        <span class="pull-right-container">
-                          <small class="label pull-right label-danger" id="<?= $p['notif'] ?>"><?= $count_notif ?></small>
-                        </span>
-                        <?php } ?>
-                      </a>
-                    </li>
-                  <?php } ?>
-                <?php } ?>
-              </ul>
-            </li>
-            <?php } ?>
-          <?php } elseif ($m['type']=='label') { ?>
-            <li class="header"><?= ($m['icon'])?'<i class="'.$m['icon'].'"></i> ':'' ?><?= $m['name'] ?></li>
-          <?php } ?>
-        <?php } ?>
+       
 
 
       </ul>
@@ -339,9 +256,7 @@
   
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Version</b> <?= VERSION ?>
     </div>
-    <strong>Copyright <?= COPYRIGHT ?>
   </footer>
 
   <!-- Add the sidebar's background. This div must be placed

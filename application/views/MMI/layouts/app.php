@@ -53,5 +53,32 @@
 
 <!-- PAGE SCRIPTS -->
 <script src="<?= base_url("MMI-assets/")?>dist/js/pages/dashboard2.js"></script>
+
+
+<!-- DataTables -->
+<script src="<?= base_url('MMI-assets/')?>plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="<?= base_url('MMI-assets/')?>plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="<?= base_url('MMI-assets/')?>plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="<?= base_url('MMI-assets/')?>plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+
+<script>
+   $(function () {
+    $("#tbsoalujian").DataTable({
+        'paging' : true,
+        'lengthChange': true,
+        'searching' : true,
+        'ordering' : true,
+        'info' : true,
+        'autoWidth' : false,
+        "responsive": true,
+
+    });
+  });
+</script>
+<script>
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
 </body>
 </html>

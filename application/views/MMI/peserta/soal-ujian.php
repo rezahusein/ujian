@@ -52,7 +52,7 @@
                         ?>
                         <div class="col-3">
                                 
-                            <a href="#" data-dismiss="modal">
+                            <a href="#mmi<?= $i?>" data-dismiss="modal" id="mmi<?= $i?>">
                                 <div class="number-test bg-primary text-center mb-2 py-2 ">
                                     <?= $i ?>
                                 </div>

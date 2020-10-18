@@ -98,6 +98,7 @@ $('#myModal').on('shown.bs.modal', function () {
 })
  </script>
  
+ 
 <!-- Bootstrap -->
 <script src="<?= base_url("MMI-assets/")?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- overlayScrollbars -->
@@ -112,5 +113,6 @@ $('#myModal').on('shown.bs.modal', function () {
 <!-- ChartJS -->
 <!-- PAGE SCRIPTS -->
 <script src="<?= base_url("MMI-assets/")?>dist/js/pages/dashboard2.js"></script>
+
 </body>
 </html>

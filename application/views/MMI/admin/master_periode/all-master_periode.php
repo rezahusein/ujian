@@ -72,7 +72,7 @@
             var table = '<table class="table table-bordered table-striped d-table" id="mytable">'+
                    '     <thead>'+
                    '     <tr style="background: #8bc34a0d !important;">'+
-                   '       <th style="width:5%" class="text-center">No</th>'+'<th>Periode Dari</th>'+'<th>Periode Sampai</th>'+'<th>Lama Waktu Ujian</th>'+'<th>Persentase Pg</th>'+'<th>Persentase Essay</th>'+'<th>Created By</th>'+'       <th style="width:60px">Status</th>'+
+                   '       <th style="width:5%" class="text-center">No</th>'+'<th>Periode</th>'+'<th>Lama Waktu Ujian (Menit)</th>'+'<th>Persentase (Pilihan Ganda)</th>'+'<th>Persentase (Essay)</th>'+'<th>Diterbitkan Oleh</th>'+'       <th style="width:60px">Status</th>'+
                    '       <th style="width:100px">Action</th>'+
                    '     </tr>'+
                    '     </thead>'+
@@ -103,7 +103,7 @@
                 serverSide: true,
                 ajax: {"url": "<?= base_url('mmi/admin/Master_periode/json?status=') ?>"+status, "type": "POST"},
                 columns: [
-                    {"data": "id","orderable": false},{"data": "periode_dari"},{"data": "periode_sampai"},{"data": "lama_waktu_ujian"},{"data": "persentase_pg"},{"data": "persentase_essay"},{"data": "created_by"},
+                    {"data": "id","orderable": false},{"data": "periode"},{"data": "lama_waktu_ujian"},{"data": "persentase_pg"},{"data": "persentase_essay"},{"data": "created_by"},
                    {"data": "status"},
                     {   "data": "view",
                         "orderable": false
@@ -111,18 +111,44 @@
                 ],
                 order: [[1, 'asc']],
                 columnDefs : [
-                    { targets : [7],
+                    { targets : [6],
                         render : function (data, type, row, meta) {
-                              if(row['status']=='ENABLE'){
-                                var htmls = '<a href="<?= base_url('MMI/admin/master_periode/status/') ?>'+row['id']+'/DISABLE">'+
-                                            '    <span type="button" class="badge badge-success"> ENABLE</span>'+
-                                            '</a>';
-                              }else{
-                                var htmls = '<a href="<?= base_url('MMI/admin/master_periode/status/') ?>'+row['id']+'/ENABLE">'+
-                                            '    <button type="button" class="btn btn-sm btn-sm btn-danger"><i class="fa fa-home"></i> DISABLE</button>'+
-                                            '</a>';
+                              // if(row['status']=='ENABLE'){
+                              //   var htmls = '<a href="<?= base_url('MMI/admin/master_periode/status/') ?>'+row['id']+'/DISABLE">'+
+                              //               '    <span type="button" class="badge badge-success"> ENABLE</span>'+
+                              //               '</a>';
+                              // }else{
+                              //   var htmls = '<a href="<?= base_url('MMI/admin/master_periode/status/') ?>'+row['id']+'/ENABLE">'+
+                              //               '    <button type="button" class="btn btn-sm btn-sm btn-danger"><i class="fa fa-home"></i> DISABLE</button>'+
+                              //               '</a>';
 
+                              // }
+                              var batas = parseInt(row['periode_sampai'].replaceAll('-', ''));
+                              if(parseInt('<?=date('Ymd')?>') > batas){
+                                  var htmls= "<span class='badge badge-danger'><i class='fa fa-clock'></i>Expired</span>";
                               }
+                              else{
+                                var htmls= "<span class='badge badge-success'><i class='fa fa-check'></i>Aktif</span>";
+                              }
+                              return htmls;
+                          }
+                      },
+                      { targets : [2],
+                        render : function (data, type, row, meta) {
+                              var htmls = row['lama_waktu_ujian']+' Menit';
+                              return htmls;
+                          }
+                      }
+                      ,
+                      { targets : [3],
+                        render : function (data, type, row, meta) {
+                              var htmls = row['persentase_pg']+'%';
+                              return htmls;
+                          }
+                      },
+                      { targets : [4],
+                        render : function (data, type, row, meta) {
+                              var htmls = row['persentase_essay']+'%';
                               return htmls;
                           }
                       }

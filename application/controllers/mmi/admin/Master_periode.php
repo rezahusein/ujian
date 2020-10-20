@@ -29,7 +29,7 @@ $this->form_validation->set_rules('dt[periode_sampai]', '<strong>Periode Sampai<
 $this->form_validation->set_rules('dt[lama_waktu_ujian]', '<strong>Lama Waktu Ujian</strong>', 'required');
 $this->form_validation->set_rules('dt[persentase_pg]', '<strong>Persentase Pg</strong>', 'required');
 $this->form_validation->set_rules('dt[persentase_essay]', '<strong>Persentase Essay</strong>', 'required');
-$this->form_validation->set_rules('dt[created_by]', '<strong>Created By</strong>', 'required');
+// $this->form_validation->set_rules('dt[created_by]', '<strong>Created By</strong>', 'required');
 	}
 
 		public function store()
@@ -40,6 +40,7 @@ $this->form_validation->set_rules('dt[created_by]', '<strong>Created By</strong>
 	        }else{
 	        	$dt = $_POST['dt'];
 				$dt['created_at'] = date('Y-m-d H:i:s');
+				$dt['created_by'] = $this->session->userdata('id');
 				$dt['status'] = "ENABLE";
 				$str = $this->db->insert('master_periode', $dt);
 				$last_id = $this->db->insert_id();$this->alert->alertsuccess('Success Send Data');   
@@ -54,8 +55,9 @@ $this->form_validation->set_rules('dt[created_by]', '<strong>Created By</strong>
 				$status = 'ENABLE';
 			}
 			header('Content-Type: application/json');
-	        $this->datatables->select('id,periode_dari,periode_sampai,lama_waktu_ujian,persentase_pg,persentase_essay,created_by,status');
-	        $this->datatables->where('status',$status);
+	        $this->datatables->select('master_periode.id,CONCAT(DATE_FORMAT(periode_dari, "%d %M %Y")," - ",DATE_FORMAT(periode_sampai, "%d %M %Y")) AS periode,master_periode.periode_dari,master_periode.periode_sampai,master_periode.lama_waktu_ujian,persentase_pg,master_periode.persentase_essay,master_periode.status,user.name as created_by');
+	        $this->datatables->join('user','user.id=master_periode.created_by','left');
+	        $this->datatables->where('master_periode.status',$status);
 	        $this->datatables->from('master_periode');
 	        if($status=="ENABLE"){
 					$this->datatables->add_column('view', 
@@ -97,6 +99,7 @@ $this->form_validation->set_rules('dt[created_by]', '<strong>Created By</strong>
 	        }else{
 				$id = $this->input->post('id', TRUE);		$dt = $_POST['dt'];
 					$dt['updated_at'] = date("Y-m-d H:i:s");
+				$dt['created_by'] = $this->session->userdata('id');
 					$this->mymodel->updateData('master_periode', $dt , array('id'=>$id));
 					$this->alert->alertsuccess('Success Update Data');  }
 		}
@@ -109,7 +112,7 @@ $this->form_validation->set_rules('dt[created_by]', '<strong>Created By</strong>
 		public function status($id,$status)
 		{
 			$this->mymodel->updateData('master_periode',array('status'=>$status),array('id'=>$id));
-			redirect('master/Master_periode');
+			redirect('mmi/admin/Master_periode');
 		}
 
 

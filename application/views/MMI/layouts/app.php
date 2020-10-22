@@ -34,7 +34,7 @@
 <!-- PAGE SCRIPTS -->
 <script src="<?= base_url("MMI-assets/")?>dist/js/pages/dashboard2.js"></script>
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.2.0/tinymce.min.js"></script>
 <!-- DataTables -->
 <script src="<?= base_url('MMI-assets/')?>plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="<?= base_url('MMI-assets/')?>plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>

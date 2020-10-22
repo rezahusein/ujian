@@ -171,8 +171,8 @@
             location.href = "<?= base_url('mmi/admin/master_periode/edit/') ?>"+id;
          }
         
-        function soal() {
-            location.href = "<?= base_url('mmi/admin/master_soal') ?>";
+        function soal(id) {
+            location.href = "<?= base_url('mmi/admin/master_soal?id_periode=') ?>"+id;
 
           }
          function hapus(id) {

@@ -45,7 +45,7 @@
                 </div>
                 <div class="col-md-6">
                   <div class="float-md-right float-sm-left">
-                  <a href="<?= base_url('mmi/admin/Master_soal/create') ?>" class="">
+                  <a href="<?= base_url('mmi/admin/Master_soal/create?id_periode='.$_GET['id_periode']) ?>">
                     <button type="button" class="btn btn-sm btn-success"><i class="fa fa-plus"></i> Tambah Soal</button> 
                   </a>
                   <a href="<?= base_url('fitur/ekspor/master_soal') ?>" target="_blank">
@@ -135,7 +135,7 @@
                 },
                 processing: true,
                 serverSide: true,
-                ajax: {"url": "<?= base_url('master/Master_soal/json?status=') ?>"+status, "type": "POST"},
+                ajax: {"url": "<?= base_url('master/Master_soal/json?id_periode='.@$_GET['id_periode'].'&status=') ?>"+status, "type": "POST"},
                 columns: [
                     {"data": "id","orderable": false},{"data": "image"},{"data": "deskripsi"},{"data": "jenis_soal"},{"data": "id_jawaban"},{"data": "id_periode"},{"data": "urutan_soal"},
                    {"data": "status"},
@@ -176,7 +176,8 @@
          loadtable($("#select-status").val());
 
          function edit(id) {
-            location.href = "<?= base_url('mmi/admin/Master_soal/edit/') ?>"+id;
+            location.href = "<?= base_url('mmi/admin/Master_soal/edit/') ?>"+id+"?id_periode=<?=$_GET[
+            'id_periode']?>";
          }
 
          function hapus(id) {

@@ -27,7 +27,7 @@
 
 
             <div class="row">
-              <div class="col-6">
+              <div class="col">
                 <div class="card">
                   <!-- /.box-header -->
                   <div class="card-header">
@@ -75,8 +75,8 @@
             </div>
           </div>
                   <div class="card-footer">
-                      <button type="submit" class="btn btn-primary btn-send" ><i class="fa fa-save"></i> Save</button>
-                      <button type="reset" class="btn btn-danger"><i class="fa fa-refresh"></i> Reset</button>
+                      <button type="submit" class="btn btn-primary btn-send ml-2 float-right" ><i class="fa fa-save"></i> Save</button>
+                      <button type="reset" class="btn btn-danger float-right"><i class="fa fa-refresh"></i> Reset</button>
                   
                   </div>
                   <!-- /.box-body -->

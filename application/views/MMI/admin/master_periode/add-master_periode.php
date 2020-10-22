@@ -24,7 +24,7 @@
       <form method="POST" action="<?= base_url('mmi/admin/master_periode/store') ?>" id="upload-create" enctype="multipart/form-data">
 
 <div class="row">
-  <div class="col-6">
+  <div class="col">
     <div class="card">
       <!-- /.box-header -->
       <div class="card-header">
@@ -72,7 +72,7 @@
             </div>
             <div class="form-group">
 
-          <button type="submit" class="btn btn-primary btn-send float-right" ><i class="fa fa-save"></i> Save</button>
+          <button type="submit" class="btn btn-primary btn-send float-right ml-2" ><i class="fa fa-save"></i> Save</button>
           <button type="reset" class="btn btn-danger float-right"><i class="fa fa-refresh"></i> Reset</button> 
             </div>
           </div>

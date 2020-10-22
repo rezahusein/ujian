@@ -42,6 +42,21 @@
           </li>
 
           <li class="nav-item">
+            <a href="<?= site_url('mmi/admin/master_peserta') ?>" class="nav-link" style="position:relative">
+              <i class="nav-icon fas fa-clipboard"></i> <i class="fas fa-user" style="font-size: 8px;
+                position: absolute;
+                display: block;
+                z-index: 1;
+                top: 17px;
+                color: #343a40;
+                left: 26px;"></i>
+              <p>
+                Peserta Ujian
+              </p>
+            </a>
+          </li>    
+          
+          <li class="nav-item">
             <a href="<?= site_url('mmi/admin/Soal_ujian') ?>" class="nav-link">
               <i class="nav-icon fas fa-clipboard-list"></i>
               <p>

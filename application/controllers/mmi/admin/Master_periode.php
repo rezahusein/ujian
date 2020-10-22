@@ -71,6 +71,10 @@ $this->form_validation->set_rules('dt[persentase_essay]', '<strong>Persentase Es
 					<a class="text-white btn btn-sm btn-danger mb-1" onclick="">
 					<i class="fas fa-ban"></i> Disable
 					</a> 
+
+					<a class="text-white btn btn-sm btn-info mb-1" onclick="soal($1)">
+					<i class="fas fa-clipboard-list"></i> Soal
+					</a> 
 						
 					</div>', 'id');
 					
@@ -81,11 +85,22 @@ $this->form_validation->set_rules('dt[persentase_essay]', '<strong>Persentase Es
 	    	}
 	        echo $this->datatables->generate();
 		}
+
 		public function edit($id)
 		{
-			$data['master_periode'] = $this->mymodel->selectDataone('master_periode',array('id'=>$id));$data['page_name'] = "master_periode";
+			$data['master_periode'] = $this->mymodel->selectDataone('master_periode',array('id'=>$id));
+			$data['page_name'] = "master_periode";
 			$this->template->load('MMI/layouts/app','MMI/admin/master_periode/edit-master_periode',$data);
 		}
+		
+		public function soal()
+		{
+			// $data['master_soal'] = $this->mymodel->selectDataone('master_periode',array('id'=>$id));
+			$data['page_name'] = "master_soal";
+			$this->template->load('MMI/layouts/app','MMI/admin/master_soal/all-master_soal',$data);
+		}
+
+
 
 		public function update()
 		{

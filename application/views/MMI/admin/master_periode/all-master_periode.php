@@ -69,7 +69,7 @@
   <script type="text/javascript">
     
         function loadtable(status) {
-            var table = '<table class="table table-bordered table-striped d-table" id="mytable">'+
+            var table = '<table class="table table-bordered table-hover table-striped d-table" id="mytable">'+
                    '     <thead>'+
                    '     <tr style="background: #8bc34a0d !important;">'+
                    '       <th style="width:5%" class="text-center">No</th>'+'<th>Periode</th>'+'<th>Lama Waktu Ujian (Menit)</th>'+'<th>Persentase (Pilihan Ganda)</th>'+'<th>Persentase (Essay)</th>'+'<th>Diterbitkan Oleh</th>'+'       <th style="width:60px">Status</th>'+
@@ -125,10 +125,10 @@
                               // }
                               var batas = parseInt(row['periode_sampai'].replaceAll('-', ''));
                               if(parseInt('<?=date('Ymd')?>') > batas){
-                                  var htmls= "<span class='badge badge-danger'><i class='fa fa-clock'></i>Expired</span>";
+                                  var htmls= "<span class='badge badge-danger'><i class='fa fa-clock'></i> Expired</span>";
                               }
                               else{
-                                var htmls= "<span class='badge badge-success'><i class='fa fa-check'></i>Aktif</span>";
+                                var htmls= "<span class='badge badge-success'><i class='fa fa-check'></i> Aktif</span>";
                               }
                               return htmls;
                           }
@@ -168,9 +168,13 @@
          loadtable($("#select-status").val());
 
          function edit(id) {
-            location.href = "<?= base_url('MMI/admin/master_periode/edit/') ?>"+id;
+            location.href = "<?= base_url('mmi/admin/master_periode/edit/') ?>"+id;
          }
+        
+        function soal() {
+            location.href = "<?= base_url('mmi/admin/master_soal') ?>";
 
+          }
          function hapus(id) {
             $("#modal-delete").modal('show');
             $("#delete-input").val(id);

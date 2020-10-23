@@ -114,7 +114,7 @@
                           function addSoal(){
                             var htmls = '<tr>'+
                             '<input type="hidden" name="jawaban[keyword][]" class="input-keyword-jawaban">'+
-                                  '<td style="width: 100px"><input type="radio" name="jawaban[isi_jawaban]"></td>'+
+                                  '<td style="width: 100px"><input class="input-keyword" type="radio" name="jawaban[isi_jawaban]"></td>'+
                                   '<td style="width: 100px" class="keyword-jawaban"></td>'+
                                   '<td>'+
                                     '<select onchange="setFormatJawaban($(this))" name="jawaban[jenis_jawaban][]" class="form-control jenis-jawaban">'+
@@ -142,7 +142,10 @@
                             eleids = eleid;
                             // eleid.closest('tr').find('.kolom-aksi').html('<i class="fa fa-spin fa-spinner"></i> Loading..');
                             // console.log(eleid.closest('tr').find('.isi-jawaban').find('.image-jawaban').val());
-                            if(eleid.closest('tr').find('.jenis-jawaban').val() == 'gambar'){
+                            var gambar = eleid.closest('tr').find('.isi-jawaban').find('.image-jawaban').val();
+                            // alert(gambar);
+                            if(eleid.closest('tr').find('.jenis-jawaban').val() == 'gambar' && (gambar)){
+                      //         alert();
                             var form_data = new FormData();  
                       form_data.append("image_old", eleid.closest('tr').find('.isi-jawaban').find('.image-jawaban').val()); 
                             $.ajax({
@@ -161,11 +164,16 @@
                               }
                             });
                           }
+                          else{
+                            // alert('bukan gambar');
+                            eleids.closest('tr').remove();
+                            incrementKeyword();
+                          }
                           }
                           function incrementKeyword(){
                             var f = -1;
                             $('#list-jawaban-pg').find('tr').each(function(){
-                              $(this).find('input').val(huruf[f]);
+                              $(this).find('.input-keyword').val(huruf[f]);
                               $(this).find('.keyword-jawaban').html(huruf[f]);
                               $(this).find('.input-keyword-jawaban').val(huruf[f]);
                               f++;
@@ -190,7 +198,7 @@
                                 ?>
                                 <tr>
                                   <input type="hidden" name="jawaban[keyword][]" class="input-keyword-jawaban" value="<?=$huruf[$d]?>">
-                                  <td style="width: 100px"><input type="radio" name="jawaban[isi_jawaban]" value="<?=$huruf[$d]?>"></td> 
+                                  <td style="width: 100px"><input class="input-keyword" type="radio" name="jawaban[isi_jawaban]" value="<?=$huruf[$d]?>"></td> 
                                   <td style="width: 100px" class="keyword-jawaban"><?=$huruf[$d]?></td>
                                   <td>
                                     <select onchange="setFormatJawaban($(this))" name="jawaban[jenis_jawaban][]" class="form-control jenis-jawaban">

@@ -1,4 +1,8 @@
-
+<style>
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #6d7ae00f !important;
+}
+</style>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -28,6 +32,8 @@
       <div class="row">
         <div class="col">
           <div class="card">
+            <div class="container-fluid">
+              
             <!-- /.box-header -->
             <div class="card-header">
               <h5 class="card-title">
@@ -182,8 +188,8 @@
                         </script>
                       </div>
                       <div class="col-12">
-                        <table class="table table-bordered" id="list-jawaban-pg">
-                          <thead class="bg-primary">
+                        <table class="table table-bordered table-striped table-responsive d-table" id="list-jawaban-pg">
+                          <thead class="" style="background: #8bc34a0d !important;">
                             <tr>
                               <th>Jawaban</th>
                               <th>Keyword</th>
@@ -196,7 +202,7 @@
                             <?php
                               for($d = 0;$d<4;$d++){
                                 ?>
-                                <tr>
+                                <tr class="text-center">
                                   <input type="hidden" name="jawaban[keyword][]" class="input-keyword-jawaban" value="<?=$huruf[$d]?>">
                                   <td style="width: 100px"><input class="input-keyword" type="radio" name="jawaban[isi_jawaban]" value="<?=$huruf[$d]?>"></td> 
                                   <td style="width: 100px" class="keyword-jawaban"><?=$huruf[$d]?></td>
@@ -314,6 +320,7 @@
              
             </div>
             <!-- /.box-body -->
+            </div>
           </div>
           <!-- /.box -->
 
@@ -371,6 +378,7 @@
     
         });
       tinymce.init({
+
   selector: '.textarea-tiny',
   plugins: 'print preview paste importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help charmap quickbars emoticons',
   imagetools_cors_hosts: ['picsum.photos'],

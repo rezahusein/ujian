@@ -16,7 +16,7 @@
         </div>
         <div class="info">
           <a href="#" class="d-block">Alexander Pierce</a>
-        </div>
+        </div>  
       </div>
 
       <!-- Sidebar Menu -->
@@ -43,13 +43,13 @@
 
           <li class="nav-item">
             <a href="<?= site_url('mmi/admin/master_peserta') ?>" class="nav-link" style="position:relative">
-              <i class="nav-icon fas fa-clipboard"></i> <i class="fas fa-user" style="font-size: 8px;
+              <i class="nav-icon fas fa-clipboard"></i> <i class="fas fa-user" style="font-size: 7px;
                 position: absolute;
                 display: block;
                 z-index: 1;
-                top: 17px;
+                top: 18px;
                 color: #343a40;
-                left: 26px;"></i>
+                left: 26.5px;"></i>
               <p>
                 Peserta Ujian
               </p>

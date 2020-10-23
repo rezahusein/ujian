@@ -417,7 +417,7 @@ var element_image='';
                         <script>
                           function setFormatJawaban(eleid){
                             if(eleid.val()  == 'deskripsi'){
-                              if($(this).closest('tr').find('.isi-jawaban').find('.status-file').val() == '0'){
+                              if(eleid.closest('tr').find('.isi-jawaban').find('.status-file').val() == '0'){
                               eleid.closest('tr').find('.jawaban-deskripsi').fadeIn();
                               eleid.closest('tr').find('.jawaban-image').fadeOut();
                               eleid.closest('tr').find('.jawaban-image').find('img').attr('src','<?=base_url()?>assets/images/no-image-available.png');

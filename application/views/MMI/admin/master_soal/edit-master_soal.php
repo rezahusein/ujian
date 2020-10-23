@@ -52,8 +52,8 @@
                 </div>
                 <div class="form-group">
                       <label for="form-image">Gambar</label>
-                      <input type="file" name="" class="form-control change-image-soal" id="form-image" placeholder="Masukan Image" name="dokumen_image">
-                      <input type="hidden" value="<?=@$master_soal['image']?>" class="image-soal" name="dt[image]">
+                      <input type="file" name="" class="form-control change-image-soal" id="form-image" placeholder="Masukan Image" accept="image/*" name="dokumen_image">
+                      <input type="hidden" value="<?=@$master_soal['image']?>" class="image-soal" name="dt[image]" accept="image/*">
                       <div class="alert-upload">
                       </div>
                       <?php
@@ -277,7 +277,7 @@ var element_image='';
                                     '<textarea class="form-control" name="jawaban[deskripsi][]"></textarea>'+
                                     '</div>'+
                                     '<div class="jawaban-image" style="display:none">'+
-                                    '<img style="width:200px;height:200px" src="<?=base_url()?>assets/images/no-image-available.png" class="example-image-jawaban"><br><input type="file" class="change-image-jawaban"><br><div class="alert-upload"></div><input type="hidden" class="image-jawaban" name="jawaban[image][]"><input type="hidden" class="status-file" value="0">'+
+                                    '<img style="width:200px;height:200px" src="<?=base_url()?>assets/images/no-image-available.png" class="example-image-jawaban"><br><input type="file" class="change-image-jawaban" accept="image/*"><br><div class="alert-upload"></div><input type="hidden" class="image-jawaban" name="jawaban[image][]"><input type="hidden" class="status-file" value="0">'+
                                     '</div>'+
                                   '</td>'+
                                   '<td class="kolom-aksi">'+
@@ -363,7 +363,7 @@ var element_image='';
                                     <textarea class="form-control" name="jawaban[deskripsi][]"></textarea>
                                   </div>
                                   <div class="jawaban-image" style="display: none">
-                                      <img style="width:200px;height:200px" src="<?=base_url()?>assets/images/no-image-available.png" class="example-image-jawaban"><br><input type="file" class="change-image-jawaban"><br><div class="alert-upload"></div><input type="hidden" class="image-jawaban" name="jawaban[image][]"><input type="hidden" class="status-file" value="0">
+                                      <img style="width:200px;height:200px" src="<?=base_url()?>assets/images/no-image-available.png" class="example-image-jawaban"><br><input type="file" accept="image/*" class="change-image-jawaban"><br><div class="alert-upload"></div><input type="hidden" class="image-jawaban" name="jawaban[image][]"><input type="hidden" class="status-file" value="0">
                                   </div>
                                   </td>
                                   <td class="kolom-aksi">
@@ -391,7 +391,7 @@ var element_image='';
                                     <textarea class="form-control" name="jawaban[deskripsi][]"><?=$mj['deskripsi']?></textarea>
                                   </div>
                                   <div class="jawaban-image"  <?=($mj['jenis_jawaban'] != 'gambar')?"style='display:none'":""?>>
-                                      <img style="width:200px;height:200px"src="<?=base_url().((!empty($mj['image']))?$mj['image']:'assets/images/no-image-available.png')?>" class="example-image-jawaban"><br><input type="file" class="change-image-jawaban"><br><div class="alert-upload"></div><input type="hidden" class="image-jawaban" name="jawaban[image][]" value="<?=$mj['image']?>">
+                                      <img style="width:200px;height:200px"src="<?=base_url().((!empty($mj['image']))?$mj['image']:'assets/images/no-image-available.png')?>" class="example-image-jawaban"><br><input accept="image/*" type="file" class="change-image-jawaban"><br><div class="alert-upload"></div><input type="hidden" class="image-jawaban" name="jawaban[image][]" value="<?=$mj['image']?>">
                       <?php
                       $status_file = 0;
                         if(!empty($mj['image'])){

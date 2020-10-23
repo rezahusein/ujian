@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 22, 2020 at 08:11 PM
+-- Generation Time: Oct 23, 2020 at 08:38 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.2.31
 
@@ -41,7 +41,9 @@ CREATE TABLE `file_temporary` (
 --
 
 INSERT INTO `file_temporary` (`id`, `dokumen`, `created_at`, `created_by`, `is_active`, `created_by_name`) VALUES
-(1, 'webfile/b6c54637d6035e7d59d29e8691c0e2fd88538.png', '2020-10-23 00:28:37', 1, 1, 'Admin');
+(1, 'webfile/b6c54637d6035e7d59d29e8691c0e2fd88538.png', '2020-10-23 00:28:37', 1, 1, 'Admin'),
+(3, 'webfile/b6c54637d6035e7d59d29e8691c0e2fd48348.webm', '2020-10-23 23:34:00', 79, 0, 'SMILE'),
+(5, 'webfile/b6c54637d6035e7d59d29e8691c0e2fd75341.jpg', '2020-10-24 00:12:19', 1, 0, 'Admin');
 
 -- --------------------------------------------------------
 
@@ -83,7 +85,17 @@ INSERT INTO `log_aktivitas` (`log_id`, `log_created_at`, `log_created_by`, `log_
 (18, '2020-10-23 00:28:53', 1, 'insertData', 'master_jawaban_pg', '{\"id_soal\":1,\"keyword\":\"B\",\"image\":\"\",\"deskripsi\":\"asc\",\"jenis_jawaban\":\"deskripsi\",\"status\":\"ENABLE\",\"created_at\":\"2020-10-23 00:28:53\"}'),
 (19, '2020-10-23 00:28:53', 1, 'insertData', 'master_jawaban_pg', '{\"id_soal\":1,\"keyword\":\"C\",\"image\":\"\",\"deskripsi\":\"asc\",\"jenis_jawaban\":\"deskripsi\",\"status\":\"ENABLE\",\"created_at\":\"2020-10-23 00:28:53\"}'),
 (20, '2020-10-23 00:28:53', 1, 'insertData', 'master_jawaban_pg', '{\"id_soal\":1,\"keyword\":\"D\",\"image\":\"\",\"deskripsi\":\"asc\",\"jenis_jawaban\":\"deskripsi\",\"status\":\"ENABLE\",\"created_at\":\"2020-10-23 00:28:53\"}'),
-(21, '2020-10-23 00:28:53', 1, 'updateData', 'master_soal', '{\"id\":\"1\",\"image\":\"webfile\\/b6c54637d6035e7d59d29e8691c0e2fd88538.png\",\"deskripsi\":\"<p>ascascasva<\\/p>\",\"jenis_soal\":\"pg\",\"id_jawaban\":null,\"status\":\"ENABLE\",\"created_at\":\"2020-10-23 00:28:52\",\"updated_at\":null,\"id_periode\":\"1\",\"urutan_soal\":\"1\"}');
+(21, '2020-10-23 00:28:53', 1, 'updateData', 'master_soal', '{\"id\":\"1\",\"image\":\"webfile\\/b6c54637d6035e7d59d29e8691c0e2fd88538.png\",\"deskripsi\":\"<p>ascascasva<\\/p>\",\"jenis_soal\":\"pg\",\"id_jawaban\":null,\"status\":\"ENABLE\",\"created_at\":\"2020-10-23 00:28:52\",\"updated_at\":null,\"id_periode\":\"1\",\"urutan_soal\":\"1\"}'),
+(22, '2020-10-23 12:30:59', 79, 'insertData', 'file_temporary', '{\"dokumen\":\"webfile\\/b6c54637d6035e7d59d29e8691c0e2fd28193.jpg\",\"created_at\":\"2020-10-23 12:30:59\",\"created_by\":\"79\",\"is_active\":\"0\",\"created_by_name\":\"SMILE\"}'),
+(23, '2020-10-23 12:31:05', 79, 'deleteData', 'file_temporary', '{\"id\":\"2\",\"dokumen\":\"webfile\\/b6c54637d6035e7d59d29e8691c0e2fd28193.jpg\",\"created_at\":\"2020-10-23 12:30:59\",\"created_by\":\"79\",\"is_active\":\"0\",\"created_by_name\":\"SMILE\"}'),
+(24, '2020-10-23 23:34:00', 79, 'insertData', 'file_temporary', '{\"dokumen\":\"webfile\\/b6c54637d6035e7d59d29e8691c0e2fd48348.webm\",\"created_at\":\"2020-10-23 23:34:00\",\"created_by\":\"79\",\"is_active\":\"0\",\"created_by_name\":\"SMILE\"}'),
+(25, '2020-10-24 00:11:57', 1, 'insertData', 'file_temporary', '{\"dokumen\":\"webfile\\/b6c54637d6035e7d59d29e8691c0e2fd18803.jpg\",\"created_at\":\"2020-10-24 00:11:57\",\"created_by\":\"1\",\"is_active\":\"0\",\"created_by_name\":\"Admin\"}'),
+(26, '2020-10-24 00:12:03', 1, 'deleteData', 'file_temporary', '{\"id\":\"4\",\"dokumen\":\"webfile\\/b6c54637d6035e7d59d29e8691c0e2fd18803.jpg\",\"created_at\":\"2020-10-24 00:11:57\",\"created_by\":\"1\",\"is_active\":\"0\",\"created_by_name\":\"Admin\"}'),
+(27, '2020-10-24 00:12:19', 1, 'insertData', 'file_temporary', '{\"dokumen\":\"webfile\\/b6c54637d6035e7d59d29e8691c0e2fd75341.jpg\",\"created_at\":\"2020-10-24 00:12:19\",\"created_by\":\"1\",\"is_active\":\"0\",\"created_by_name\":\"Admin\"}'),
+(28, '2020-10-24 00:13:44', 1, 'insertData', 'file_temporary', '{\"dokumen\":\"webfile\\/b6c54637d6035e7d59d29e8691c0e2fd98597.jpg\",\"created_at\":\"2020-10-24 00:13:44\",\"created_by\":\"1\",\"is_active\":\"0\",\"created_by_name\":\"Admin\"}'),
+(29, '2020-10-24 00:13:50', 1, 'deleteData', 'file_temporary', '{\"id\":\"6\",\"dokumen\":\"webfile\\/b6c54637d6035e7d59d29e8691c0e2fd98597.jpg\",\"created_at\":\"2020-10-24 00:13:44\",\"created_by\":\"1\",\"is_active\":\"0\",\"created_by_name\":\"Admin\"}'),
+(30, '2020-10-24 00:18:08', 1, 'insertData', 'file_temporary', '{\"dokumen\":\"webfile\\/b6c54637d6035e7d59d29e8691c0e2fd40153.mp3\",\"created_at\":\"2020-10-24 00:18:08\",\"created_by\":\"1\",\"is_active\":\"0\",\"created_by_name\":\"Admin\"}'),
+(31, '2020-10-24 00:18:59', 1, 'deleteData', 'file_temporary', '{\"id\":\"7\",\"dokumen\":\"webfile\\/b6c54637d6035e7d59d29e8691c0e2fd40153.mp3\",\"created_at\":\"2020-10-24 00:18:08\",\"created_by\":\"1\",\"is_active\":\"0\",\"created_by_name\":\"Admin\"}');
 
 -- --------------------------------------------------------
 
@@ -149,6 +161,7 @@ INSERT INTO `master_periode` (`id`, `periode_dari`, `periode_sampai`, `lama_wakt
 CREATE TABLE `master_soal` (
   `id` int(12) NOT NULL,
   `image` varchar(300) DEFAULT NULL,
+  `voice` varchar(100) DEFAULT NULL,
   `deskripsi` longtext DEFAULT NULL,
   `jenis_soal` varchar(100) DEFAULT NULL COMMENT '1.essay 2.pg',
   `id_jawaban` int(12) DEFAULT NULL,
@@ -163,8 +176,8 @@ CREATE TABLE `master_soal` (
 -- Dumping data for table `master_soal`
 --
 
-INSERT INTO `master_soal` (`id`, `image`, `deskripsi`, `jenis_soal`, `id_jawaban`, `status`, `created_at`, `updated_at`, `id_periode`, `urutan_soal`) VALUES
-(1, 'webfile/b6c54637d6035e7d59d29e8691c0e2fd88538.png', '<p>ascascasva</p>', 'pg', 1, 'ENABLE', '2020-10-23 00:28:52', NULL, 1, 1);
+INSERT INTO `master_soal` (`id`, `image`, `voice`, `deskripsi`, `jenis_soal`, `id_jawaban`, `status`, `created_at`, `updated_at`, `id_periode`, `urutan_soal`) VALUES
+(1, 'webfile/b6c54637d6035e7d59d29e8691c0e2fd88538.png', NULL, '<p>ascascasva</p>', 'pg', 1, 'ENABLE', '2020-10-23 00:28:52', NULL, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -348,13 +361,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `file_temporary`
 --
 ALTER TABLE `file_temporary`
-  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `log_aktivitas`
 --
 ALTER TABLE `log_aktivitas`
-  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `master_jawaban_pg`

@@ -47,7 +47,7 @@
                 </div>
                 <div class="form-group">
                       <label for="form-image">Gambar</label>
-                      <input type="file" accept="image/*" name="" class="form-control change-image-soal" id="form-image" placeholder="Masukan Image">
+                      <input type="file" accept="image/*" name="" class="form-control change-image-soal" id="form-image"  placeholder="Masukan Image">
                       <input type="hidden" class="image-soal" name="dt[image]">
                       <div class="alert-upload">
                       </div>
@@ -222,7 +222,7 @@ var element_image='';
                                     '<textarea class="form-control" name="jawaban[deskripsi][]"></textarea>'+
                                     '</div>'+
                                     '<div class="jawaban-image" style="display:none">'+
-                                    '<img style="width:200px;height:200px" src="<?=base_url()?>assets/images/no-image-available.png" class="example-image-jawaban"><br><input type="file" class="change-image-jawaban"><br><div class="alert-upload"></div><input type="hidden" class="image-jawaban" name="jawaban[image][]">'+
+                                    '<img style="width:200px;height:200px" src="<?=base_url()?>assets/images/no-image-available.png" class="example-image-jawaban"><br><input type="file" class="change-image-jawaban" accept="image/*"><br><div class="alert-upload"></div><input type="hidden" class="image-jawaban" name="jawaban[image][]">'+
                                     '</div>'+
                                   '</td>'+
                                   '<td class="kolom-aksi">'+
@@ -306,7 +306,7 @@ var element_image='';
                                     <textarea class="form-control" name="jawaban[deskripsi][]"></textarea>
                                   </div>
                                   <div class="jawaban-image" style="display: none">
-                                      <img style="width:200px;height:200px" src="<?=base_url()?>assets/images/no-image-available.png" class="example-image-jawaban"><br><input type="file" class="change-image-jawaban"><br><div class="alert-upload"></div><input type="hidden" class="image-jawaban" name="jawaban[image][]">
+                                      <img style="width:200px;height:200px" src="<?=base_url()?>assets/images/no-image-available.png" class="example-image-jawaban"><br><input type="file" accept="image/*" class="change-image-jawaban"><br><div class="alert-upload"></div><input type="hidden" class="image-jawaban" name="jawaban[image][]">
                                   </div>
                                   </td>
                                   <td class="kolom-aksi">

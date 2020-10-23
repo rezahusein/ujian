@@ -14,9 +14,10 @@
 			$this->template->load('MMI/layouts/app','MMI/admin/master_soal/all-master_soal',$data);
 		}
 
-		public function uploadImage(){
+		public function uploadImage($status_file=0){
 			if(!empty($_FILES['file']['name'])){
-				if(!empty($this->input->post('file_old'))){
+				if(!empty($this->input->post('file_old')) && $status_file == 0){
+					$this->mymodel->deleteData('file_temporary',array('dokumen'=>$this->input->post('image_old')));
 					unlink(FCPATH . $this->input->post('file_old'));
 				}
 				$data = array('filename'=>$this->upload_file('file')['message']['dir']);

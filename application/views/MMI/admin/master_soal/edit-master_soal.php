@@ -56,7 +56,117 @@
                       <input type="hidden" value="<?=@$master_soal['image']?>" class="image-soal" name="dt[image]">
                       <div class="alert-upload">
                       </div>
-                  </div><div class="form-group">
+                      <?php
+                      $status_file = 0;
+                        if(!empty($master_soal['image'])){
+                              $cekFile = $this->mymodel->selectDataone('master_soal',array('image'=>$master_soal['image'],'id!='=>$master_soal['id']));
+                              if(!empty($cekFile)){
+                                  $status_file = 1;
+                              }
+                        }
+                      ?>
+                      <input type="hidden" class="status-file" value="<?=$status_file?>">
+                  </div>
+                    <div class="form-group example-voice-soal" >
+                       <?php
+                  if(!empty($master_soal['voice'])){
+                    ?>
+                 <audio controls><source src="<?=base_url().$master_soal['voice']?>" type="audio/ogg"></audio>
+                    <?php
+                  }
+                  else{
+                  ?>
+                 <img class="example-image-soal" src="<?=base_url()?>assets/images/no-voice-available.png" style="width: 200px;height: 200px" alt="">
+                 <?php
+               }
+                 ?> 
+                </div>
+                  <div class="form-group">
+                      <label for="form-image">Suara</label>
+                      <input type="file" accept="audio/*" name="" class="form-control change-voice-soal" id="form-image" placeholder="Masukan Image">
+                      <input type="hidden" class="voice-soal" name="dt[voice]">
+                      <div class="alert-upload">
+                      </div>
+                      <?php
+                      $status_file = 0;
+                        if(!empty($master_soal['voice'])){
+                              $cekFile = $this->mymodel->selectDataone('master_soal',array('voice'=>$master_soal['voice'],'id!='=>$master_soal['id']));
+                              if(!empty($cekFile)){
+                                  $status_file = 1;
+                              }
+                        }
+                      ?>
+                      <input type="hidden" class="status-file" value="<?=$status_file?>">
+                  </div>
+                  <script>  
+var element_image='';
+                    $(document).on('change','.change-voice-soal',function(e){
+                      // alert('asdas');
+                      // readURL(this);
+                      element_image = $(this);
+                      // var number = $('#'+this.id).attr('data-number');
+                      // var idfield = this.id;
+                      // var fileold = './'+$("#text_"+number).val();
+                        if($(this).val()){
+                        $(this).siblings('.alert-upload').html('<i class="fa fa-spin fa-spinner"></i> Loading');
+                      e.preventDefault();
+                      var link="<?= base_url('mmi/admin/master_soal/uploadImage/') ?>"+$(this).siblings('.status-file').val();
+                      var form_data = new FormData();  
+                      form_data.append("file", $(this).prop("files")[0]);  
+                      form_data.append("image_old", $('.image-soal').val());  
+                      // form_data.append("fileold", fileold);  
+                      $.ajax({
+                        url: link,
+                        type: 'POST',
+                        processData: false, // important
+                        contentType: false, // important
+                        // dataType : 'script',
+                        data: form_data,
+                        success: function(response){
+                        // alert('berhasil');
+                        var json_res = JSON.parse(response);
+                        $('.example-voice-soal').html('<audio controls><source src="<?=base_url()?>'+json_res.filename+'" type="audio/ogg"></audio>');
+                        element_image.siblings('.alert-upload').html('<label class="label label-success"><i class="fa fa-check"></i> Berhasil Upload</label>');
+                        element_image.siblings('.voice-soal').val(json_res.filename);
+                        element_image.siblings('.status-file').val('0');
+                          // element_image.val(response);
+                        },
+                        error: function(xhr, textStatus, errorThrown) {
+                          element_image.siblings('.alert-upload').html('<label class="label label-danger"><i class="fa fa-remove"></i> Tidak Berhasil Upload</label>');
+                        }
+                      });
+                    }
+                    else{
+                      if($(this).siblings('.status-file').val() == '0'){
+                      var form_data = new FormData();  
+                      form_data.append("image_old",$(this).siblings('.voice-soal').val()); 
+                            $.ajax({
+                              url: "<?=base_url()?>mmi/admin/master_soal/reset_image",
+                              type : 'POST',
+                              processData: false, // important
+                              contentType: false, // important
+                              // dataType : 'script',
+                              data: form_data,
+                              success : function(){
+                            
+                      $(this).siblings('.voice-soal').val('');
+                      $('.example-voice-soal').html('<img src="<?=base_url()?>assets/images/no-voice-available.png" style="width: 200px;height: 200px" alt="">');
+                        element_image.siblings('.alert-upload').html('');
+                              },
+                              error : function(){
+                              }
+                            });
+                          }
+                          else{
+                            $(this).siblings('.voice-soal').val('');
+                      $('.example-voice-soal').html('<img src="<?=base_url()?>assets/images/no-voice-available.png" style="width: 200px;height: 200px" alt="">');
+                        element_image.siblings('.alert-upload').html('');
+                        $(this).siblings('.status-file').val('0');
+                          }
+                    }
+                    });
+                  </script>
+                  <div class="form-group">
                       <label for="form-deskripsi">Deskripsi</label>
                       <textarea name="dt[deskripsi]" class="form-control textarea-tiny"><?=@$master_soal['deskripsi']?></textarea>
                   </div><div class="form-group">
@@ -68,17 +178,17 @@
                   </div>
                   <script>
                     var element_image='';
-                    $(document).on('change','.change-image-soal',function(e){
+                     $(document).on('change','.change-image-soal',function(e){
                       // alert('asdas');
                       // readURL(this);
                       element_image = $(this);
                       // var number = $('#'+this.id).attr('data-number');
                       // var idfield = this.id;
                       // var fileold = './'+$("#text_"+number).val();
-
+                        if($(this).val()){
                         $(this).siblings('.alert-upload').html('<i class="fa fa-spin fa-spinner"></i> Loading');
                       e.preventDefault();
-                      var link="<?= base_url('mmi/admin/master_soal/uploadImage') ?>";
+                      var link="<?= base_url('mmi/admin/master_soal/uploadImage/') ?>"+$(this).siblings('.status-file').val();
                       var form_data = new FormData();  
                       form_data.append("file", $(this).prop("files")[0]);  
                       form_data.append("image_old", $('.image-soal').val());  
@@ -96,12 +206,41 @@
                         $('.example-image-soal').attr('src','<?=base_url()?>'+json_res.filename);
                         element_image.siblings('.alert-upload').html('<label class="label label-success"><i class="fa fa-check"></i> Berhasil Upload</label>');
                         element_image.siblings('.image-soal').val(json_res.filename);
+                        response element_image.siblings('.status-file').val('0');
                           // element_image.val(response);
                         },
                         error: function(xhr, textStatus, errorThrown) {
                           element_image.siblings('.alert-upload').html('<label class="label label-danger"><i class="fa fa-remove"></i> Tidak Berhasil Upload</label>');
                         }
                       });
+                    }
+                    else{
+                      if($(this).siblings('.status-file').val() == '0'){
+                      var form_data = new FormData();  
+                      form_data.append("image_old",element_image.siblings('.image-soal').val()); 
+                            $.ajax({
+                              url: "<?=base_url()?>mmi/admin/master_soal/reset_image",
+                              type : 'POST',
+                              processData: false, // important
+                              contentType: false, // important
+                              // dataType : 'script',
+                              data: form_data,
+                              success : function(){
+                        $('.example-image-soal').attr('src','<?=base_url()?>assets/images/no-image-available.png');
+                        element_image.siblings('.image-soal').val('');
+                        element_image.siblings('.alert-upload').html('');
+                              },
+                              error : function(){
+                              }
+                            });
+                          }
+                          else{
+                            $('.example-image-soal').attr('src','<?=base_url()?>assets/images/no-image-available.png');
+                        element_image.siblings('.image-soal').val('');
+                        element_image.siblings('.alert-upload').html('');
+                        $(this).siblings('.status-file').val('0');
+                          }
+                    }
                     });
                     function setJawaban(eleid){
                       if(eleid.val() == 'pg'){
@@ -138,7 +277,7 @@
                                     '<textarea class="form-control" name="jawaban[deskripsi][]"></textarea>'+
                                     '</div>'+
                                     '<div class="jawaban-image" style="display:none">'+
-                                    '<img style="width:200px;height:200px" src="<?=base_url()?>assets/images/no-image-available.png" class="example-image-jawaban"><br><input type="file" class="change-image-jawaban"><br><div class="alert-upload"></div><input type="hidden" class="image-jawaban" name="jawaban[image][]">'+
+                                    '<img style="width:200px;height:200px" src="<?=base_url()?>assets/images/no-image-available.png" class="example-image-jawaban"><br><input type="file" class="change-image-jawaban"><br><div class="alert-upload"></div><input type="hidden" class="image-jawaban" name="jawaban[image][]"><input type="hidden" class="status-file" value="0">'+
                                     '</div>'+
                                   '</td>'+
                                   '<td class="kolom-aksi">'+
@@ -224,7 +363,7 @@
                                     <textarea class="form-control" name="jawaban[deskripsi][]"></textarea>
                                   </div>
                                   <div class="jawaban-image" style="display: none">
-                                      <img style="width:200px;height:200px" src="<?=base_url()?>assets/images/no-image-available.png" class="example-image-jawaban"><br><input type="file" class="change-image-jawaban"><br><div class="alert-upload"></div><input type="hidden" class="image-jawaban" name="jawaban[image][]">
+                                      <img style="width:200px;height:200px" src="<?=base_url()?>assets/images/no-image-available.png" class="example-image-jawaban"><br><input type="file" class="change-image-jawaban"><br><div class="alert-upload"></div><input type="hidden" class="image-jawaban" name="jawaban[image][]"><input type="hidden" class="status-file" value="0">
                                   </div>
                                   </td>
                                   <td class="kolom-aksi">
@@ -253,6 +392,16 @@
                                   </div>
                                   <div class="jawaban-image"  <?=($mj['jenis_jawaban'] != 'gambar')?"style='display:none'":""?>>
                                       <img style="width:200px;height:200px"src="<?=base_url().((!empty($mj['image']))?$mj['image']:'assets/images/no-image-available.png')?>" class="example-image-jawaban"><br><input type="file" class="change-image-jawaban"><br><div class="alert-upload"></div><input type="hidden" class="image-jawaban" name="jawaban[image][]" value="<?=$mj['image']?>">
+                      <?php
+                      $status_file = 0;
+                        if(!empty($mj['image'])){
+                              $cekFile = $this->mymodel->selectDataone('master_jawaban_pg',array('image'=>$mj['image'],'id!='=>$mj['id']));
+                              if(!empty($cekFile)){
+                                  $status_file = 1;
+                              }
+                        }
+                      ?>
+                      <input type="hidden" class="status-file" value="<?=$status_file?>">
                                   </div>
                                   </td>
                                   <td class="kolom-aksi">
@@ -304,10 +453,10 @@
                       // var number = $('#'+this.id).attr('data-number');
                       // var idfield = this.id;
                       // var fileold = './'+$("#text_"+number).val();
-
+                      if($(this).val()){
                         $(this).siblings('.alert-upload').html('<i class="fa fa-spin fa-spinner"></i> Loading');
                       e.preventDefault();
-                      var link="<?= base_url('mmi/admin/master_soal/uploadImage') ?>";
+                      var link="<?= base_url('mmi/admin/master_soal/uploadImage/') ?>"+element_image.siblings('.status-file').val('0');;
                       var form_data = new FormData();  
                       form_data.append("file", $(this).prop("files")[0]);  
                       form_data.append("image_old", $(this).siblings('.image-jawaban').val());  
@@ -325,12 +474,41 @@
                         element_image.siblings('.example-image-jawaban').attr('src','<?=base_url()?>'+json_res.filename);
                         element_image.siblings('.alert-upload').html('<label class="label label-success"><i class="fa fa-check"></i> Berhasil Upload</label>');
                         element_image.siblings('.image-jawaban').val(json_res.filename);
+                        element_image.siblings('.status-file').val('0');
                           // element_image.val(response);
                         },
                         error: function(xhr, textStatus, errorThrown) {
                           element_image.siblings('.alert-upload').html('<label class="label label-danger"><i class="fa fa-remove"></i> Tidak Berhasil Upload</label>');
                         }
                       });
+                    }
+                    else{
+                      if($(this).siblings('.status-file').val() == '0'){
+                      var form_data = new FormData();  
+                      form_data.append("image_old",element_image.siblings('.image-jawaban').val()); 
+                            $.ajax({
+                              url: "<?=base_url()?>mmi/admin/master_soal/reset_image",
+                              type : 'POST',
+                              processData: false, // important
+                              contentType: false, // important
+                              // dataType : 'script',
+                              data: form_data,
+                              success : function(){
+                        element_image.siblings('.example-image-jawaban').attr('src','<?=base_url()?>assets/images/no-image-available.png');
+                        element_image.siblings('.image-jawaban').val('');
+                        element_image.siblings('.alert-upload').html('');
+                              },
+                              error : function(){
+                              }
+                            });
+                          }
+                          else{
+                            element_image.siblings('.example-image-jawaban').attr('src','<?=base_url()?>assets/images/no-image-available.png');
+                        element_image.siblings('.image-jawaban').val('');
+                        element_image.siblings('.alert-upload').html('');
+                        $(this).siblings('.status-file').val('0');
+                          }
+                    }
                     });
                         </script>
                       </div>

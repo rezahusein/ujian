@@ -148,8 +148,11 @@ $this->form_validation->set_rules('dt[jenis_soal]', '<strong>Jenis Soal</strong>
 				else{
 					foreach($jawaban['keyword'] as $k => $key){
 						if(!empty($jawaban['image'][$k])){
+						$cekFile = $this->mymodel->selectDataone('master_jawaban_pg',array('id_soal!='=>$id_soal,'image'=>$jawaban['image'][$k]));
+						if(empty($cekFile)){
 							$this->mymodel->deleteData('file_temporary',array('dokumen'=>$jawaban['image'][$k]));
 							unlink(FCPATH . $jawaban['image'][$k]);
+						}
 						}
 					}
 				}

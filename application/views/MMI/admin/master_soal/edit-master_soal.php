@@ -417,6 +417,7 @@ var element_image='';
                         <script>
                           function setFormatJawaban(eleid){
                             if(eleid.val()  == 'deskripsi'){
+                              if($(this).closest('tr').find('.isi-jawaban').find('.status-file').val() == '0'){
                               eleid.closest('tr').find('.jawaban-deskripsi').fadeIn();
                               eleid.closest('tr').find('.jawaban-image').fadeOut();
                               eleid.closest('tr').find('.jawaban-image').find('img').attr('src','<?=base_url()?>assets/images/no-image-available.png');
@@ -434,11 +435,18 @@ var element_image='';
                             eleid.closest('tr').find('.isi-jawaban').find('.image-jawaban').val('');
                             eleid.closest('tr').find('.isi-jawaban').find('.change-image-jawaban').val('');
                             eleid.closest('tr').find('.isi-jawaban').find('.alert-upload').html('');
+                            eleid.closest('tr').find('.isi-jawaban').find('.status-file').val('0');
                               },
                               error : function(){
                               }
                             });
-
+                              }
+                              else{
+                                  eleid.closest('tr').find('.isi-jawaban').find('.image-jawaban').val('');
+                            eleid.closest('tr').find('.isi-jawaban').find('.change-image-jawaban').val('');
+                            eleid.closest('tr').find('.isi-jawaban').find('.alert-upload').html('');
+                            eleid.closest('tr').find('.isi-jawaban').find('.status-file').val('0');
+                              }
                             }
                             else{
                               eleid.closest('tr').find('.jawaban-deskripsi').fadeOut();

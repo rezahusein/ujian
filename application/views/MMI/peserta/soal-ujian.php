@@ -40,21 +40,70 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Nomer Soal Ujian </h5>
+                        <h5 class="modal-title" id="exampleModalLongTitle">Nomor Soal Ujian </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
                         <div class="row" style="height: 230px;overflow-y:scroll">
+                        <div class="col-12">
+                            <h6>Soal Pilihan Ganda</h6>   
+                        </div>
                         <?php 
-                            for($i =1; $i <= 40;$i++){
+                        $id_soal = '';
+                            foreach($soal_pg as $i => $pg){
+                                $color_label = '';
+                                if(empty($user['id_soal_terakhir']) && $i == 0){
+                                    $urutan = $i+1;
+                                    $id_soal = $pg['id'];
+                                    $color_label = 'bg-warning';
+                                }
+                                else if($pg['id'] == $user['id_soal_terakhir']){
+                                    $urutan = $i+1;
+                                    $id_soal = $pg['id'];
+                                    $color_label = 'bg-warning';
+                                } 
+                                else if(in_array($pg['id'],$jawaban)){
+                                    $color_label = 'bg-success';
+                                }
+                                else{
+                                    $color_label = 'bg-primary';
+                                }
                         ?>
                         <div class="col-3">
                                 
-                            <a href="#mmi<?= $i?>" data-dismiss="modal" id="mmi<?= $i?>">
-                                <div class="number-test bg-primary text-center mb-2 py-2 ">
-                                    <?= $i ?>
+                            <a  data-dismiss="modal">
+                                <div urutan-soal="<?= ($i+1) ?>" data-checklist="<?=(in_array($pg['id'],$jawaban))?"1":"0"?>" id-soal="<?=$pg['id']?>" class="number-test <?=$color_label?> text-center mb-2 py-2 ">
+                                    <?= ($i+1) ?>
+                                </div>
+                            </a>
+                        </div>
+
+                        <?php } ?>
+                        <div class="col-12" style="border-top: 1px dotted grey">
+                            <h6>Soal Essay</h6>   
+                        </div>
+                        <?php 
+                            foreach($soal_essay as $i => $pg){
+                                $color_label = '';
+                                if($pg['id'] == $user['id_soal_terakhir']){
+                                    $urutan = $i+1;
+                                    $id_soal = $pg['id'];
+                                    $color_label = 'bg-warning';
+                                } 
+                                else if(in_array($pg['id'],$jawaban)){
+                                    $color_label = 'bg-success';
+                                }
+                                else{
+                                    $color_label = 'bg-primary';
+                                }
+                        ?>
+                        <div class="col-3">
+                                
+                            <a data-dismiss="modal" >
+                                <div urutan-soal="<?= ($i+1) ?>" data-checklist="<?=(in_array($pg['id'],$jawaban))?"1":"0"?>" id-soal="<?=$pg['id']?>" class="number-test <?=$color_label?> text-center mb-2 py-2 ">
+                                    <?= ($i+1) ?>
                                 </div>
                             </a>
                         </div>
@@ -73,41 +122,47 @@
                     <i class="fas fa-clipboard-list" style="font-size: 22px;"></i>
                 </div>
             </div>
-        <div class="col-md-9">
-            <div class="info-box p-5 d-block">
-                <div class="img-position d-flex  mb-3">
-                     <img src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22200%22%20height%3D%22200%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_175273ea65c%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A10pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_175273ea65c%22%3E%3Crect%20width%3D%22200%22%20height%3D%22200%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2274.421875%22%20y%3D%22104.5%22%3E200x200%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="">
-                </div>
-
-                <div class="test-pg-content d-flex">
-                    <span class="number-of-test">1. &nbsp; </span>
-                    <div class="test-content">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing consectetur. Odio molestiae excepturi maxime quasi! Temporibus ea voluptatem, quidem nisi vel ? </p>
-                    </div>
-                </div>
-
-                <div class="result-pg">
-                    <div class="form">
-                        <div class="form-group">
-                            <input type="radio" name="jawaban" value=""> A. lorem ipsum
-                        </div>
-                        <div class="form-group">
-                            <input type="radio" name="jawaban"> B. dolor sit amet
-                        </div>
-                        <div class="form-group">
-                            <input type="radio" name="jawaban"> C. consectetur ipsum
-                        </div>
-                        <div class="form-group">
-                            <input type="radio" name="jawaban"> D. adipisicing ipsum
-                        </div>
-                    </div>
-                </div>
-
-                <div class="button-next mb-4">
-                    <button type="button" class="btn btn-success float-right px-5">N E X T <i class="fas fa-chevron-circle-right"></i></button>
-                </div>
-            </div>
+        <div class="col-md-9" id="isi-soal">
+            
          </div>
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
+<script>
+    var elementid = '';
+    $('.number-test').click(function(){
+        elementid = $(this);
+        loadSoal(elementid.attr('id-soal'),elementid.attr('urutan-soal'));
+    });
+    function generateBox(id_soal){
+
+        $('.number-test').each(function(){
+            // alert(id_soal+' = '+$(this).attr('id-soal'));
+            if(id_soal == $(this).attr('id-soal')){
+                // alert('asd');
+                // alert('asdas');
+                $(this).attr('class','number-test bg-warning text-center mb-2 py-2');
+            }
+            else if($(this).attr('data-checklist') == '1'){
+                $(this).attr('class','number-test bg-success text-center mb-2 py-2');
+            }
+            else{
+                $(this).attr('class','number-test bg-primary text-center mb-2 py-2');
+            }
+        });
+    }
+
+    loadSoal('<?=$id_soal?>','<?=$urutan?>');
+    // var id_soal_n = '';
+    function loadSoal(id_soal,urutan){
+        // id_soal_n = id_soal;
+        $('#isi-soal').html('<center>Loading...</center>');
+        $.ajax({
+            url : '<?=base_url()?>mmi/user/soal/replacePage/'+id_soal+'/'+urutan,
+            success : function(views){
+                $('#isi-soal').html(views);
+                generateBox(id_soal);
+            }
+        })
+    }
+</script>

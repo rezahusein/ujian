@@ -42,26 +42,33 @@
             </div>
             <div class="card-body">
                 <div class="show_error"></div>
+                <div class="row">
+                  <div class="col-6">
                 <div class="form-group">
+                      <label for="form-image">Gambar</label><br>
                  <img class="example-image-soal" src="<?=base_url()?>assets/images/no-image-available.png" style="width: 200px;height: 200px" alt=""> 
                 </div>
                 <div class="form-group">
-                      <label for="form-image">Gambar</label>
                       <input type="file" accept="image/*" name="" class="form-control change-image-soal" id="form-image"  placeholder="Masukan Image">
                       <input type="hidden" class="image-soal" name="dt[image]">
                       <div class="alert-upload">
                       </div>
                   </div>
-                  <div class="form-group example-voice-soal" >
+                  </div>
+                  <div class="col-6"> 
+                      <label for="form-image">Suara</label><br>
+                    <div class="form-group example-voice-soal" >
                  <img src="<?=base_url()?>assets/images/no-voice-available.png" style="width: 200px;height: 200px" alt=""> 
                 </div>
                   <div class="form-group">
-                      <label for="form-image">Suara</label>
                       <input type="file" accept="audio/*" name="" class="form-control change-voice-soal" id="form-image" placeholder="Masukan Image">
                       <input type="hidden" class="voice-soal" name="dt[voice]">
                       <div class="alert-upload">
                       </div>
                   </div>
+                  </div> 
+                </div>
+                  
                   <script>  
 var element_image='';
                     $(document).on('change','.change-voice-soal',function(e){

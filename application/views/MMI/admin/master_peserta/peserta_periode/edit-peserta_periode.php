@@ -46,28 +46,8 @@
                   </div><div class="form-group">
                       <label for="form-alamat_peserta">Alamat Peserta</label>
                       <input type="text" class="form-control" id="form-alamat_peserta" placeholder="Masukan Alamat Peserta" name="dt[alamat_peserta]" value="<?= $peserta_periode['alamat_peserta'] ?>">
-                  </div><div class="form-group">
-                      <label for="form-kode_peserta">Kode Peserta</label>
-                      <input type="text" class="form-control" id="form-kode_peserta" placeholder="Masukan Kode Peserta" name="dt[kode_peserta]" value="<?= $peserta_periode['kode_peserta'] ?>">
-                  </div><div class="form-group">
-                      <label for="form-id_periode">Id Periode</label>
-                      <input type="text" class="form-control" id="form-id_periode" placeholder="Masukan Id Periode" name="dt[id_periode]" value="<?= $peserta_periode['id_periode'] ?>">
-                  </div><div class="form-group">
-                      <label for="form-status_ujian">Status Ujian</label>
-                      <input type="text" class="form-control" id="form-status_ujian" placeholder="Masukan Status Ujian" name="dt[status_ujian]" value="<?= $peserta_periode['status_ujian'] ?>">
-                  </div><div class="form-group">
-                      <label for="form-waktu_mulai_ujian">Waktu Mulai Ujian</label>
-                      <input type="text" class="form-control" id="form-waktu_mulai_ujian" placeholder="Masukan Waktu Mulai Ujian" name="dt[waktu_mulai_ujian]" value="<?= $peserta_periode['waktu_mulai_ujian'] ?>">
-                  </div><div class="form-group">
-                      <label for="form-total_nilai">Total Nilai</label>
-                      <input type="text" class="form-control" id="form-total_nilai" placeholder="Masukan Total Nilai" name="dt[total_nilai]" value="<?= $peserta_periode['total_nilai'] ?>">
-                  </div><div class="form-group">
-                      <label for="form-nilai_pg">Nilai Pg</label>
-                      <input type="text" class="form-control" id="form-nilai_pg" placeholder="Masukan Nilai Pg" name="dt[nilai_pg]" value="<?= $peserta_periode['nilai_pg'] ?>">
-                  </div><div class="form-group">
-                      <label for="form-nilai_essay">Nilai Essay</label>
-                      <input type="text" class="form-control" id="form-nilai_essay" placeholder="Masukan Nilai Essay" name="dt[nilai_essay]" value="<?= $peserta_periode['nilai_essay'] ?>">
-                  </div></div>
+                  </div>
+                </div>
             <div class="card-footer">
                 <button type="submit" class="btn btn-primary btn-send" ><i class="fa fa-save"></i> Save</button>
                 <button type="reset" class="btn btn-danger"><i class="fa fa-refresh"></i> Reset</button>
@@ -109,7 +89,7 @@
                     if (str.indexOf("success") != -1){
                         form.find(".show_error").hide().html(response).slideDown("fast");
                         setTimeout(function(){ 
-                           window.location.href = "<?= base_url('mmi/admin/Peserta_periode') ?>";
+                           window.location.href = "<?= base_url('mmi/admin/Peserta_periode?id_periode='.$_GET['id_periode']) ?>";
                         }, 1000);
                         $(".btn-send").removeClass("disabled").html('<i class="fa fa-save"></i> Save').attr('disabled',false);
 

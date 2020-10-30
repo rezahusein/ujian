@@ -12,12 +12,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Soal Ujian</h1> 
+            <h1 class="m-0 text-dark">Peserta Ujian</h1> 
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Soal Ujian</li>
+              <li class="breadcrumb-item active">Peserta Ujian</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -32,26 +32,7 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header">
-                        <div class="row">
-                            <div class="col-md-6 d-flex">
-                                <h6>Filter Data</h6>
-                                <div class="periode-filter ml-2">
-                                    <select onchange="loadtable(this.value)" id="select-status" style="width: 150px" class="form-control">
-                                        <option value="ENABLE">ENABLE</option>
-                                        <option value="DISABLE">DISABLE</option>
-                                    </select>
-                                </div> 
-                            </div>
-
-                            <div class="col-md-6">   
-                                <div class="btn-create float-right">
-                                    <a href="<?= base_url('MMI/admin/master_periode/create') ?>" class="btn btn-success btn-sm">
-                                    <i class="fas fa-plus"></i> Tambah Periode Ujian
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        
+                        <h4>Periode</h4>
                     </div>
                     
                     <div class="card-body">
@@ -72,7 +53,7 @@
             var table = '<table class="table table-bordered table-hover table-striped d-table" id="mytable">'+
                    '     <thead>'+
                    '     <tr style="background: #8bc34a0d !important;">'+
-                   '       <th style="width:5%" class="text-center">No</th>'+'<th>Periode</th>'+'<th>Lama Waktu Ujian (Menit)</th>'+'<th>Persentase (Pilihan Ganda)</th>'+'<th>Persentase (Essay)</th>'+'<th>Diterbitkan Oleh</th>'+'       <th style="width:60px">Status</th>'+
+                   '       <th style="width:5%" class="text-center">No</th>'+'<th>Periode</th>'+'<th>Lama Waktu Ujian (Menit)</th>'+'<th>Peserta</th>'+'<th style="width:60px">Status</th>'+
                    '       <th style="width:100px">Action</th>'+
                    '     </tr>'+
                    '     </thead>'+
@@ -101,9 +82,10 @@
                 },
                 processing: true,
                 serverSide: true,
-                ajax: {"url": "<?= base_url('mmi/admin/Master_periode/json?status=') ?>"+status, "type": "POST"},
+                ajax: {"url": "<?= base_url('mmi/admin/Master_periode/json_peserta?status=') ?>"+status, "type": "POST"},
                 columns: [
-                    {"data": "id","orderable": false},{"data": "periode"},{"data": "lama_waktu_ujian"},{"data": "persentase_pg"},{"data": "persentase_essay"},{"data": "created_by"},
+                    {"data": "id","orderable": false},{"data": "periode"},{"data": "lama_waktu_ujian"},
+                   {"data": "status"},
                    {"data": "status"},
                     {   "data": "view",
                         "orderable": false
@@ -111,7 +93,7 @@
                 ],
                 order: [[1, 'asc']],
                 columnDefs : [
-                    { targets : [6],
+                    { targets : [4],
                         render : function (data, type, row, meta) {
                               // if(row['status']=='ENABLE'){
                               //   var htmls = '<a href="<?= base_url('MMI/admin/master_periode/status/') ?>'+row['id']+'/DISABLE">'+
@@ -124,8 +106,12 @@
 
                               // }
                               var batas = parseInt(row['periode_sampai'].replaceAll('-', ''));
+                              var batas_dari = parseInt(row['periode_dari'].replaceAll('-', ''));
                               if(parseInt('<?=date('Ymd')?>') > batas){
                                   var htmls= "<span class='badge badge-danger'><i class='fa fa-clock'></i> Expired</span>";
+                              }
+                              if(parseInt('<?=date('Ymd')?>') < batas_dari){
+                                  var htmls= "<span class='badge badge-warning'><i class='fa fa-clock'></i> Belum Dimulai</span>";
                               }
                               else{
                                 var htmls= "<span class='badge badge-success'><i class='fa fa-check'></i> Aktif</span>";
@@ -133,22 +119,29 @@
                               return htmls;
                           }
                       },
-                      { targets : [2],
-                        render : function (data, type, row, meta) {
-                              var htmls = row['lama_waktu_ujian']+' Menit';
-                              return htmls;
-                          }
-                      }
-                      ,
                       { targets : [3],
                         render : function (data, type, row, meta) {
-                              var htmls = row['persentase_pg']+'%';
+                              // if(row['status']=='ENABLE'){
+                              //   var htmls = '<a href="<?= base_url('MMI/admin/master_periode/status/') ?>'+row['id']+'/DISABLE">'+
+                              //               '    <span type="button" class="badge badge-success"> ENABLE</span>'+
+                              //               '</a>';
+                              // }else{
+                              //   var htmls = '<a href="<?= base_url('MMI/admin/master_periode/status/') ?>'+row['id']+'/ENABLE">'+
+                              //               '    <button type="button" class="btn btn-sm btn-sm btn-danger"><i class="fa fa-home"></i> DISABLE</button>'+
+                              //               '</a>';
+
+                              // }
+                              var htmls="<label class='badge badge-primary'>Jumlah Peserta : "+row['jumlah_peserta']+"</label><br>"+
+                              "<label class='badge badge-warning'>Peserta Belum Ujian : "+row['peserta_belum_ujian']+"</label><br>"+
+                              "<label class='badge badge-warning'>Peserta Sedang Ujian : "+row['peserta_sedang_ujian']+"</label><br>"+
+                              "<label class='badge badge-warning'>Peserta Menuggu Hasil : "+row['peserta_menunggu_hasil']+"</label><br>"+
+                              "<label class='badge badge-warning'>Peserta Selesai Ujian : "+row['peserta_selesai_ujian']+"</label><br>";
                               return htmls;
                           }
                       },
-                      { targets : [4],
+                      { targets : [2],
                         render : function (data, type, row, meta) {
-                              var htmls = row['persentase_essay']+'%';
+                              var htmls = row['lama_waktu_ujian']+' Menit';
                               return htmls;
                           }
                       }
@@ -165,10 +158,10 @@
          }
 
 
-         loadtable($("#select-status").val());
+         loadtable('ENABLE');
          
         function soal(id) {
-            location.href = "<?= base_url('mmi/admin/master_soal?id_periode=') ?>"+id;
+            location.href = "<?= base_url('mmi/admin/peserta_periode?id_periode=') ?>"+id;
 
           }
          function hapus(id) {

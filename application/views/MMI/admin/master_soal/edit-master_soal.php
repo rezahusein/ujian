@@ -36,7 +36,11 @@
             </div>
             <div class="card-body">
                 <div class="show_error"></div>
-                <div class="form-group">
+                <div class="row">
+                    <div class="col-6"> 
+
+                      <label for="form-image">Gambar</label><br>
+                      <div class="form-group">
                   <?php
                   if(!empty($master_soal['image'])){
                     ?>
@@ -51,7 +55,6 @@
                  ?> 
                 </div>
                 <div class="form-group">
-                      <label for="form-image">Gambar</label>
                       <input type="file" name="" class="form-control change-image-soal" id="form-image" placeholder="Masukan Image" accept="image/*" name="dokumen_image">
                       <input type="hidden" value="<?=@$master_soal['image']?>" class="image-soal" name="dt[image]" accept="image/*">
                       <div class="alert-upload">
@@ -67,7 +70,10 @@
                       ?>
                       <input type="hidden" class="status-file" value="<?=$status_file?>">
                   </div>
-                    <div class="form-group example-voice-soal" >
+                    </div> 
+                    <div class="col-6"> 
+                      <label for="form-image">Suara</label><br>
+                      <div class="form-group example-voice-soal" >
                        <?php
                   if(!empty($master_soal['voice'])){
                     ?>
@@ -82,7 +88,6 @@
                  ?> 
                 </div>
                   <div class="form-group">
-                      <label for="form-image">Suara</label>
                       <input type="file" accept="audio/*" name="" class="form-control change-voice-soal" id="form-image" placeholder="Masukan Image">
                       <input type="hidden" class="voice-soal" name="dt[voice]">
                       <div class="alert-upload">
@@ -98,6 +103,10 @@
                       ?>
                       <input type="hidden" class="status-file" value="<?=$status_file?>">
                   </div>
+                    </div>
+                </div>
+                
+                    
                   <script>  
 var element_image='';
                     $(document).on('change','.change-voice-soal',function(e){

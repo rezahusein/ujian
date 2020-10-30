@@ -43,7 +43,7 @@
                 </div>
                 <div class="col-md-6">
                   <div class="float-right">
-                  <a href="<?= base_url('mmi/admin/Peserta_periode/create') ?>">
+                  <a href="<?= base_url('mmi/admin/Peserta_periode/create?id_periode='.@$_GET['id_periode']) ?>">
                     <button type="button" class="btn btn-sm btn-success"><i class="fa fa-plus"></i> Tambah Peserta Periode</button> 
                   </a>
                   
@@ -125,8 +125,8 @@
             var table = '<table class="table table-bordered table-striped table-responsive d-table" id="mytable">'+
                    '     <thead>'+
                    '     <tr style="background: #8bc34a0d !important;">'+
-                   '       <th style="width:20px">No</th>'+'<th>Nama Peserta</th>'+'<th>Email Peserta</th>'+'<th>No Telp Peserta</th>'+'<th>Alamat Peserta</th>'+'<th>Kode Peserta</th>'+'<th>Id Periode</th>'+'<th>Status Ujian</th>'+'<th>Waktu Mulai Ujian</th>'+'<th>Total Nilai</th>'+'<th>Nilai Pg</th>'+'<th>Nilai Essay</th>'+'       <th style="width:150px">Status</th>'+
-                   '       <th style="width:200%">Action</th>'+
+                   '       <th style="width:20px">No</th>'+'<th>Nama Peserta</th>'+'<th>Email Peserta</th>'+'       <th style="width:150px">Status</th>'+
+                   '       <th style="width:100px">Action</th>'+
                    '     </tr>'+
                    '     </thead>'+
                    '     <tbody>'+
@@ -155,7 +155,7 @@
                 serverSide: true,
                 ajax: {"url": "<?= base_url('mmi/admin/Peserta_periode/json?status=') ?>"+status, "type": "POST"},
                 columns: [
-                    {"data": "id","orderable": false},{"data": "nama_peserta"},{"data": "email_peserta"},{"data": "no_telp_peserta"},{"data": "alamat_peserta"},{"data": "kode_peserta"},{"data": "id_periode"},{"data": "status_ujian"},{"data": "waktu_mulai_ujian"},{"data": "total_nilai"},{"data": "nilai_pg"},{"data": "nilai_essay"},
+                    {"data": "id","orderable": false},{"data": "nama_peserta"},{"data": "email_peserta"},
                    {"data": "status"},
                     {   "data": "view",
                         "orderable": false
@@ -163,7 +163,7 @@
                 ],
                 order: [[1, 'asc']],
                 columnDefs : [
-                    { targets : [12],
+                    { targets : [3],
                         render : function (data, type, row, meta) {
                               if(row['status']=='ENABLE'){
                                 var htmls = '<a href="<?= base_url('mmi/admin/Peserta_periode/status/') ?>'+row['id']+'/DISABLE">'+
@@ -194,7 +194,7 @@
          loadtable($("#select-status").val());
 
          function edit(id) {
-            location.href = "<?= base_url('mmi/admin/Peserta_periode/edit/') ?>"+id;
+            location.href = "<?= base_url('mmi/admin/Peserta_periode/edit/') ?>"+id+"?id_periode<?=$_GET['id_periode']?>";
          }
 
          function hapus(id) {

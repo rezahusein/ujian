@@ -55,7 +55,7 @@ $this->form_validation->set_rules('dt[persentase_essay]', '<strong>Persentase Es
 				$status = 'ENABLE';
 			}
 			header('Content-Type: application/json');
-	        $this->datatables->select('master_periode.id,CONCAT(DATE_FORMAT(periode_dari, "%d %M %Y")," - ",DATE_FORMAT(periode_sampai, "%d %M %Y")) AS periode,master_periode.periode_dari,master_periode.periode_sampai,master_periode.lama_waktu_ujian,persentase_pg,master_periode.persentase_essay,master_periode.status,user.name as created_by');
+	        $this->datatables->select('master_periode.standar_nilai,master_periode.id,CONCAT(DATE_FORMAT(periode_dari, "%d %M %Y")," - ",DATE_FORMAT(periode_sampai, "%d %M %Y")) AS periode,master_periode.periode_dari,master_periode.periode_sampai,master_periode.lama_waktu_ujian,persentase_pg,master_periode.persentase_essay,master_periode.status,user.name as created_by,(SELECT COUNT(*) FROM master_soal WHERE master_soal.id_periode=master_periode.id) AS jumlah_soal,(SELECT COUNT(*) FROM master_soal WHERE master_soal.id_periode=master_periode.id AND master_soal.jenis_soal="pg") AS jumlah_soal_pg,(SELECT COUNT(*) FROM master_soal WHERE master_soal.id_periode=master_periode.id AND master_soal.jenis_soal="essay") AS jumlah_soal_essay,(SELECT COUNT(*) FROM peserta_periode WHERE peserta_periode.id_periode=master_periode.id) AS jumlah_peserta,(SELECT COUNT(*) FROM peserta_periode WHERE peserta_periode.id_periode=master_periode.id AND peserta_periode.status_ujian = "belum ujian") AS peserta_belum_ujian,(SELECT COUNT(*) FROM peserta_periode WHERE peserta_periode.id_periode=master_periode.id AND peserta_periode.status_ujian = "sedang ujian") AS peserta_sedang_ujian,(SELECT COUNT(*) FROM peserta_periode WHERE peserta_periode.id_periode=master_periode.id AND peserta_periode.status_ujian = "menunggu hasil") AS peserta_menunggu_hasil,(SELECT COUNT(*) FROM peserta_periode WHERE peserta_periode.id_periode=master_periode.id AND peserta_periode.status_ujian = "selesai ujian") AS peserta_selesai_ujian');
 	        $this->datatables->join('user','user.id=master_periode.created_by','left');
 	        $this->datatables->where('master_periode.status',$status);
 	        $this->datatables->from('master_periode');
@@ -68,7 +68,7 @@ $this->form_validation->set_rules('dt[persentase_essay]', '<strong>Persentase Es
 					<a class="text-white btn btn-sm btn-success mb-1" onclick="" data-toggle="tooltip" data-placement="top" title="Preview Soal Ujian">
 						<i class="fas fa-eye"></i> Preview 
 					</a> 
-					<a class="text-white btn btn-sm btn-danger mb-1" onclick="">
+					<a class="text-white btn btn-sm btn-danger mb-1" href="'.base_url('MMI/admin/master_periode/status/').'$1/DISABLE">
 					<i class="fas fa-ban"></i> Disable
 					</a> 
 
@@ -80,7 +80,39 @@ $this->form_validation->set_rules('dt[persentase_essay]', '<strong>Persentase Es
 					
 
 	    	}else{
-	        $this->datatables->add_column('view', '<div class="btn-group"><button type="button" class="btn btn-sm btn-primary" onclick="edit($1)"><i class="fa fa-pencil"></i> Edit</button><button type="button" onclick="hapus($1)" class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i> Hapus</button></div>', 'id');
+	        $this->datatables->add_column('view', '<div class="btn-group"><button type="button" class="btn btn-sm btn-primary" onclick="edit($1)"><i class="fa fa-pencil"></i> Edit</button><a class="text-white btn btn-sm btn-success" href="'.base_url('MMI/admin/master_periode/status/').'$1/ENABLE">
+					<i class="fas fa-check"></i> Enable
+					</a> <button type="button" onclick="hapus($1)" class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i> Hapus</button></div>', 'id');
+
+	    	}
+	        echo $this->datatables->generate();
+		}
+
+		public function json_peserta()
+		{
+			$status = $_GET['status'];
+			if($status==''){
+				$status = 'ENABLE';
+			}
+			header('Content-Type: application/json');
+	        $this->datatables->select('master_periode.standar_nilai,master_periode.id,CONCAT(DATE_FORMAT(periode_dari, "%d %M %Y")," - ",DATE_FORMAT(periode_sampai, "%d %M %Y")) AS periode,master_periode.periode_dari,master_periode.periode_sampai,master_periode.lama_waktu_ujian,persentase_pg,master_periode.persentase_essay,master_periode.status,user.name as created_by,(SELECT COUNT(*) FROM master_soal WHERE master_soal.id_periode=master_periode.id) AS jumlah_soal,(SELECT COUNT(*) FROM master_soal WHERE master_soal.id_periode=master_periode.id AND master_soal.jenis_soal="pg") AS jumlah_soal_pg,(SELECT COUNT(*) FROM master_soal WHERE master_soal.id_periode=master_periode.id AND master_soal.jenis_soal="essay") AS jumlah_soal_essay,(SELECT COUNT(*) FROM peserta_periode WHERE peserta_periode.id_periode=master_periode.id) AS jumlah_peserta,(SELECT COUNT(*) FROM peserta_periode WHERE peserta_periode.id_periode=master_periode.id AND peserta_periode.status_ujian = "belum ujian") AS peserta_belum_ujian,(SELECT COUNT(*) FROM peserta_periode WHERE peserta_periode.id_periode=master_periode.id AND peserta_periode.status_ujian = "sedang ujian") AS peserta_sedang_ujian,(SELECT COUNT(*) FROM peserta_periode WHERE peserta_periode.id_periode=master_periode.id AND peserta_periode.status_ujian = "menunggu hasil") AS peserta_menunggu_hasil,(SELECT COUNT(*) FROM peserta_periode WHERE peserta_periode.id_periode=master_periode.id AND peserta_periode.status_ujian = "selesai ujian") AS peserta_selesai_ujian');
+	        $this->datatables->join('user','user.id=master_periode.created_by','left');
+	        $this->datatables->where('master_periode.status',$status);
+	        $this->datatables->from('master_periode');
+	        if($status=="ENABLE"){
+					$this->datatables->add_column('view', 
+					'
+					<a class="text-white btn btn-sm btn-info mb-1" onclick="soal($1)">
+					<i class="fas fa-users"></i> Peserta
+					</a> 
+						
+					</div>', 'id');
+					
+
+	    	}else{
+	        $this->datatables->add_column('view', '<div class="btn-group"><button type="button" class="btn btn-sm btn-primary" onclick="edit($1)"><i class="fa fa-pencil"></i> Edit</button><a class="text-white btn btn-sm btn-success" href="'.base_url('MMI/admin/master_periode/status/').'$1/ENABLE">
+					<i class="fas fa-check"></i> Enable
+					</a> <button type="button" onclick="hapus($1)" class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i> Hapus</button></div>', 'id');
 
 	    	}
 	        echo $this->datatables->generate();

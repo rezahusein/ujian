@@ -17,16 +17,17 @@
   <link rel="stylesheet" href="<?= base_url("MMI-assets/")?>dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-</head>
-<body class="hold-transition login-page">
-<?= $contents ?>
-
+  
 <!-- jQuery -->
 <script src="<?= base_url("MMI-assets/")?>plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="<?= base_url("MMI-assets/")?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?= base_url("MMI-assets/")?>dist/js/adminlte.min.js"></script>
+</head>
+<body class="hold-transition login-page">
+<?= $contents ?>
+
 
 </body>
 </html>

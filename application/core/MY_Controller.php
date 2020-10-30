@@ -40,6 +40,34 @@ abstract class MY_Controller extends CI_Controller{
 		define('IV', '**#$7843874^^&$*#&7');
 	}
 
+	public function sendEmail($isiEmail,$subject,$email)
+        { 
+            $this->load->library('PHPMailerAutoload');
+            // $mail = $this->PHPMailer_Library->load();
+            $mail = new PHPMailer();
+            $mail->SMTPDebug = 0;
+            $mail->Debugoutput = 'html';
+            
+            // set smtp
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->Port = 465;
+            $mail->IsHTML(true);  
+            $mail->SMTPSecure = "ssl";  // prefix for secure protocol to connect to the server 
+            $mail->SMTPAuth = true;
+            $mail->Username   = "rezahusein24@gmail.com";  // alamat email kamu
+            $mail->Password   = "12345oke";            // password GMail 
+            // set email content
+            $mail->setFrom('rezahusein24@gmail.com', 'MMI Admin');
+            $mail->addAddress($email);
+            $mail->Subject = $subject."!";
+            $mail->Body = $isiEmail;
+            
+              if(!$mail->send()) {  
+            } else { 
+            }
+        }
+
 	public function upload_file($files)
 
 	{

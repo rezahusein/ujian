@@ -24,17 +24,10 @@
 		public function validate()
 		{
 			$this->form_validation->set_error_delimiters('<li>', '</li>');
-			$this->form_validation->set_rules('dt[nama_peserta]', '<strong>Nama Peserta</strong>', 'required');
-			$this->form_validation->set_rules('dt[email_peserta]', '<strong>Email Peserta</strong>', 'required');
-			$this->form_validation->set_rules('dt[no_telp_peserta]', '<strong>No Telp Peserta</strong>', 'required');
-			$this->form_validation->set_rules('dt[alamat_peserta]', '<strong>Alamat Peserta</strong>', 'required');
-			$this->form_validation->set_rules('dt[kode_peserta]', '<strong>Kode Peserta</strong>', 'required');
-			$this->form_validation->set_rules('dt[id_periode]', '<strong>Id Periode</strong>', 'required');
-			$this->form_validation->set_rules('dt[status_ujian]', '<strong>Status Ujian</strong>', 'required');
-			$this->form_validation->set_rules('dt[waktu_mulai_ujian]', '<strong>Waktu Mulai Ujian</strong>', 'required');
-			$this->form_validation->set_rules('dt[total_nilai]', '<strong>Total Nilai</strong>', 'required');
-			$this->form_validation->set_rules('dt[nilai_pg]', '<strong>Nilai Pg</strong>', 'required');
-			$this->form_validation->set_rules('dt[nilai_essay]', '<strong>Nilai Essay</strong>', 'required');
+	$this->form_validation->set_rules('dt[nama_peserta]', '<strong>Nama Peserta</strong>', 'required');
+$this->form_validation->set_rules('dt[email_peserta]', '<strong>Email Peserta</strong>', 'required');
+$this->form_validation->set_rules('dt[no_telp_peserta]', '<strong>No Telp Peserta</strong>', 'required');
+$this->form_validation->set_rules('dt[alamat_peserta]', '<strong>Alamat Peserta</strong>', 'required');
 	}
 
 		public function store()
@@ -44,11 +37,17 @@
 				$this->alert->alertdanger(validation_errors());     
 	        }else{
 	        	$dt = $_POST['dt'];
+	        	$dt['kode_peserta'] = $this->template->generateToken();
+	        	$subject = 'Pemberian Kode Token Ujian';
+	        	$isi = 'Kode Token Anda : '.$dt['kode_peserta'];
+	        	$email = $dt['email_peserta'];
+	        	$this->sendEmail($isi,$subject,$email);
+	        	$dt['id_periode'] = $_GET['id_periode'];
 				$dt['created_at'] = date('Y-m-d H:i:s');
 				$dt['status'] = "ENABLE";
 				$str = $this->db->insert('peserta_periode', $dt);
-				$last_id = $this->db->insert_id();$this->alert->alertsuccess('Success Send Data');   
-					
+				$last_id = $this->db->insert_id();
+				$this->alert->alertsuccess('Success Send Data');   
 			}
 		}
 

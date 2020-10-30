@@ -15,7 +15,7 @@
       <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0 text-dark">Buat Soal</h1> 
+              <h1 class="m-0 text-dark">Soal</h1> 
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
@@ -107,7 +107,7 @@
             var table = '<table class="table table-bordered table-hover table-striped" id="mytable">'+
                    '     <thead>'+
                    '     <tr style="background: #8bc34a0d !important;">'+
-                   '       <th style="width:20px">No</th>'+'<th>Image</th>'+'<th>Deskripsi</th>'+'<th>Jenis Soal</th>'+'<th>Id Jawaban</th>'+'<th>Id Periode</th>'+'<th>Urutan Soal</th>'+'       <th style="width:150px">Status</th>'+
+                   '       <th style="width:20px">No</th>'+'<th>Gambar</th>'+'<th>Suara</th>'+'<th>Deskripsi</th>'+'<th>Jenis Soal</th>'+'<th>Urutan Soal</th>'+
                    '       <th style="width:150px">Action</th>'+
                    '     </tr>'+
                    '     </thead>'+
@@ -135,31 +135,51 @@
                 },
                 processing: true,
                 serverSide: true,
-                ajax: {"url": "<?= base_url('master/Master_soal/json?id_periode='.@$_GET['id_periode'].'&status=') ?>"+status, "type": "POST"},
+                ajax: {"url": "<?= base_url('mmi/admin/Master_soal/json?id_periode='.@$_GET['id_periode'].'&status=') ?>"+status, "type": "POST"},
                 columns: [
-                    {"data": "id","orderable": false},{"data": "image"},{"data": "deskripsi"},{"data": "jenis_soal"},{"data": "id_jawaban"},{"data": "id_periode"},{"data": "urutan_soal"},
-                   {"data": "status"},
+                    {"data": "id","orderable": false},{"data": "image"},{"data": "voice"},{"data": "deskripsi"},{"data": "jenis_soal"},{"data": "urutan_soal"},
                     {   "data": "view",
                         "orderable": false
                     }
                 ],
-                order: [[1, 'asc']],
+                order: [[5, 'asc']],
                 columnDefs : [
-                    { targets : [7],
+                      { targets : [1],
                         render : function (data, type, row, meta) {
-                              if(row['status']=='ENABLE'){
-                                var htmls = '<a href="<?= base_url('mmi/admin/Master_soal/status/') ?>'+row['id']+'/DISABLE">'+
-                                            '    <button type="button" class="btn btn-sm btn-sm btn-success"> Enable </button>'+
-                                            '</a>';
+                              if(row['image']){
+                                var htmls = '<img style="width:200px;height:200px" src="<?=base_url()?>'+row['image']+'">';
                               }else{
-                                var htmls = '<a href="<?= base_url('mmi/admin/Master_soal/status/') ?>'+row['id']+'/ENABLE">'+
-                                            '    <button type="button" class="btn btn-sm btn-sm btn-danger"> Disabled</button>'+
-                                            '</a>';
+                                var htmls= "<span class='badge badge-danger'>Tidak Ada</span>";
+                                // var htmls = '<audio controls><source src="<?=base_url()?>'+row['']+'" type="audio/ogg"></audio>';
 
                               }
                               return htmls;
                           }
-                      }
+                      },
+                      { targets : [2],
+                        render : function (data, type, row, meta) {
+                              if(row['voice']){
+                                var htmls = '<audio controls><source src="<?=base_url()?>'+row['voice']+'" type="audio/ogg"></audio>';
+                              }else{
+                                var htmls= "<span class='badge badge-danger'>Tidak Ada</span>";
+
+                              }
+                              return htmls;
+                          }
+                      },
+                      { targets : [4],
+                        render : function (data, type, row, meta) {
+                              if(row['jenis_soal'] == 'pg'){
+                                var htmls = 'Pilihan Ganda';
+                              }else{
+                                var htmls= "Essay";
+                                // var htmls = '<audio controls><source src="<?=base_url()?>'+row['']+'" type="audio/ogg"></audio>';
+
+                              }
+                              return htmls;
+                          }
+                      },
+
                 ],
              
                 rowCallback: function(row, data, iDisplayIndex) {

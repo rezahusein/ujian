@@ -49,7 +49,7 @@
 		public function validate()
 		{
 			$this->form_validation->set_error_delimiters('<li>', '</li>');
-	$this->form_validation->set_rules('dt[image]', '<strong>Image</strong>', 'required');
+	// $this->form_validation->set_rules('dt[image]', '<strong>Image</strong>', 'required');
 $this->form_validation->set_rules('dt[deskripsi]', '<strong>Deskripsi</strong>', 'required');
 $this->form_validation->set_rules('dt[jenis_soal]', '<strong>Jenis Soal</strong>', 'required');
 // $this->form_validation->set_rules('dt[id_jawaban]', '<strong>Id Jawaban</strong>', 'required');
@@ -169,7 +169,7 @@ $this->form_validation->set_rules('dt[jenis_soal]', '<strong>Jenis Soal</strong>
 			if(!empty($_GET['id_periode'])){
 				$this->datatables->where('id_periode',$_GET['id_periode']);
 			}
-	        $this->datatables->select('id,image,deskripsi,jenis_soal,id_jawaban,id_periode,urutan_soal,status');
+	        $this->datatables->select('id,image,voice,deskripsi,jenis_soal,id_jawaban,id_periode,urutan_soal,status');
 	        $this->datatables->where('status',$status);
 	        $this->datatables->from('master_soal');
 	        if($status=="ENABLE"){
@@ -178,10 +178,13 @@ $this->form_validation->set_rules('dt[jenis_soal]', '<strong>Jenis Soal</strong>
 					<a class="btn btn-sm btn-warning" onclick="edit($1)">
 						<i class="fas fa-edit"></i> Edit 
 					</a>
+					<a class="text-white btn btn-sm btn-danger mb-1" href="'.base_url('mmi/admin/Master_soal/status/').'$1/DISABLE">
+					<i class="fas fa-ban"></i> Disable
+					</a> 
 				</div>', 'id');
 
 	    	}else{
-	        $this->datatables->add_column('view', '<div class="btn-group"><button type="button" class="btn btn-sm btn-warning" onclick="edit($1)"><i class="fas fa-edit"></i> Edit</button><button type="button" onclick="hapus($1)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Hapus</button></div>', 'id');
+	        $this->datatables->add_column('view', '<div class="btn-group"><button type="button" class="btn btn-sm btn-warning" onclick="edit($1)"><i class="fas fa-edit"></i> Edit</button><a class="text-white btn btn-sm btn-success mb-1" href="'.base_url('mmi/admin/Master_soal/status/').'$1/ENABLE"><i class="fas fa-check"></i> Enable</a> <button type="button" onclick="hapus($1)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Hapus</button></div>', 'id');
 
 	    	}
 	        echo $this->datatables->generate();
@@ -201,7 +204,7 @@ $this->form_validation->set_rules('dt[jenis_soal]', '<strong>Jenis Soal</strong>
 		public function status($id,$status)
 		{
 			$this->mymodel->updateData('master_soal',array('status'=>$status),array('id'=>$id));
-			redirect('master/Master_soal');
+			redirect($_SERVER['HTTP_REFERER']);
 		}
 
 

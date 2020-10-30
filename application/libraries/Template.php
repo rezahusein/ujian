@@ -10,6 +10,15 @@ class Template {
 			$this->template_data[$name] = $value;
 		}
 
+		function generateToken(){
+				$huruf = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+				$kode = '';
+				for($d = 0;$d<10;$d++){
+					$kode .= $huruf[rand(0,(strlen($huruf) - 1))];
+				}
+				return $kode;
+		}
+
 		function load($template = '', $view = '' , $view_data = array(), $return = FALSE)
 		{
 			$this->CI =& get_instance();

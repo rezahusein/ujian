@@ -72,7 +72,7 @@
             var table = '<table class="table table-bordered table-hover table-striped d-table" id="mytable">'+
                    '     <thead>'+
                    '     <tr style="background: #8bc34a0d !important;">'+
-                   '       <th style="width:5%" class="text-center">No</th>'+'<th>Periode</th>'+'<th>Lama Waktu Ujian (Menit)</th>'+'<th>Persentase (Pilihan Ganda)</th>'+'<th>Persentase (Essay)</th>'+'<th>Diterbitkan Oleh</th>'+'       <th style="width:60px">Status</th>'+
+                   '       <th style="width:5%" class="text-center">No</th>'+'<th>Periode</th>'+'<th>Lama Waktu Ujian (Menit)</th>'+'<th>Persentase (Pilihan Ganda)</th>'+'<th>Persentase (Essay)</th>'+'<th>Standar Nilai</th>'+'       <th>Jumlah Soal</th>'+'       <th style="width:60px">Status</th>'+
                    '       <th style="width:100px">Action</th>'+
                    '     </tr>'+
                    '     </thead>'+
@@ -103,7 +103,7 @@
                 serverSide: true,
                 ajax: {"url": "<?= base_url('mmi/admin/Master_periode/json?status=') ?>"+status, "type": "POST"},
                 columns: [
-                    {"data": "id","orderable": false},{"data": "periode"},{"data": "lama_waktu_ujian"},{"data": "persentase_pg"},{"data": "persentase_essay"},{"data": "created_by"},
+                    {"data": "id","orderable": false},{"data": "periode"},{"data": "lama_waktu_ujian"},{"data": "persentase_pg"},{"data": "persentase_essay"},{"data": "standar_nilai"},{"data": "jumlah_soal"},
                    {"data": "status"},
                     {   "data": "view",
                         "orderable": false
@@ -111,7 +111,7 @@
                 ],
                 order: [[1, 'asc']],
                 columnDefs : [
-                    { targets : [6],
+                    { targets : [7],
                         render : function (data, type, row, meta) {
                               // if(row['status']=='ENABLE'){
                               //   var htmls = '<a href="<?= base_url('MMI/admin/master_periode/status/') ?>'+row['id']+'/DISABLE">'+
@@ -124,8 +124,12 @@
 
                               // }
                               var batas = parseInt(row['periode_sampai'].replaceAll('-', ''));
+                              var batas_dari = parseInt(row['periode_dari'].replaceAll('-', ''));
                               if(parseInt('<?=date('Ymd')?>') > batas){
                                   var htmls= "<span class='badge badge-danger'><i class='fa fa-clock'></i> Expired</span>";
+                              }
+                              if(parseInt('<?=date('Ymd')?>') < batas_dari){
+                                  var htmls= "<span class='badge badge-warning'><i class='fa fa-clock'></i> Belum Dimulai</span>";
                               }
                               else{
                                 var htmls= "<span class='badge badge-success'><i class='fa fa-check'></i> Aktif</span>";
@@ -136,6 +140,16 @@
                       { targets : [2],
                         render : function (data, type, row, meta) {
                               var htmls = row['lama_waktu_ujian']+' Menit';
+                              return htmls;
+                          }
+                      }
+                      ,
+                      { targets : [6],
+                        render : function (data, type, row, meta) {
+                              var htmls = '<span class="badge badge-primary">Jumlah Soal : '+row['jumlah_soal']+'</span>'+
+                              '<span class="badge badge-warning">Jumlah Soal Pilihan Ganda: '+row['jumlah_soal_pg']+'</span>'+
+                              '<span class="badge badge-warning">Jumlah Soal Essay: '+row['jumlah_soal_essay']+'</span>'
+                              ;
                               return htmls;
                           }
                       }

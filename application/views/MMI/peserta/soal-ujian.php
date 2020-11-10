@@ -54,11 +54,13 @@
                         $id_soal = '';
                             foreach($soal_pg as $i => $pg){
                                 $color_label = '';
+                                
                                 if(empty($user['id_soal_terakhir']) && $i == 0){
                                     $urutan = $i+1;
                                     $id_soal = $pg['id'];
                                     $color_label = 'bg-warning';
                                 }
+
                                 else if($pg['id'] == $user['id_soal_terakhir']){
                                     $urutan = $i+1;
                                     $id_soal = $pg['id'];
@@ -81,6 +83,7 @@
                         </div>
 
                         <?php } ?>
+                        
                         <div class="col-12" style="border-top: 1px dotted grey">
                             <h6>Soal Essay</h6>   
                         </div>
@@ -134,6 +137,7 @@
         elementid = $(this);
         loadSoal(elementid.attr('id-soal'),elementid.attr('urutan-soal'));
     });
+
     function generateBox(id_soal){
 
         $('.number-test').each(function(){
@@ -153,6 +157,7 @@
     }
 
     loadSoal('<?=$id_soal?>','<?=$urutan?>');
+
     // var id_soal_n = '';
     function loadSoal(id_soal,urutan){
         // id_soal_n = id_soal;

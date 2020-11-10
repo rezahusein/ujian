@@ -85,12 +85,13 @@
                     $(".btn-send").addClass("disabled").html("<i class='la la-spinner la-spin'></i>  Processing...").attr('disabled',true);
                     form.find(".show_error").slideUp().html("");
                 },
+
                 success: function(response, textStatus, xhr) {
                     // alert(mydata);
                    var str = response;
                     if (str.indexOf("success") != -1){
                         form.find(".show_error").hide().html(response).slideDown("fast");
-                        setTimeout(function(){ 
+                        setTimeout(function(){  
                            window.location.href = "<?= base_url('mmi/admin/Peserta_periode?id_periode='.$_GET['id_periode']) ?>";
                         }, 1000);
                         $(".btn-send").removeClass("disabled").html('<i class="fa fa-save"></i> Save').attr('disabled',false);

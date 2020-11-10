@@ -45,8 +45,10 @@ $this->form_validation->set_rules('dt[alamat_peserta]', '<strong>Alamat Peserta<
 	        	$dt['id_periode'] = $_GET['id_periode'];
 				$dt['created_at'] = date('Y-m-d H:i:s');
 				$dt['status'] = "ENABLE";
+
 				$str = $this->db->insert('peserta_periode', $dt);
 				$last_id = $this->db->insert_id();
+
 				$this->alert->alertsuccess('Success Send Data');   
 			}
 		}
@@ -95,9 +97,10 @@ $this->form_validation->set_rules('dt[alamat_peserta]', '<strong>Alamat Peserta<
 				$id = $this->input->post('id', TRUE);		$dt = $_POST['dt'];
 					$dt['updated_at'] = date("Y-m-d H:i:s");
 					$this->mymodel->updateData('peserta_periode', $dt , array('id'=>$id));
+
 					$this->alert->alertsuccess('Success Update Data');  }
 		}
-
+		
 		public function delete()
 		{
 				$id = $this->input->post('id', TRUE);$this->alert->alertdanger('Success Delete Data');     

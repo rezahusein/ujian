@@ -34,7 +34,9 @@
               </h5>
             </div>
             <div class="card-body">
-                <div class="show_error"></div><div class="form-group">
+                <div class="show_error"></div>
+                
+                <div class="form-group">
                       <label for="form-nama_peserta">Nama Peserta</label>
                       <input type="text" class="form-control" id="form-nama_peserta" placeholder="Masukan Nama Peserta" name="dt[nama_peserta]" value="<?= $peserta_periode['nama_peserta'] ?>">
                   </div><div class="form-group">
@@ -90,9 +92,9 @@
                         form.find(".show_error").hide().html(response).slideDown("fast");
                         setTimeout(function(){ 
                            window.location.href = "<?= base_url('mmi/admin/Peserta_periode?id_periode='.$_GET['id_periode']) ?>";
-                        }, 1000);
-                        $(".btn-send").removeClass("disabled").html('<i class="fa fa-save"></i> Save').attr('disabled',false);
+                           $(".btn-send").removeClass("disabled").html('<i class="fa fa-save"></i> Save').attr('disabled',false);
 
+                        }, 1000);
 
                     }else{
                         form.find(".show_error").hide().html(response).slideDown("fast");
@@ -101,9 +103,12 @@
                     }
                 },
                 error: function(xhr, textStatus, errorThrown) {
-                  console.log(xhr);
+
+                  console.log(response);
                     $(".btn-send").removeClass("disabled").html('<i class="fa fa-save"></i> Save').attr('disabled',false);
                     form.find(".show_error").hide().html(xhr).slideDown("fast");
+
+                 
 
                 }
             });

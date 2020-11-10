@@ -306,7 +306,8 @@ var element_image='';
                             if(eleid.closest('tr').find('.jenis-jawaban').val() == 'gambar' && (gambar)){
                       //         alert();
                             var form_data = new FormData();  
-                      form_data.append("image_old", eleid.closest('tr').find('.isi-jawaban').find('.image-jawaban').val()); 
+                            form_data.append("image_old", eleid.closest('tr').find('.isi-jawaban').find('.image-jawaban').val()); 
+                            
                             $.ajax({
                               url: "<?=base_url()?>mmi/admin/master_soal/reset_image",
                               type : 'POST',

@@ -30,7 +30,8 @@ class Soal extends CI_Controller {
         $this->db->select('id_soal,jenis_soal,jawaban_essay'); 
         $jawaban = $this->mymodel->selectWhere('peserta_jawaban',array('id_peserta_periode'=>$data['user']['id']));
         $jawaban_array = array();
-        foreach($jawaban as $jwb){
+		
+		foreach($jawaban as $jwb){
         	if($jwb['jenis_soal'] == 'essay'){
         		if(!empty($jwb['jawaban_essay'])){
         			$jawaban_array[] = $jwb['id_soal'];
@@ -39,18 +40,22 @@ class Soal extends CI_Controller {
         	else{
         		$jawaban_array[] = $jwb['id_soal'];
         	}
-        }
-        $data['jawaban'] = $jawaban_array; 
-        $mulai_ujian = date('Y-m-d H:i:s');
+		}
+		
+		$data['jawaban'] = $jawaban_array; 
+		$mulai_ujian = date('Y-m-d H:i:s');
+		
         if(!empty($data['user']['waktu_mulai_ujian'])){
         	$mulai_ujian = $data['user']['waktu_mulai_ujian'];
         }
         else{
         	$this->db->update('peserta_periode',array('waktu_mulai_ujian'=>$mulai_ujian,'status_ujian'=>'sedang ujian'),array('id'=>$data['user']['id']));
-        }
+		}
+		
         $data['expired_date'] = date('M d, Y H:i:s',strtotime('+'.$data['periode']['lama_waktu_ujian'].' minutes',strtotime($mulai_ujian)));
         // echo $data['expired_date'];
-        $this->template->load('MMI/layouts/app-user','MMI/peserta/soal-ujian',$data);
+		$this->template->load('MMI/layouts/app-user','MMI/peserta/soal-ujian',$data);
+		
     }
     public function loadSoal($id_soal,$urutan){
     	$user = $this->mymodel->selectDataone('peserta_periode',array('email_peserta'=>$this->session->userdata('session_mobile')['email'],'kode_peserta'=>$this->session->userdata('session_mobile')['token']));
@@ -67,11 +72,13 @@ class Soal extends CI_Controller {
     	$data['before'] = $this->mymodel->selectDataone('master_soal',array('urutan_soal<'=>$data['soal']['urutan_soal'],'id_periode'=>$user['id_periode'],'jenis_soal'=>$data['soal']['jenis_soal'])); 
     	$data['jawaban_pg'] = $this->mymodel->selectWhere('master_jawaban_pg',array('id_soal'=>$id_soal));
     	$this->load->view('mmi/peserta/list-soal',$data);
-    }
+	}
+	
     public function replacePage($id_soal,$urutan){
     	$user = $this->mymodel->selectDataone('peserta_periode',array('email_peserta'=>$this->session->userdata('session_mobile')['email'],'kode_peserta'=>$this->session->userdata('session_mobile')['token']));
     	$this->db->update('peserta_periode',array('id_soal_terakhir'=>$id_soal),array('email_peserta'=>$this->session->userdata('session_mobile')['email'],'kode_peserta'=>$this->session->userdata('session_mobile')['token']));
-    	$this->loadSoal($id_soal,$urutan);
+		
+		$this->loadSoal($id_soal,$urutan); 
     }
     public function answerePage($id_soal){
     	$post = $this->input->post();

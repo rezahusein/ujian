@@ -1,0 +1,1145 @@
+nav {
+  background: #0066b2 !important;
+}
+
+nav .navbar-nav .nav-link {
+  position: relative;
+}
+
+nav .navbar-nav .nav-link:after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0px;
+  -webkit-transform: translateX(-50%) scale(0);
+          transform: translateX(-50%) scale(0);
+  -webkit-transform-origin: bottom center;
+          transform-origin: bottom center;
+  width: 100%;
+  height: 2px;
+  background-color: #FABA0D;
+  -webkit-transition: all 220ms;
+  transition: all 220ms;
+}
+
+nav .navbar-nav .nav-link:hover:after {
+  -webkit-transform: translateX(-50%) scale(1);
+          transform: translateX(-50%) scale(1);
+}
+
+nav .navbar-nav a {
+  color: white !important;
+  margin-left: 20px;
+  font-size: 17px;
+  -webkit-transition: 0.1s ease-out;
+  transition: 0.1s ease-out;
+}
+
+nav .navbar-nav .active {
+  font-weight: 400;
+  font-size: 18px;
+  text-transform: capitalize !important;
+}
+
+nav .navbar-nav .btn-login {
+  background-color: #F7941D !important;
+  outline: none;
+  margin-top: 0px;
+}
+
+@media (max-width: 991px) {
+  nav .navbar-nav .btn-login {
+    margin-top: 15px !important;
+  }
+}
+
+nav .navbar-nav .btn-login:hover {
+  background: #FF9800 !important;
+}
+
+.bg-footer-blue {
+  background: #0066B2;
+  width: 100%;
+  padding: 30px;
+}
+
+.bg-footer-blue .link-footer a {
+  color: white;
+}
+
+.bg-footer-blue .link-footer a:hover {
+  color: #F7941D;
+}
+
+.bg-footer-blue .fonts-group a {
+  color: white;
+  font-size: 18px;
+}
+
+#maphome {
+  width: 100%;
+}
+
+@media (max-width: 767.98px) {
+  #maphome {
+    width: 100%;
+  }
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #f5f5f5 !important;
+}
+
+@media (max-width: 991px) {
+  .section-intro-mmi {
+    background: #0066b2 !important;
+  }
+}
+
+.section-intro-mmi .bg-blue-mmi {
+  width: 100%;
+  height: 500px;
+  position: absolute;
+  z-index: -99;
+  display: block;
+}
+
+@media (max-width: 991px) {
+  .section-intro-mmi .bg-blue-mmi {
+    display: none;
+  }
+}
+
+@media (max-width: 991px) {
+  .section-intro-mmi .section-intro-mmi-continue .fl {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .section-intro-mmi .section-intro-mmi-continue .fl .or-2 {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+  .section-intro-mmi .section-intro-mmi-continue .fl .or-1 {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+}
+
+.section-intro-mmi .section-intro-mmi-continue .content-left {
+  margin-top: 100px;
+  color: white;
+}
+
+.section-intro-mmi .section-intro-mmi-continue .content-left h2 {
+  font-size: 59px;
+  font-weight: 500;
+}
+
+@media (max-width: 991px) {
+  .section-intro-mmi .section-intro-mmi-continue .content-left h2 {
+    font-size: 40px;
+    text-align: center;
+    margin-top: -71px;
+  }
+}
+
+.section-intro-mmi .section-intro-mmi-continue .content-left p {
+  font-size: 18px;
+  font-weight: 100;
+  line-height: 30px;
+  /* or 133% */
+}
+
+@media (max-width: 991px) {
+  .section-intro-mmi .section-intro-mmi-continue .content-left p {
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.7;
+    text-align: center;
+  }
+}
+
+.section-intro-mmi .section-intro-mmi-continue .content-left .btn-yuk-bergabung {
+  background: #FF9800;
+  color: white;
+  letter-spacing: 0.8px;
+}
+
+.section-intro-mmi .section-intro-mmi-continue .content-left .btn-yuk-bergabung:hover {
+  background: #2196F3;
+  color: white;
+}
+
+@media (max-width: 991px) {
+  .section-intro-mmi .section-intro-mmi-continue .content-left .btn-yuk-bergabung {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin: 0 auto;
+  }
+}
+
+.section-intro-mmi .section-intro-mmi-continue .img-right {
+  display: block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+@media (max-width: 991px) {
+  .section-intro-mmi .section-intro-mmi-continue .img-right .dd {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .section-intro-mmi .section-intro-mmi-continue .img-right img {
+    width: 200px;
+    margin-top: 50px !important;
+    margin-left: 0px !important;
+  }
+}
+
+.section-intro-mmi .section-intro-mmi-continue .img-right img {
+  margin-top: 140px;
+  margin-left: -80px;
+  max-width: 100%;
+}
+
+.section-keuntungan .text-keuntungan {
+  margin-top: 150px;
+}
+
+.section-keuntungan .text-keuntungan h1 {
+  font-size: 64px;
+  color: #0066B2;
+  font-weight: 500;
+}
+
+@media (max-width: 991px) {
+  .section-keuntungan .text-keuntungan h1 {
+    font-size: 2.3rem;
+    text-align: center;
+  }
+}
+
+.section-keuntungan .text-keuntungan .carousel-inner .bg-carousel-1 {
+  background: white !important;
+  padding: 30px;
+  border-radius: 10px;
+  -webkit-box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.08);
+          box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.08);
+}
+
+.section-keuntungan .text-keuntungan .carousel-inner .content-bg-carousel span {
+  color: #F7941D;
+}
+
+.section-sebaran .bg-blue {
+  background: #0066B2;
+  width: 100%;
+  padding-top: 20px;
+  color: white;
+  height: 300px;
+}
+
+.section-sebaran .bg-blue .group-bg-blue {
+  margin-right: 100px;
+  margin-left: 100px;
+}
+
+@media (max-width: 767.98px) {
+  .section-sebaran .bg-blue .group-bg-blue h1 {
+    font-size: 30px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .section-sebaran .bg-blue .group-bg-blue p {
+    text-align: center;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .section-sebaran .bg-blue .group-bg-blue {
+    text-align: center;
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .section-sebaran .bg-blue {
+    padding-top: 0;
+  }
+}
+
+.section-pelatihan {
+  margin-top: 5rem !important;
+}
+
+.section-pelatihan .group-image-title {
+  position: relative;
+}
+
+.section-pelatihan .group-image-title .title-img {
+  display: block;
+  position: absolute;
+  background: #F7941D;
+  -webkit-box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.16);
+          box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.16);
+  border-radius: 16px;
+  top: -50px;
+  z-index: 99;
+  left: -50px;
+  padding: 30px;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 42px;
+  color: #FFFFFF;
+}
+
+@media (max-width: 767.98px) {
+  .section-pelatihan .group-image-title {
+    margin-top: 15%;
+  }
+  .section-pelatihan .group-image-title .title-img {
+    left: -7px;
+    top: -100px;
+  }
+}
+
+.section-pelatihan .text-pelatihan p {
+  line-height: 28px;
+  color: #888888;
+}
+
+.section-pelatihan .text-pelatihan .btn-selengkapnya {
+  background: #F7941D;
+  color: white;
+  border: none;
+}
+
+@media (max-width: 767.98px) {
+  .section-kata-mereka .h1-kata-mereka {
+    font-size: 2.3rem !important;
+  }
+}
+
+.section-kata-mereka .card-custom {
+  background: #FFFFFF;
+  -webkit-box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.08);
+          box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  border: none;
+}
+
+@media (max-width: 767.98px) {
+  .section-kata-mereka .card-custom img {
+    width: 50%;
+  }
+  .section-kata-mereka .card-custom .col-custom {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+.section-kata-mereka .card-custom .name-title h3 {
+  color: #0066B2;
+}
+
+.section-kata-mereka .card-custom .name-title .quote-subtitle {
+  font-size: 24px;
+  line-height: 28px;
+  color: #666666;
+}
+
+.section-kata-mereka .custom-dots li {
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  background: #0066B2;
+  cursor: pointer;
+}
+
+.section-kata-mereka .custom-dots li.active {
+  background-color: #F7941D;
+  width: 15px;
+  height: 15px;
+  -webkit-transition: all 200ms ease-out;
+  transition: all 200ms ease-out;
+}
+
+.section-loker .card-loker-custom {
+  width: 99%;
+  border-radius: 20px !important;
+  border: none;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.section-loker .card-loker-custom .img-loker {
+  width: 100%;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-size: cover;
+  border-radius: 20px 20px 0px 0px;
+}
+
+.section-loker .card-loker-custom .group-button-loker .btn-login-custom-job-detail {
+  border: 1px solid #0066B2;
+  color: #0066B2;
+}
+
+.section-loker .card-loker-custom .group-button-loker .btn-login-custom-job-detail:hover {
+  background: #0066B2;
+  color: white;
+}
+
+.section-loker .card-loker-custom .group-button-loker .btn-login-custom-sent-lamaran {
+  background: #0066B2;
+  color: white;
+}
+
+.section-loker .card-loker-custom .group-button-loker .btn-login-custom-sent-lamaran:hover {
+  border: 1px solid #0066B2;
+  color: #0066B2;
+  background: white;
+}
+
+@media (max-width: 767.98px) {
+  .section-jadwal-tes-mmi .group-calendar {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .section-jadwal-tes-mmi .group-calendar button {
+    margin-bottom: 10px;
+  }
+}
+
+.section-jadwal-tes-mmi .group-calendar .btn-tes-today:hover {
+  background: #FF9800 !important;
+  color: white !important;
+  -webkit-transition: all 200ms ease-in;
+  transition: all 200ms ease-in;
+}
+
+.section-jadwal-tes-mmi .left-detail-tes table tr td {
+  border: none !important;
+}
+
+.modal .modal-header button {
+  border: none;
+  outline: none;
+  width: 40px;
+  height: 40px;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.modal .modal-header .close {
+  border-radius: 100px;
+  background: #0066B2;
+  color: white;
+  font-size: 14px;
+}
+
+.modal .modal-body .benefit-fasilitas span i {
+  color: #FF9800;
+}
+
+.section-bg-faq .bg-faq {
+  background: url("/images/faq-bg-mmi.svg") center no-repeat;
+  width: 100%;
+  height: 294px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-size: cover;
+}
+
+.section-faq .faq-content .card .arrow-right-1 {
+  -webkit-transition: all 200ms ease-in;
+  transition: all 200ms ease-in;
+}
+
+.section-faq .faq-content .card .arrow-right-2 {
+  -webkit-transition: all 200ms ease-in;
+  transition: all 200ms ease-in;
+}
+
+.section-faq .faq-content .card .arrow-right-3 {
+  -webkit-transition: all 200ms ease-in;
+  transition: all 200ms ease-in;
+}
+
+.section-faq .group-category ul li:hover {
+  background: #0066B2;
+  cursor: pointer;
+  -webkit-transition: background 200ms ease-in-out;
+  transition: background 200ms ease-in-out;
+}
+
+.section-faq .group-category ul li:hover a {
+  color: white;
+  left: 5px;
+  -webkit-transition: left 200ms ease-in;
+  transition: left 200ms ease-in;
+}
+
+.section-faq .group-category ul li a {
+  position: relative;
+  color: #333;
+  left: 0;
+}
+
+.section-faq .group-category ul li a:hover {
+  text-decoration: none;
+}
+
+.arrow-right-slide {
+  -webkit-transform: rotateZ(90deg);
+          transform: rotateZ(90deg);
+  -webkit-transition: all 200ms ease-in;
+  transition: all 200ms ease-in;
+}
+
+@media (max-width: 991px) {
+  .login-section .login-card {
+    width: 100% !important;
+  }
+  .login-section .inline-form {
+    display: block !important;
+  }
+  .login-section .inline-form .margin-style {
+    margin-left: 0 !important;
+  }
+}
+
+.login-section .login-card {
+  width: 50%;
+}
+
+.login-section .login-card .btn-submit-custom {
+  background: #0066b2;
+  color: white;
+}
+
+.login-section .login-card .btn-submit-custom:hover {
+  background: #065895;
+}
+
+.section-berita-mmi .pagination-custom .page-item {
+  margin-left: 10px;
+  border-radius: 100px;
+  color: #0066b2;
+  background: none;
+}
+
+.section-berita-mmi .pagination-custom .page-item.active a {
+  background: #0066b2 !important;
+  color: #fff;
+}
+
+.section-berita-mmi .pagination-custom .page-item a {
+  border-radius: 100px;
+  border: none;
+  border: 1px solid #0066b2;
+  padding: .5rem .85rem !important;
+}
+
+.section-berita-mmi .custom-dots li {
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  background: #0066B2;
+  cursor: pointer;
+}
+
+.section-berita-mmi .custom-dots li.active {
+  background-color: #F7941D;
+  width: 15px;
+  height: 15px;
+  -webkit-transition: all 200ms ease-out;
+  transition: all 200ms ease-out;
+}
+
+.section-berita-mmi .card-custom {
+  width: 97% !important;
+}
+
+@media (max-width: 850px) {
+  .section-berita-mmi .card-custom {
+    padding-right: 15px !important;
+  }
+  .section-berita-mmi .card-custom .img-left img {
+    width: 150px !important;
+    height: auto !important;
+  }
+  .section-berita-mmi .card-custom .title-berita {
+    padding-bottom: 20px;
+  }
+  .section-berita-mmi .card-custom .title-berita h3 {
+    font-size: 17px !important;
+  }
+}
+
+.section-berita-mmi .img-berita {
+  width: 100%;
+  overflow: hidden;
+  height: 363px;
+}
+
+.section-berita-mmi .img-berita:hover .caption-img {
+  top: -100px;
+}
+
+.section-berita-mmi .img-berita .img-class {
+  width: 100%;
+  height: 363px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.section-berita-mmi .img-berita .caption-img {
+  background: #0066B2;
+  width: 100%;
+  height: 100px;
+  position: relative;
+  top: 0px;
+  -webkit-transition: top 300ms ease-in-out;
+  transition: top 300ms ease-in-out;
+}
+
+.section-isi-berita .bg-berita {
+  background: url("/images/bg-berita-1.svg") center top no-repeat;
+  width: 100%;
+  height: 600px;
+  background-size: cover;
+}
+
+.section-kontak {
+  position: relative;
+}
+
+@media (max-width: 767.98px) {
+  .section-kontak .bg-circle-blue-kontak {
+    display: none !important;
+  }
+  .section-kontak .h3 {
+    margin-left: 0 !important;
+    text-align: center;
+    color: #0066B2 !important;
+  }
+  .section-kontak .card-custom {
+    width: 100% !important;
+  }
+}
+
+.section-kontak .bg-circle-blue-kontak {
+  width: 100%;
+  height: 450px;
+  left: 0%;
+  background-color: #0066b2;
+  border-radius: 0 0 40% 40%;
+  border-bottom: 0;
+  top: -50px;
+  display: block;
+  position: absolute;
+  z-index: -999;
+}
+
+.section-kontak img {
+  display: none;
+}
+
+.section-cara-kerja h1 {
+  font-size: 30px;
+  text-align: center;
+}
+
+.section-kirim-lamaran .card .step-form-bar .step-circle-1 {
+  background: #0066b2;
+  width: 15px;
+  height: 15px;
+  border-radius: 100px;
+}
+
+.section-kirim-lamaran .card .step-form-bar .step-strip {
+  background: #ececec;
+  width: 20px;
+  height: 3px;
+}
+
+.section-kirim-lamaran .card .step-form-bar .step-circle-2 {
+  border: 2px solid #ececec;
+  width: 15px;
+  height: 15px;
+  border-radius: 100px;
+}
+
+.step-circle-2-js {
+  border: none !important;
+  background: #0066b2;
+}
+
+.section-layanan .bg-section-layanan {
+  background: url("/images/bg-layanan.svg") center no-repeat;
+  width: 100%;
+  height: auto;
+  background-size: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.section-layanan .bg-section-layanan .linear {
+  background: -webkit-gradient(linear, right top, left top, color-stop(50%, #091f72de), to(transparent));
+  background: linear-gradient(to left, #091f72de 50%, transparent);
+  width: 100%;
+  height: auto;
+}
+
+.section-layanan .bg-section-layanan .right-content {
+  margin-top: 130px;
+  padding-bottom: 130px;
+}
+
+@media (max-width: 991px) {
+  .section-layanan .bg-section-layanan .right-content {
+    width: 100% !important;
+    margin-top: 60px !important;
+    padding-bottom: 40px !important;
+  }
+  .section-layanan .bg-section-layanan .right-content h1 {
+    font-size: 30px;
+    text-align: center;
+  }
+  .section-layanan .bg-section-layanan .right-content p {
+    font-size: 16px !important;
+    text-align: center;
+  }
+}
+
+.section-layanan .bg-section-layanan .right-content h1 {
+  font-size: 48px;
+}
+
+.section-layanan .bg-section-layanan .right-content p {
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.section-layanan .keuntungan {
+  background: linear-gradient(104.6deg, #0066B2 0%, #091F72 108.69%);
+  width: 100%;
+  padding-bottom: 50px;
+}
+
+.section-layanan .keuntungan .card {
+  border-radius: 15px !important;
+}
+
+@media (max-width: 991px) {
+  .section-layanan-2 .bg-section-layanan-training .left-content {
+    float: none;
+    width: 100% !important;
+  }
+  .section-layanan-2 .bg-section-layanan-training .left-content h1 {
+    font-size: 38px !important;
+  }
+  .section-layanan-2 .bg-section-layanan-training .left-content p {
+    font-size: 15px;
+  }
+  .section-layanan-2 .bg-section-layanan-sertifikasi .right-content {
+    float: none;
+    width: 100% !important;
+  }
+  .section-layanan-2 .bg-section-layanan-sertifikasi .right-content h1 {
+    font-size: 38px !important;
+  }
+  .section-layanan-2 .bg-section-layanan-sertifikasi .right-content p {
+    font-size: 15px;
+  }
+  .section-layanan-2 .bg-section-layanan-alih-daya .left-content {
+    float: none;
+    width: 100% !important;
+  }
+  .section-layanan-2 .bg-section-layanan-alih-daya .left-content h1 {
+    font-size: 38px !important;
+  }
+  .section-layanan-2 .bg-section-layanan-alih-daya .left-content p {
+    font-size: 15px;
+  }
+  .section-layanan-2 .bg-section-layanan-coaching .right-content {
+    float: none;
+    width: 100% !important;
+  }
+  .section-layanan-2 .bg-section-layanan-coaching .right-content h1 {
+    font-size: 38px !important;
+  }
+  .section-layanan-2 .bg-section-layanan-coaching .right-content p {
+    font-size: 15px;
+  }
+  .section-layanan-2 .bg-section-layanan-assesment .left-content {
+    float: none;
+    width: 100% !important;
+  }
+  .section-layanan-2 .bg-section-layanan-assesment .left-content h1 {
+    font-size: 38px !important;
+  }
+  .section-layanan-2 .bg-section-layanan-assesment .left-content p {
+    font-size: 15px;
+  }
+}
+
+.section-layanan-2 .bg-section-layanan-training {
+  background: url("/images/bg-layanan-training.svg") center no-repeat;
+  width: 100%;
+  height: auto;
+  background-size: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
+  padding-bottom: 0px;
+}
+
+.section-layanan-2 .bg-section-layanan-training .linear {
+  background: -webkit-gradient(linear, left top, right top, color-stop(40%, #091f72de), to(transparent));
+  background: linear-gradient(to right, #091f72de 40%, transparent);
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+
+.section-layanan-2 .bg-section-layanan-training .linear .left-content {
+  padding-bottom: 120px;
+}
+
+.section-layanan-2 .bg-section-layanan-training .linear .left-content h1 {
+  font-size: 48px;
+}
+
+.section-layanan-2 .bg-section-layanan-training .linear .left-content p {
+  line-height: 1.7;
+}
+
+.section-layanan-2 .bg-section-layanan-sertifikasi {
+  background: url("/images/bg-layanan-sertifikasi.svg") center no-repeat;
+  width: 100%;
+  height: auto;
+  background-size: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
+  padding-bottom: 0px;
+}
+
+.section-layanan-2 .bg-section-layanan-sertifikasi .linear {
+  background: -webkit-gradient(linear, right top, left top, color-stop(40%, #091f72de), to(transparent));
+  background: linear-gradient(to left, #091f72de 40%, transparent);
+  width: 100%;
+  height: auto;
+}
+
+.section-layanan-2 .bg-section-layanan-sertifikasi .linear .right-content {
+  padding-bottom: 120px;
+}
+
+.section-layanan-2 .bg-section-layanan-sertifikasi .linear .right-content h1 {
+  font-size: 48px;
+}
+
+.section-layanan-2 .bg-section-layanan-sertifikasi .linear .right-content p {
+  line-height: 1.7;
+}
+
+.section-layanan-2 .bg-section-layanan-alih-daya {
+  background: url("/images/bg-layanan-alih-daya.svg") center no-repeat;
+  width: 100%;
+  height: auto;
+  background-size: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
+  padding-bottom: 0px;
+}
+
+.section-layanan-2 .bg-section-layanan-alih-daya .linear {
+  background: -webkit-gradient(linear, left top, right top, color-stop(40%, #091f72de), to(transparent));
+  background: linear-gradient(to right, #091f72de 40%, transparent);
+  width: 100%;
+  height: auto;
+}
+
+.section-layanan-2 .bg-section-layanan-alih-daya .linear .left-content {
+  padding-bottom: 120px;
+}
+
+.section-layanan-2 .bg-section-layanan-alih-daya .linear .left-content h1 {
+  font-size: 48px;
+}
+
+.section-layanan-2 .bg-section-layanan-alih-daya .linear .left-content p {
+  line-height: 1.7;
+}
+
+.section-layanan-2 .bg-section-layanan-coaching {
+  background: url("/images/bg-layanan-coaching.svg") center no-repeat;
+  width: 100%;
+  height: auto;
+  background-size: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
+  padding-bottom: 0px;
+}
+
+.section-layanan-2 .bg-section-layanan-coaching .linear {
+  background: -webkit-gradient(linear, right top, left top, color-stop(40%, #091f72de), to(transparent));
+  background: linear-gradient(to left, #091f72de 40%, transparent);
+  width: 100%;
+  height: auto;
+}
+
+.section-layanan-2 .bg-section-layanan-coaching .linear .right-content {
+  padding-bottom: 120px;
+}
+
+.section-layanan-2 .bg-section-layanan-coaching .linear .right-content h1 {
+  font-size: 48px;
+}
+
+.section-layanan-2 .bg-section-layanan-coaching .linear .right-content p {
+  line-height: 1.7;
+}
+
+.section-layanan-2 .bg-section-layanan-assesment {
+  background: url("/images/bg-layanan-assesment.svg") center no-repeat;
+  width: 100%;
+  height: auto;
+  background-size: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.section-layanan-2 .bg-section-layanan-assesment .linear {
+  background: -webkit-gradient(linear, left top, right top, color-stop(40%, #091f72de), to(transparent));
+  background: linear-gradient(to right, #091f72de 40%, transparent);
+  width: 100%;
+  height: auto;
+}
+
+.section-layanan-2 .bg-section-layanan-assesment .linear .left-content {
+  padding-bottom: 120px;
+}
+
+.section-layanan-2 .bg-section-layanan-assesment .linear .left-content h1 {
+  font-size: 48px;
+}
+
+.section-layanan-2 .bg-section-layanan-assesment .linear .left-content p {
+  line-height: 1.7;
+}
+
+.section-cara-kerja .title-cara-kerja h5 {
+  color: #F7941D;
+}
+
+.section-profile-perusahaan {
+  background: url("/images/bg-profile-perusahaan.svg") center no-repeat;
+  width: 100%;
+  height: auto;
+  background-size: cover;
+}
+
+@media (max-width: 775px) {
+  .section-profile-perusahaan .big-text h1 {
+    font-size: 50px !important;
+  }
+  .section-profile-perusahaan .big-text hr {
+    margin-top: 10px !important;
+  }
+  .section-profile-perusahaan .play-image img {
+    margin-top: -100px !important;
+  }
+}
+
+.section-profile-perusahaan .big-text {
+  padding-bottom: 175px;
+}
+
+.section-profile-perusahaan .big-text h1 {
+  font-size: 64px;
+  color: white;
+  padding-top: 100px;
+}
+
+.section-profile-perusahaan .big-text hr {
+  border: 3px solid white;
+  margin-top: 50px;
+  width: 27%;
+  float: left;
+}
+
+.section-profile-2 {
+  margin-top: 150px;
+}
+
+.section-profile-2 .content-wrapper h2 {
+  color: #0066B2;
+  font-size: 36px;
+}
+
+.section-profile-2 .content-wrapper hr {
+  width: 7%;
+  float: left;
+  display: block;
+  border: 2px solid #0066B2;
+}
+
+.section-profile-2 .content-wrapper p {
+  line-height: 1.7;
+  color: #888888;
+}
+
+@media (max-width: 767.98px) {
+  .section-profile-4 .ilmu-padi .img-center-mobile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 30px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .section-profile-4 .ilmu-padi .img-center-mobile img {
+    float: none !important;
+    width: 100px;
+  }
+  .section-profile-4 h1 {
+    font-size: 29px !important;
+  }
+  .section-profile-4 p {
+    font-size: 18px !important;
+  }
+}
+
+.section-profile-3 {
+  background: #0066B2;
+  width: 100%;
+  height: auto;
+  padding: 70px;
+}
+
+@media (max-width: 991px) {
+  .section-profile-3 {
+    padding: 50px 0 0 0  !important;
+  }
+}
+
+.section-profile-3 .row hr {
+  width: 7%;
+  float: left;
+  display: block;
+  border: 2px solid white;
+}
+
+.section-profile-3 .row p {
+  line-height: 1.7;
+}
+
+.section-profile-5 {
+  margin-top: 200px;
+}
+
+.section-profile-5 .card .social-media span {
+  margin-right: 12px;
+}
+
+.section-profile-5 .card .social-media span a {
+  color: #888888;
+}
+
+@media (max-width: 767.98px) {
+  .section-profile-6 .big-text-profile-6 {
+    font-size: 40px !important;
+  }
+}
+
+.section-profile-6 .slide .range {
+  background: #c4c4c4;
+  width: 100%;
+  height: 8px;
+}
+
+.section-profile-6 .slide .range .range-th {
+  background: #F7941D;
+  height: 8px;
+}
+
+.section-profile-6 .slide .range .th {
+  border: 1px solid #F7941D;
+  width: 100px;
+  background: #f5f5f5;
+  text-align: center;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  border-radius: 50px;
+  color: #F7941D;
+}
+
+.section-profile-6 .slide .carousel .controls-bottom .btn-prev {
+  background: transparent;
+  padding: 7px 13px;
+  width: 40px;
+  color: #0066B2;
+  border: 1px solid #0066B2;
+  border-radius: 100px;
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+}
+
+.section-profile-6 .slide .carousel .controls-bottom .btn-prev:hover {
+  background: #0066B2;
+  color: white;
+}
+
+.section-profile-6 .slide .carousel .controls-bottom .btn-next {
+  background: #0066B2;
+  padding: 7px 13px;
+  width: 40px;
+  border: 1px solid transparent;
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+  color: white;
+  border-radius: 100px;
+  margin-left: 23px;
+}
+
+.section-profile-6 .slide .carousel .controls-bottom .btn-next:hover {
+  background: transparent;
+  border: 1px solid #0066B2;
+  color: #0066B2;
+}
+/*# sourceMappingURL=style.css.map */

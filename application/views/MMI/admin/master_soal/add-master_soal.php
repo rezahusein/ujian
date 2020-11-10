@@ -96,7 +96,8 @@ var element_image='';
                         success: function(response){
                         // alert('berhasil');
                         var json_res = JSON.parse(response);
-                        $('.example-voice-soal').html('<audio controls><source src="<?=base_url()?>'+json_res.filename+'" type="audio/ogg"></audio>');
+                        var voice = json_res.filename.split('.');
+                        $('.example-voice-soal').html('<audio controls><source src="<?=base_url()?>'+json_res.filename+'" type="audio/'+voice[voice.length-1]+'"></audio>');
                         element_image.siblings('.alert-upload').html('<label class="label label-success"><i class="fa fa-check"></i> Berhasil Upload</label>');
                         element_image.siblings('.voice-soal').val(json_res.filename);
                           // element_image.val(response);

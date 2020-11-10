@@ -56,13 +56,25 @@
             </a>
           </li>    
           
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a href="<?= site_url('mmi/admin/Soal_ujian') ?>" class="nav-link">
               <i class="nav-icon fas fa-clipboard-list"></i>
               <p>
                 Preview Ujian
               </p>
             </a>
+          </li> -->
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-users"></i>
+              <p>
+                Akun
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+            <li class="nav-item"><a href="<?=base_url()?>mmi/admin/akun" class="nav-link"><i class="far fa-circle nav-icon"></i> Pengelola</a></li>
+            <li class="nav-item"><a href="<?=base_url()?>mmi/admin/akun?role=peserta" class="nav-link"><i class="far fa-circle nav-icon"></i> Peserta</a></li>
+          </ul>
           </li>
 
         </ul>

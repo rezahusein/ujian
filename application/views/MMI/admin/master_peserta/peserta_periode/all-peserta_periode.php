@@ -24,6 +24,11 @@
               </ol>
             </div><!-- /.col -->
           </div><!-- /.row -->
+          <div class="row">
+            <div class="col-md-12 mb-2">
+                  <a href="<?=base_url()?>mmi/admin/master_peserta" class="btn btn-sm btn-danger"><i class="fas fa-chevron-left"></i> Kembali</a>
+            </div>
+          </div>
         </div><!-- /.container-fluid -->
     </section>
     <!-- Main content -->
@@ -35,11 +40,11 @@
             <div class="card-header">
               <div class="row">
                 <div class="col-md-6">
-                  <select onchange="loadtable(this.value)" id="select-status" style="width: 150px" class="form-control">
+                  <!-- <select onchange="loadtable(this.value)" id="select-status" style="width: 150px" class="form-control">
                       <option value="ENABLE">ENABLE</option>
                       <option value="DISABLE">DISABLE</option>
 
-                  </select>
+                  </select> -->
                 </div>
                 <div class="col-md-6">
                   <div class="float-right">
@@ -125,7 +130,9 @@
             var table = '<table class="table table-bordered table-striped table-responsive d-table" id="mytable">'+
                    '     <thead>'+
                    '     <tr style="background: #8bc34a0d !important;">'+
-                   '       <th style="width:20px">No</th>'+'<th>Nama Peserta</th>'+'<th>Email Peserta</th>'+'       <th style="width:150px">Status</th>'+
+                   '       <th style="width:20px">No</th>'+'<th>Nama Peserta</th>'+'<th>Email Peserta</th>'+'<th>Token</th>'+'       <th style="width:150px">Status</th>'+
+                   '       <th style="width:100px">Kelulusan</th>'+
+                   '       <th style="width:100px">Nilai</th>'+
                    '       <th style="width:100px">Action</th>'+
                    '     </tr>'+
                    '     </thead>'+
@@ -153,26 +160,75 @@
                 },
                 processing: true,
                 serverSide: true,
+                responsive : false,
                 ajax: {"url": "<?= base_url('mmi/admin/Peserta_periode/json?status=') ?>"+status, "type": "POST"},
                 columns: [
-                    {"data": "id","orderable": false},{"data": "nama_peserta"},{"data": "email_peserta"},
+                    {"data": "id","orderable": false},{"data": "nama_peserta"},{"data": "email_peserta"},{"data": "kode_peserta"},
                    {"data": "status"},
+                   {"data": "kelulusan"},
+                   {"data": "total_nilai"},
                     {   "data": "view",
                         "orderable": false
                     }
                 ],
                 order: [[1, 'asc']],
                 columnDefs : [
-                    { targets : [3],
+                    { targets : [4],
                         render : function (data, type, row, meta) {
                               if(row['status']=='ENABLE'){
-                                var htmls = '<a href="<?= base_url('mmi/admin/Peserta_periode/status/') ?>'+row['id']+'/DISABLE">'+
-                                            '    <button type="button" class="btn btn-sm btn-sm btn-success"> ENABLE</button>'+
+                                if(row['status_ujian'] == 'sedang ujian'){
+                                  var htmls = '<span class="badge badge-warning"><i class="fas fa-clock"></i> Sedang Ujian</span>';
+                                }
+                                if('<?=date('Y-m-d H:i:s')?>' > row['waktu_expired'] || row['status_ujian'] == 'menunggu hasil'){
+                                  var htmls = '<span class="badge badge-warning"><i class="fas fa-clock"></i> Menunggu Konfirmasi</span>';
+                                }
+                                if(row['status_ujian'] == 'selesai ujian'){
+                                  var htmls = '<span class="badge badge-success"><i class="fas fa-check"></i> Selesai Ujian</span>';
+                                }
+                                if(row['status_ujian'] == 'belum ujian'){
+                                  var htmls = '<span class="badge badge-danger"><i class="fas fa-clock"></i> Belum Ujian</span>';
+                                }
+                              }else{
+                                var htmls = '<label class="label label-danger"><i class="fas fa-remove"></i> Tidak Aktif</label>';
+                              }
+                              return htmls;
+                          }
+                      },
+                      { targets : [5],
+                        render : function (data, type, row, meta) {
+                                if(row['status_ujian'] == 'selesai ujian'){
+                                  if(row['kelulusan'] == 'lulus'){
+                                    var htmls = '<span class="badge badge-success"><i class="fas fa-check"></i> Lulus</span>';
+                                  }
+                                  else{
+                                    var htmls = '<span class="badge badge-danger"><i class="fas fa-times"></i> Tidak Lulus</span>';
+                                  }
+                                }
+                                else{
+                                  var htmls = '<span class="badge badge-warning"><i class="fas fa-clock"></i> Belum Dikonfirmasi</span>';
+                                }
+                              return htmls;
+                          }
+                      },
+                      { targets : [6],
+                        render : function (data, type, row, meta) {
+                                if(row['status_ujian'] == 'selesai ujian'){
+                                  var htmls = row['total_nilai'];
+                                }
+                                else{
+                                  var htmls = '<span class="badge badge-warning"><i class="fas fa-clock"></i> Belum Dikonfirmasi</span>';
+                                }
+                              return htmls;
+                          }
+                      },
+                      { targets : [7],
+                        render : function (data, type, row, meta) {
+                              if(row['status_ujian']=='menunggu hasil' || '<?=date('Y-m-d H:i:s')?>' > row['waktu_expired']){
+                                var htmls = '<a href="<?= base_url('mmi/admin/Peserta_periode/setNilai/') ?>'+row['id']+'">'+
+                                            '    <button type="button" class="btn btn-sm btn-sm btn-warning"> Konfirmasi Nilai</button>'+
                                             '</a>';
                               }else{
-                                var htmls = '<a href="<?= base_url('mmi/admin/Peserta_periode/status/') ?>'+row['id']+'/ENABLE">'+
-                                            '    <button type="button" class="btn btn-sm btn-sm btn-danger"> DISABLE</button>'+
-                                            '</a>';
+                                var htmls = '<span class="badge badge-danger">Tidak Tersedia</span>';
 
                               }
                               return htmls;
@@ -191,7 +247,7 @@
          }
 
 
-         loadtable($("#select-status").val());
+         loadtable('ENABLE');
 
          function edit(id) {
             location.href = "<?= base_url('mmi/admin/Peserta_periode/edit/') ?>"+id+"?id_periode<?=$_GET['id_periode']?>";

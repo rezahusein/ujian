@@ -76,8 +76,9 @@
                       <div class="form-group example-voice-soal" >
                        <?php
                   if(!empty($master_soal['voice'])){
+                    $voice = explode('.',$master_soal['voice']);
                     ?>
-                 <audio controls><source src="<?=base_url().$master_soal['voice']?>" type="audio/ogg"></audio>
+                 <audio controls><source src="<?=base_url().$master_soal['voice']?>" type="audio/<?=$voice[count($voice)-1]?>"></audio>
                     <?php
                   }
                   else{
@@ -134,6 +135,8 @@ var element_image='';
                         success: function(response){
                         // alert('berhasil');
                         var json_res = JSON.parse(response);
+                        var voice = json_res.filename.split('.');
+                        $('.example-voice-soal').html('<audio controls><source src="<?=base_url()?>'+json_res.filename+'" type="audio/'+voice[voice.length-1]+'"></audio>');
                         $('.example-voice-soal').html('<audio controls><source src="<?=base_url()?>'+json_res.filename+'" type="audio/ogg"></audio>');
                         element_image.siblings('.alert-upload').html('<label class="label label-success"><i class="fa fa-check"></i> Berhasil Upload</label>');
                         element_image.siblings('.voice-soal').val(json_res.filename);

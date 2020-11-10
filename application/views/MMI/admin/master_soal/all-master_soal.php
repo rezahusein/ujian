@@ -159,7 +159,8 @@
                       { targets : [2],
                         render : function (data, type, row, meta) {
                               if(row['voice']){
-                                var htmls = '<audio controls><source src="<?=base_url()?>'+row['voice']+'" type="audio/ogg"></audio>';
+                                var voice = row['voice'].split('.');
+                                var htmls = '<audio controls><source src="<?=base_url()?>'+row['voice']+'" type="audio/'+voice[voice.length-1]+'"></audio>';
                               }else{
                                 var htmls= "<span class='badge badge-danger'>Tidak Ada</span>";
 

@@ -12,7 +12,7 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light mb-5" >
+<nav class="navbar navbar-expand-lg navbar-light" >
     <div class="container">
         <a class="navbar-brand" href="index.html">
             <img src="images/logo-brand-mmi.svg" alt="" width="170px" height="100">
@@ -38,45 +38,103 @@
         </div>
     </div>
 </nav>
-<section class="login-section" style="margin-top: 100px;">
+<section class="section-bg-faq">
+    <div class="bg-faq"></div>
+</section>
+<section class="mt-4 section-faq">
     <div class="container">
         <div class="row">
-            <div class="col d-flex justify-content-center">
-                    <div class="login-card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="card ">
-                            <div class="card-body">
-                                <span class="h5 d-block text-center">Masuk <b style="color: #0066b2">MMI</b></span>
-                                <form action="" class="mt-3">
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                                        </div>
-                                        <input type="email" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon1">
-                                    </div>
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
-                                        </div>
-                                        <input type="password" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1">
-                                    </div>
+            <div class="col-md-8">
+                <div class="faq-content">
+                    <div class="card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card-body">
+                            <h5 class="text-bold">Apakah PT. MMI itu ?</h5>
+                            <p>PT. MMI atau Micro Madani Institute adalah perusahaan afiliasi dari BUMN PT. PNM Persero yang mempunyai tugas mengelola sumberdaya manusia di perusahaan tersebut</p>
+                        </div>
+                    </div>
 
-                                    <button class="btn btn-block btn-submit-custom" type="submit">MASUK</button>
-                                </form>
-
-                           
+                    <div class="card mt-4 mb-2"data-aos="fade-up" data-aos-delay="300" >
+                        <div class="card-body" id="card-faq-1" style="cursor: pointer;" data-toggle="collapse" data-target="#faq-answer-1">
+                            <div class="title-faq d-flex justify-content-between">
+                                <h6>Apa saja layanan MMI ? </h6>
+                                <span class="float-right arrow-right-1" ><i class="fas fa-chevron-right"></i></span>
+                            </div>
+                            <div id="faq-answer-1" class="collapse">
+                                <ul>
+                                    <li>Lorem ipsum dolor sit amet</li>
+                                    <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad quam voluptatibus ipsam quasi sit perferendis blanditiis ratione ea.</li>
+                                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. In aliquid est velit qui quasi incidunt.</li>
+                                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id repellendus atque </li>
+                                    <li>Lorem ipsum dolor sit amet</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
+                    <div class="card mt-4 mb-2" data-aos="fade-up" data-aos-delay="400">
+                        <div class="card-body" id="card-faq-2" style="cursor: pointer;" data-toggle="collapse" data-target="#faq-answer-2">
+                            <div class="title-faq d-flex justify-content-between">
+                                <h6>Apa saja lowongan kerja dan jabatan yang direkrut oleh MMI ?</h6>
+                                <span class="float-right arrow-right-2"><i class="fas fa-chevron-right"></i></span>
+                            </div>
+                            <div id="faq-answer-2" class="collapse">
+                                <ul>
+                                    <li>Lorem ipsum dolor sit amet</li>
+                                    <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad quam voluptatibus ipsam quasi sit perferendis blanditiis ratione ea.</li>
+                                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. In aliquid est velit qui quasi incidunt.</li>
+                                    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id repellendus atque </li>
+                                    <li>Lorem ipsum dolor sit amet</li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="card mt-4 mb-2" data-aos="fade-up" data-aos-delay="500">
+                        <div class="card-body" id="card-faq-3" style="cursor: pointer;" data-toggle="collapse" data-target="#faq-answer-3">
+                        <div class="title-faq d-flex justify-content-between">
+                            <h6>Dimana saja lowongan cabang Mekaar untuk posisi tersebut ?</h6>
+                            <span class="float-right arrow-right-3"><i class="fas fa-chevron-right"></i></span>
+                        </div>
+                        <div id="faq-answer-3" class="collapse">
+                            <ul>
+                                <li>Lorem ipsum dolor sit amet</li>
+                                <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad quam voluptatibus ipsam quasi sit perferendis blanditiis ratione ea.</li>
+                                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. In aliquid est velit qui quasi incidunt.</li>
+                                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id repellendus atque </li>
+                                <li>Lorem ipsum dolor sit amet</li>
+                            </ul>
+                        </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="d-block text-center mt-4" data-aos="fade-up" data-aos-delay="300">
-            <span>
-                Tidak Punya Akun ? <a href="register.html" style="color:#065895;border-bottom: 1px dotted #065895;">Daftar</a>
-            </span>
+
+            <div class="col-md-4">
+                <div class="group-category mt-3" data-aos="fade-up" data-aos-delay="200">
+                    <h4>Kategori</h4>
+                    <ul class="list-group mt-3">
+                        <li class="list-group-item">
+                            <a href="">Rekrutmen</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="">Asesment</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="">Pelatihan</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="">Sertifikasi</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="">Allih Daya</a>
+                        </li>
+                      </ul>
+                </div>
+            </div>
         </div>
     </div>
 </section>
-<footer class="footer-mmi bg-footer-blue" style="margin-top: 130px;">
+<footer class="footer-mmi bg-footer-blue " style="margin-top: 100px;">
     <div class="container-fluid p-1  mb-5">
         <div class="row">
             <div class="col-md-4">
@@ -145,6 +203,26 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+        $("#card-faq-1").click(function(){
+
+
+        $(".arrow-right-1").toggleClass("arrow-right-slide");
+
+    });      
+    $("#card-faq-2").click(function(){
+
+        $(".arrow-right-2").toggleClass("arrow-right-slide");
+
+     });  
+    $("#card-faq-3").click(function(){
+
+        $(".arrow-right-3").toggleClass("arrow-right-slide");
+
+     });
+});
+</script>
 <script>
   AOS.init();
 </script>

@@ -1,49 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,400;1,500;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <link rel="stylesheet" href="assets/style/style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
-    <link rel="stylesheet" type="text/css" href="https://www.micromadaniinstitute.com/res/js/leaflet/beautify-marker.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light" >
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img src="images/logo-brand-mmi.svg" alt="" width="170px" height="100">
-            </a>
-            <button style="outline:none" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon-custom">
-                    <i class="fas fa-bars" style="color:white;border:none;outline:none"></i>
-                </span>
-            </button>
-            <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
-                <div class="navbar-nav ml-auto">
-                <a class="nav-item nav-link" href="profile-perusahaan.html">Tentang MMI <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="layanan.html">Layanan</a>
-                <a class="nav-item nav-link" href="kontak.html">Kontak</a>
-                <a class="nav-item nav-link" href="berita.html">Berita</a>
-                <a class="nav-item nav-link" href="loker.html">Loker</a>
-                <a class="nav-item nav-link " href="faq.html">FAQ</a>
+
+<section class="section-intro-mmi mb-5 pb-5">
     
-                <a href="login.html" class="btn px-4 mr-5 text-white ml-5 btn-login mb-md-0 md-sm-3">
-                    <span><i class="fas fa-sign-in-alt"></i> Login</span>
-                </a>
-                </div>
-            </div>
-            </div>
-        </div>
-    </nav>
-<div class="section-intro-mmi mb-5 pb-5">
-    
-    <img src="images/bg-mmi-075.png" alt="" class="bg-blue-mmi" >
+    <img src="<?= base_url() ?>assets-company-profile/images/bg-mmi-075.png" alt="" class="bg-blue-mmi" >
    
     <div class="container section-intro-mmi-continue">
         <div class="row fl">
@@ -57,15 +15,14 @@
 
            <div class="col-md-5 img-right col-sm-0 or-1" id="col-md-5">
             <div class="dd">
-                <img src="/images/undraw_noted_pc9f 1.svg" alt="" width="" class="float-left" data-aos="fade-up" data-aos-delay="400">
+                <img src="<?= base_url() ?>assets-company-profile/images/undraw_noted_pc9f 1.svg" alt="" width="" class="float-left" data-aos="fade-up" data-aos-delay="400">
           
             </div>
         </div>
 
         </div>
     </div>
-</div>
-
+</section>
 <section class="section-keuntungan mb-5">
     <div class="container">
         <div class="text-keuntungan">
@@ -187,7 +144,7 @@
                         Produk Micro<br>
                         Madani Institute
                     </div>
-                    <img src="/images/pelatihan-img.svg" alt="" class="d-block img-fluid" data-aos="fade-up" data-aos-delay="400">
+                    <img src="<?= base_url() ?>assets-company-profile/images/pelatihan-img.svg" alt="" class="d-block img-fluid" data-aos="fade-up" data-aos-delay="400">
                 </div>
             </div>
             <div class="col-md-6 text-pelatihan" >
@@ -216,7 +173,7 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-md-6 mb-4 d-sm-flex justify-content-sm-center col-custom">
-                                            <img src="/images/dirut 1.svg" alt="" class="img-reponsive">
+                                            <img src="<?= base_url() ?>assets-company-profile/images/dirut 1.svg" alt="" class="img-reponsive">
                                         </div>
                                     <div class="col-md-6 d-flex align-items-center">
                                             <div class="name-title">
@@ -240,7 +197,7 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-md-6 mb-4 d-sm-flex justify-content-sm-center col-custom">
-                                            <img src="/images/dirut 1.svg" alt="" class="img-reponsive">
+                                            <img src="<?= base_url() ?>assets-company-profile/images/dirut 1.svg" alt="" class="img-reponsive">
                                         </div>
                                     <div class="col-md-6 d-flex align-items-center ">
                                             <div class="name-title">
@@ -279,102 +236,3 @@
         </div>
     </div>
 </section>
-
-<footer class="footer-mmi bg-footer-blue " style="margin-top: 100px;">
-    <div class="container-fluid p-3  mb-5">
-        <div class="row">
-            <div class="col-md-4">
-                <img src="/images/logo-brand-mmi.svg" alt="" data-aos="fade-up" data-aos-delay="600">
-            </div>
-            <div class="col-md-2 d-flex flex-column link-footer" data-aos="fade-up" data-aos-delay="600">
-                <a href="" class="nav-link nav-item">Tentang MMI</a>
-                <a href="" class="nav-link nav-item">Layanan</a>
-                <a href="" class="nav-link nav-item">Kontak</a>
-                <a href="" class="nav-link nav-item">Berita</a>
-                <a href="" class="nav-link nav-item">FAQ</a>
-                <a href="" class="nav-link nav-item">Blog</a>
-            </div>
-
-            
-            <div class="col-md-2">
-                <div class="text-white nav-item nav-link" style="padding: .5rem 1rem;" data-aos="fade-up" data-aos-delay="600">Ikuti Kami</div>
-                <div class="fonts-group d-flex" data-aos="fade-up" data-aos-delay="600">
-                    <a href="" class="nav-link nav-item">
-                        <i class="fas fa-phone"></i>
-                    </a>
-                    <a href="" class="nav-link nav-item">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                    <a href="" class="nav-link nav-item">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <a href="" class="nav-link nav-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </a>
-                </div>
-
-                <div class="fonts-group d-flex" data-aos="fade-up" data-aos-delay="600">
-                    <a href="" class="nav-link nav-item">
-                        <i class="fab fa-facebook-square"></i>
-                    </a>
-                    <a href="" class="nav-link nav-item">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="" class="nav-link nav-item">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="" class="nav-link nav-item">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="address" style="padding: .5rem 1rem;">
-                    <div class="title-address nav-item text-white" data-aos="fade-up" data-aos-delay="600">
-                        Alamat
-                    </div>
-
-                    <p data-aos="fade-up" data-aos-delay="600" class="mt-3 text-white">Jl. Jendral Sudirman Kav. 2
-                        Menara Taspen Lt. 5
-                        Jakarta Pusat JK 10220, Indonesia</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<!-- <script src="https://www.micromadaniinstitute.com/res/js/leaflet/maphome.js"></script> -->
-<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
-<script src="https://www.micromadaniinstitute.com/res/js/leaflet/beautify-marker.js"></script>
-<script src="/assets/js/map.js"></script>
-<script>
-  AOS.init();
-</script>
-<script>
-    var windowsize = $(window).width();
-    
-    $(window).resize(function() {
-      windowsize = $(window).width();
-      if (windowsize <= 991) {
-          $('#col-md-7').addClass('col-md-12').removeClass('col-md-7');
-          $('#col-md-5').addClass('col-md-12').removeClass('col-md-5');
-        //   $('#col-md-7').removeClass('col-md-7');
-      }
-      else{  
-        $('#col-md-7').removeClass('col-md-12').addClass('col-md-7');
-        $('#col-md-5').removeClass('col-md-12').addClass('col-md-5');
-        // $('#col-md-7').addClass('col-md-7');
-      }
-    });
-</script>
-<script>
-$('.carousel').carousel({
-  interval: 2000
-})
-</script>
-</body>
-</html>

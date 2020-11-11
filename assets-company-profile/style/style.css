@@ -471,7 +471,7 @@ body {
 }
 
 .section-bg-faq .bg-faq {
-  background: url("../../images/faq-bg-mmi.svg") center no-repeat;
+  background: url("../images/faq-bg-mmi.svg") center no-repeat;
   width: 100%;
   height: 294px;
   -o-object-fit: cover;
@@ -635,7 +635,7 @@ body {
 }
 
 .section-isi-berita .bg-berita {
-  background: url("../../images/bg-berita-1.svg") center top no-repeat;
+  background: url("../images/bg-berita-1.svg") center top no-repeat;
   width: 100%;
   height: 600px;
   background-size: cover;
@@ -707,7 +707,7 @@ body {
 }
 
 .section-layanan .bg-section-layanan {
-  background: url("../../images/bg-layanan.svg") center no-repeat;
+  background: url("../images/bg-layanan.svg") center no-repeat;
   width: 100%;
   height: auto;
   background-size: cover;
@@ -816,7 +816,7 @@ body {
 }
 
 .section-layanan-2 .bg-section-layanan-training {
-  background: url("../../images/bg-layanan-training.svg") center no-repeat;
+  background: url("../images/bg-layanan-training.svg") center no-repeat;
   width: 100%;
   height: auto;
   background-size: cover;
@@ -846,7 +846,7 @@ body {
 }
 
 .section-layanan-2 .bg-section-layanan-sertifikasi {
-  background: url("../../images/bg-layanan-sertifikasi.svg") center no-repeat;
+  background: url("../images/bg-layanan-sertifikasi.svg") center no-repeat;
   width: 100%;
   height: auto;
   background-size: cover;
@@ -875,7 +875,7 @@ body {
 }
 
 .section-layanan-2 .bg-section-layanan-alih-daya {
-  background: url("../../images/bg-layanan-alih-daya.svg") center no-repeat;
+  background: url("../images/bg-layanan-alih-daya.svg") center no-repeat;
   width: 100%;
   height: auto;
   background-size: cover;
@@ -904,7 +904,7 @@ body {
 }
 
 .section-layanan-2 .bg-section-layanan-coaching {
-  background: url("../../images/bg-layanan-coaching.svg") center no-repeat;
+  background: url("../images/bg-layanan-coaching.svg") center no-repeat;
   width: 100%;
   height: auto;
   background-size: cover;
@@ -933,7 +933,7 @@ body {
 }
 
 .section-layanan-2 .bg-section-layanan-assesment {
-  background: url("../../images/bg-layanan-assesment.svg") center no-repeat;
+  background: url("../images/bg-layanan-assesment.svg") center no-repeat;
   width: 100%;
   height: auto;
   background-size: cover;
@@ -965,7 +965,7 @@ body {
 }
 
 .section-profile-perusahaan {
-  background: url("../../images/bg-profile-perusahaan.svg") center no-repeat;
+  background: url("../images/bg-profile-perusahaan.svg") center no-repeat;
   width: 100%;
   height: auto;
   background-size: cover;

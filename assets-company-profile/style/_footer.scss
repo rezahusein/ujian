@@ -1,0 +1,21 @@
+.bg-footer-blue{
+    background: #0066B2;
+    width: 100%;
+    padding: 30px;
+    .link-footer{
+        a{
+            color:white;
+
+            &:hover{
+                color:#F7941D;
+            }
+        }
+    }
+
+    .fonts-group{
+        a{
+            color:white;
+            font-size: 18px;
+        }
+    }
+}

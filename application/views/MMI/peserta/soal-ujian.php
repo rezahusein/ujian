@@ -51,7 +51,9 @@
                             <h6>Soal Pilihan Ganda</h6>   
                         </div>
                         <?php 
+
                         $id_soal = '';
+
                             foreach($soal_pg as $i => $pg){
                                 $color_label = '';
                                 
@@ -73,6 +75,7 @@
                                     $color_label = 'bg-primary';
                                 }
                         ?>
+
                         <div class="col-3">
                                 
                             <a  data-dismiss="modal">

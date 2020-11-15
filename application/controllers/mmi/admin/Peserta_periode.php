@@ -85,7 +85,11 @@ $this->form_validation->set_rules('dt[alamat_peserta]', '<strong>Alamat Peserta<
 						$icon_soal = '<i class="fas fa-check" style="color:white;position:absolute;right:60px;'.(($jwb['jenis_jawaban'] == 'image')?"margin-top:18px":"margin-top:4px").'"></i>';
 						$color_soal = 'bg-success';
 					}
-					if($jawaban_peserta['id_jawaban_pg'] == $jwb['id']){
+					else if($jawaban_peserta['id_jawaban_pg'] == $jwb['id'] && $jawaban_peserta['id_jawaban_pg'] == $soal['id_jawaban']){
+						$icon_soal = '<i class="fas fa-check" style="color:white;position:absolute;right:60px;'.(($jwb['jenis_jawaban'] == 'image')?"margin-top:18px":"margin-top:4px").'"></i>';
+						$color_soal = 'bg-success';
+					}
+					else if($jawaban_peserta['id_jawaban_pg'] == $jwb['id']){
 						$icon_soal = '<i class="fas fa-times" style="color:white;position:absolute;right:60px;'.(($jwb['jenis_jawaban'] == 'image')?"margin-top:18px":"margin-top:4px").'"></i>';
 						$color_soal = 'bg-danger';
 					}
@@ -138,7 +142,7 @@ $this->form_validation->set_rules('dt[alamat_peserta]', '<strong>Alamat Peserta<
 			else{
 				$kelulusan = 'tidak lulus';
 			}
-			$this->db->update('peserta_periode',array('kelulusan'=>$kelulusan,'status_ujian'=>'selesai','nilai_pg'=>$n_pg,'nilai_essay'=>$nilai_essay,'total_nilai'=>$total_nilai),array('id'=>$id_user));
+			$this->db->update('peserta_periode',array('kelulusan'=>$kelulusan,'status_ujian'=>'selesai ujian','nilai_pg'=>$n_pg,'nilai_essay'=>$nilai_essay,'total_nilai'=>$total_nilai),array('id'=>$id_user));
 			redirect('mmi/admin/peserta_periode?id_periode='.$periode['id']);
 	    }
 		public function setNilaiEssay($id_soal,$hasil_jawaban,$id_user){

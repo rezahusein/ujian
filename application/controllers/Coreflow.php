@@ -7,7 +7,7 @@
     		redirect('mmi/admin/dashboard');
     	}
     	else{
-    		redirect('login');
+    		redirect('company-profile/landing');
     	}
     }
 

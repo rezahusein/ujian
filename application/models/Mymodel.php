@@ -46,15 +46,15 @@ class Mymodel extends CI_Model {
 			}
 
 			if(count($cekdata) > 0){
-			$datalog = array(
-				'log_created_at' => date('Y-m-d H:i:s'),
-				'log_created_by' => $this->session->userdata('id'),
-				'log_action' => 'deleteData',
-				'log_tablename' => $table,
-				'log_jsondata' => $datajson,
-			);
+			// $datalog = array(
+			// 	'log_created_at' => date('Y-m-d H:i:s'),
+			// 	'log_created_by' => $this->session->userdata('id'),
+			// 	'log_action' => 'deleteData',
+			// 	'log_tablename' => $table,
+			// 	'log_jsondata' => $datajson,
+			// );
 
-			$resultlog = $this->db->insert('log_aktivitas',$datalog);
+			// $resultlog = $this->db->insert('log_aktivitas',$datalog);
 
 			$this->db->where($id);
 			$result = $this->db->delete($table);
@@ -71,15 +71,15 @@ class Mymodel extends CI_Model {
 		public function insertData($table,$data)
 		{
 
-			$datalog = array(
-				'log_created_at' => date('Y-m-d H:i:s'),
-				'log_created_by' => $this->session->userdata('id'),
-				'log_action' => 'insertData',
-				'log_tablename' => $table,
-				'log_jsondata' => json_encode($data),
-			);
+			// $datalog = array(
+			// 	'log_created_at' => date('Y-m-d H:i:s'),
+			// 	'log_created_by' => $this->session->userdata('id'),
+			// 	'log_action' => 'insertData',
+			// 	'log_tablename' => $table,
+			// 	'log_jsondata' => json_encode($data),
+			// );
 
-			$resultlog = $this->db->insert('log_aktivitas',$datalog);
+			// $resultlog = $this->db->insert('log_aktivitas',$datalog);
 
 			$result = $this->db->insert($table,$data);
 
@@ -98,15 +98,15 @@ class Mymodel extends CI_Model {
 			}
 
 			if(count($cekdata) > 0){
-			$datalog = array(
-				'log_created_at' => date('Y-m-d H:i:s'),
-				'log_created_by' => $this->session->userdata('id'),
-				'log_action' => 'updateData',
-				'log_tablename' => $table,
-				'log_jsondata' => $datajson,
-			);
+			// $datalog = array(
+			// 	'log_created_at' => date('Y-m-d H:i:s'),
+			// 	'log_created_by' => $this->session->userdata('id'),
+			// 	'log_action' => 'updateData',
+			// 	'log_tablename' => $table,
+			// 	'log_jsondata' => $datajson,
+			// );
 
-			$resultlog = $this->db->insert('log_aktivitas',$datalog);
+			// $resultlog = $this->db->insert('log_aktivitas',$datalog);
 
 			$result = $this->db->update($table,$data,$where);
 

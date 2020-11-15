@@ -331,7 +331,7 @@
 
 		  serverSide: true,
 
-		  ajax: {"url": "<?= base_url('mmi/admin/akun/json?role='.@$_GET['role']) ?>/", "type": "POST"},
+		  ajax: {"url": "<?= base_url('mmi/admin/akun/json?role='.@$_GET['role']) ?>", "type": "POST"},
 
 		    columns: [
 

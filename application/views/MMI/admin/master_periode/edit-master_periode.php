@@ -6,13 +6,13 @@
       <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0 text-dark">Edit Periode Ujian</h1> 
+              <h1 class="m-0 text-dark">Edit Jadwal Tes</h1> 
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Soal Periode</a></li>
-                <li class="breadcrumb-item">Edit Ujian</li>
+                <li class="breadcrumb-item"><a href="#">Soal Tes</a></li>
+                <li class="breadcrumb-item">Edit Jadwal Tes</li>
               </ol>
             </div><!-- /.col -->
           </div><!-- /.row -->
@@ -32,7 +32,7 @@
                   <!-- /.box-header -->
                   <div class="card-header">
                     <h5 class="card-title">
-                        Edit Periode
+                        Edit Jadwal
                     </h5>
                   </div>
                   <div class="card-body">
@@ -44,7 +44,7 @@
                 <label for="form-periode_sampai">Sampai</label>
                 <input type="date" min='<?=$master_periode['periode_dari']?>' class="form-control" id="form-periode_sampai" value="<?=$master_periode['periode_sampai']?>" name="dt[periode_sampai]" autocomplete="off">
             </div><div class="form-group">
-                <label for="form-lama_waktu_ujian">Lama Waktu Ujian (Menit)</label>
+                <label for="form-lama_waktu_ujian">Durasi (Menit)</label>
                 <div class="input-group">
                 <input type="text" value="<?=$master_periode['lama_waktu_ujian']?>" class="form-control" id="form-lama_waktu_ujian"  placeholder="Masukan Lama Waktu Ujian" name="dt[lama_waktu_ujian]" autocomplete="off">
                   <div class="input-group-append">

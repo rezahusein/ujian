@@ -13,7 +13,7 @@
     <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0 text-dark">Peserta Ujian</h1> 
+              <h1 class="m-0 text-dark">Peserta Tes</h1> 
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
@@ -49,7 +49,7 @@
                 <div class="col-md-6">
                   <div class="float-right">
                   <a href="<?= base_url('mmi/admin/Peserta_periode/create?id_periode='.@$_GET['id_periode']) ?>">
-                    <button type="button" class="btn btn-sm btn-success"><i class="fa fa-plus"></i> Tambah Peserta Periode</button> 
+                    <button type="button" class="btn btn-sm btn-success"><i class="fa fa-plus"></i> Tambah Peserta Tes</button> 
                   </a>
                   
                   </div>

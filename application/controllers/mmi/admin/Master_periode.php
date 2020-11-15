@@ -43,7 +43,9 @@ $this->form_validation->set_rules('dt[persentase_essay]', '<strong>Persentase Es
 				$dt['created_by'] = $this->session->userdata('id');
 				$dt['status'] = "ENABLE";
 				$str = $this->db->insert('master_periode', $dt);
-				$last_id = $this->db->insert_id();$this->alert->alertsuccess('Success Send Data');   
+				$last_id = $this->db->insert_id();
+				$dt['kode_periode'] = 'TES-ONLINE-'.date('dmY').sprintf("%04s",$last_id);
+				$this->alert->alertsuccess('Success Send Data');   
 					
 			}
 		}

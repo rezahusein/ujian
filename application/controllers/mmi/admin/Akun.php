@@ -17,10 +17,13 @@ class Akun extends MY_Controller {
         $this->datatables->select('user.id,user.nip,user.name,role.role,user.desc');
         $this->datatables->join('role','user.role_id=role.id','left');
         // $this->datatables->join('file',"file.table_id=user.id AND `file`.`table` = 'user'",'left');
-        if(!empty($_GET['role'])){
+        if(!empty($_GET['role']) && @$_GET['role'] == 'peserta'){
         	$this->datatables->where('role.role','Peserta');
         }
-        $this->datatables->where(array('user.status'=>0));
+        else{
+        	$this->datatables->where('role.role!=','Peserta');
+        }
+        // $this->datatables->where(array('user.status'=>0));
 
         $this->datatables->from('user');
         $this->datatables->add_column('view', '<div class="btn-group"> <a onclick="edit($1)" class="btn btn-info btn-flat btn-sm"Edit><span class="txt-white fa fa-edit"></span> Edit</a> <a onclick="hapus($1)"  class="btn btn-danger btn-flat btn-sm"><span class="txt-white fa fa-trash-o"></span> Delete</a>  </div>', 'id');

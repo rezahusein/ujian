@@ -6,7 +6,7 @@
     <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0 text-dark">Edit Ujian</h1> 
+              <h1 class="m-0 text-dark">Edit Peserta Tes</h1> 
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
@@ -30,7 +30,7 @@
             <!-- /.card-header -->
             <div class="card-header">
               <h5 class="card-title">
-                  Edit Peserta Periode
+                  Edit Peserta Tes
               </h5>
             </div>
             <div class="card-body">

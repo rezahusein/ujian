@@ -15,7 +15,7 @@
           <img src="<?= base_url('MMI-assets/') ?>dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block"><?=$this->session->userdata('name')?></a>
         </div>  
       </div>
 
@@ -36,7 +36,7 @@
             <a href="<?= site_url('mmi/admin/master_periode') ?>" class="nav-link">
               <i class="nav-icon fas fa-clipboard"></i>
               <p>
-                Soal Ujian
+                Soal Tes
               </p>
             </a>
           </li>
@@ -51,7 +51,7 @@
                 color: #343a40;
                 left: 26.5px;"></i>
               <p>
-                Peserta Ujian
+                Laporan Peserta Tes
               </p>
             </a>
           </li>    

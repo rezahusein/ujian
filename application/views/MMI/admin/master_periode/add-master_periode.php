@@ -6,13 +6,13 @@
     <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Tambah Periode Ujian</h1> 
+            <h1 class="m-0 text-dark">Tambah Jadwal Tes</h1> 
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item"><a href="#">Soal Ujian</a></li>
-              <li class="breadcrumb-item active">Tambah Ujian</li>
+              <li class="breadcrumb-item"><a href="#">Soal Tes</a></li>
+              <li class="breadcrumb-item active">Tambah Jadwal</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -29,7 +29,7 @@
       <!-- /.box-header -->
       <div class="card-header">
         <h5 class="card-title"> 
-            Tambah Periode
+            Tambah Jadwal
         </h5>
       </div>
       <div class="card-body">
@@ -41,7 +41,7 @@
                 <label for="form-periode_sampai">Sampai</label>
                 <input type="date" class="form-control" id="form-periode_sampai" name="dt[periode_sampai]" autocomplete="off">
             </div><div class="form-group">
-                <label for="form-lama_waktu_ujian">Lama Waktu Ujian (Menit)</label>
+                <label for="form-lama_waktu_ujian">Durasi (Menit)</label>
                 <div class="input-group">
                 <input type="text" class="form-control" id="form-lama_waktu_ujian" placeholder="Masukan Lama Waktu Ujian" name="dt[lama_waktu_ujian]" autocomplete="off">
                   <div class="input-group-append">

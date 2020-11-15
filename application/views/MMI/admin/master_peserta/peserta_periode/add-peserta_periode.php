@@ -13,7 +13,7 @@
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
                 <li class="breadcrumb-item"><a href="#">Periode</a></li>
-                <li class="breadcrumb-item"><a href="#">Peserta Ujian</a></li>
+                <li class="breadcrumb-item"><a href="#">Peserta Tes</a></li>
                 <!-- <li class="breadcrumb-item"><a href="#">Tambah Peserta</a></li> -->
                 <li class="breadcrumb-item active">Tambah Peserta</li>
               </ol>
@@ -31,7 +31,7 @@
             <!-- /.card-header -->
             <div class="card-header">
               <h5 class="card-title">
-                  Tambah Peserta Periode
+                  Tambah Peserta Tes
               </h5>
             </div>
             <div class="card-body">

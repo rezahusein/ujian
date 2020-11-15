@@ -24,8 +24,15 @@ function dump_variable($data)
 {
     echo '<pre>' . var_export($data, true) . '</pre>';
 }
-
-
+function bulan_indo($m){
+    $month = array('Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember');
+    return $month[($m-1)];
+} 
+function hari_indo($h_name){
+    $h_name = strtolower($h_name);
+    $day = array('mon'=>'Senin','tue'=>'Selasa','wed'=>'Rabu','thu'=>'Kamis','fri'=>'Jumat','sat'=>'Sabtu','sun'=>'Minggu');
+    return $day[$h_name];
+} 
 // public function direktori()
 	// {
 		// $ci = get_class_methods($this);

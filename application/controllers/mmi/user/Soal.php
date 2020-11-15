@@ -58,18 +58,24 @@ class Soal extends CI_Controller {
 		
     }
     public function loadSoal($id_soal,$urutan){
-    	$user = $this->mymodel->selectDataone('peserta_periode',array('email_peserta'=>$this->session->userdata('session_mobile')['email'],'kode_peserta'=>$this->session->userdata('session_mobile')['token']));
+		$user = $this->mymodel->selectDataone('peserta_periode',array('email_peserta'=>$this->session->userdata('session_mobile')['email'],'kode_peserta'=>$this->session->userdata('session_mobile')['token']));
+		
     	$data['soal'] = $this->mymodel->selectDataone('master_soal',array('id'=>$id_soal));
     	$data['jawaban'] = $this->mymodel->selectDataone('peserta_jawaban',array('id_soal'=>$id_soal,'id_peserta_periode'=>$user['id']));
-    	$data['urutan'] = $urutan;
+		$data['urutan'] = $urutan;
+	
     	$this->db->order_by('urutan_soal','desc');
     	$data['last_pg'] = $this->mymodel->selectDataone('master_soal',array('id_periode'=>$user['id_periode'],'jenis_soal'=>'pg'));
-    	$this->db->order_by('urutan_soal','asc');
+		$this->db->order_by('urutan_soal','asc');
+		
     	$data['first_essay'] = $this->mymodel->selectDataone('master_soal',array('id_periode'=>$user['id_periode'],'jenis_soal'=>'essay'));
-    	$this->db->order_by('urutan_soal','asc');
+		$this->db->order_by('urutan_soal','asc');
+		
     	$data['after'] = $this->mymodel->selectDataone('master_soal',array('urutan_soal>'=>$data['soal']['urutan_soal'],'id_periode'=>$user['id_periode'],'jenis_soal'=>$data['soal']['jenis_soal'])); 
-    	$this->db->order_by('urutan_soal','desc');
-    	$data['before'] = $this->mymodel->selectDataone('master_soal',array('urutan_soal<'=>$data['soal']['urutan_soal'],'id_periode'=>$user['id_periode'],'jenis_soal'=>$data['soal']['jenis_soal'])); 
+		$this->db->order_by('urutan_soal','desc');
+		
+		$data['before'] = $this->mymodel->selectDataone('master_soal',array('urutan_soal<'=>$data['soal']['urutan_soal'],'id_periode'=>$user['id_periode'],'jenis_soal'=>$data['soal']['jenis_soal'])); 
+		
     	$data['jawaban_pg'] = $this->mymodel->selectWhere('master_jawaban_pg',array('id_soal'=>$id_soal));
     	$this->load->view('mmi/peserta/list-soal',$data);
 	}
@@ -77,7 +83,6 @@ class Soal extends CI_Controller {
     public function replacePage($id_soal,$urutan){
     	$user = $this->mymodel->selectDataone('peserta_periode',array('email_peserta'=>$this->session->userdata('session_mobile')['email'],'kode_peserta'=>$this->session->userdata('session_mobile')['token']));
     	$this->db->update('peserta_periode',array('id_soal_terakhir'=>$id_soal),array('email_peserta'=>$this->session->userdata('session_mobile')['email'],'kode_peserta'=>$this->session->userdata('session_mobile')['token']));
-		
 		$this->loadSoal($id_soal,$urutan); 
     }
     public function answerePage($id_soal){

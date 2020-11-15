@@ -31,7 +31,7 @@
 <!-- Content -->
 <?= $contents ?>
 
-<footer class="footer-mmi bg-footer-blue" <?= $title == 'Layanan' ? "style='margin-top: 0px'" : "style='margin-top: 130px'"?> >
+<footer class="footer-mmi bg-footer-blue mb-0" <?= $title == 'Layanan' ? "style='margin-top: 0px'" : "style='margin-top: 130px'"?> >
     <div class="container-fluid p-1  mb-5">
         <div class="row">
             <div class="col-md-4">
@@ -93,7 +93,21 @@
             </div>
         </div>
     </div>
+
+    
 </footer>
+<div class="div mt-0">
+        <div class="container-fluid">
+        <div class="row p-2" style="    background: white;
+    color: #0066b2;">
+        <div class="col-md-12">
+            <div class="footer-down text-center" style="font-size: 13px;">
+            Copyright © PT MICRO MADANI INSTITUTE
+            </div>
+        </div>
+    </div>
+        </div>
+</div>
 
 <!-- <script src="https://code.jquery.com/jquery-3.5.0.js"></script> -->
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
